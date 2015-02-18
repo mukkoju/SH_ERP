@@ -1,0 +1,114 @@
+body{
+    background-image: url("/images/item1.jpg");
+    background-size: 1380px, 1500px;
+}
+
+#table{
+    
+}
+
+.main-container{
+margin-top: 10%;
+    }
+.box{
+    /*margin-top: 30%;*/
+    padding-top: 20px;
+    /*padding-left: 40px;*/
+    padding-bottom: 2px;
+    width: 300px;
+    height: auto;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 10px 10px 10px #red;
+    border-radius: 15px;
+}
+
+.Login{
+    padding-bottom: 0px;
+    font-size: 1.6em;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 300;
+    color: #635D5D;
+    padding-bottom: 15px;
+}
+
+.logn-icon i{
+    padding-right: 35px;
+font-size: 2em;
+color: #635D5D;
+padding-bottom: 25px;
+background-position: 100px;
+}
+
+.tab-content {
+ overflow: visible !important;
+}
+.label {
+display: block!important;
+margin-bottom: 0x;
+font-weight: normal 1important;
+}
+.main-container label{
+    text-align: left;
+    margin-left: 40px;
+}
+
+.btn-login-indx{
+margin-top: 5px;
+/*margin-left: 21%;*/
+color: #ff4141!important ; 
+background-color: white !important;
+border: 1px solid #ff4141!important;
+padding-top: 5px !important;
+padding-bottom: 5px !important;
+}
+.btn-login-indx:hover{
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #e3000f !important;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #e3000f !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #e3000f !important;
+}
+#logo {
+margin-top: 1.2%;
+margin-left: 50%
+width: 200px;
+height: 40px;
+background: url(/images/logo.png) no-repeat center;
+display: block;
+
+}
+.inpt-logn{
+    height: 30px !important;
+    border-radius: 0 !important;
+    width: 220px !important;
+}
+.month-leavs_err{
+border: none !important;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #e3000f !important;
+-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #e3000f !important;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #e3000f !important;
+}
+#frgt-pwd{
+font-size: 0.9em;
+color: #232931;
+line-height: 0em;
+width: 39%;
+text-align: right;
+display: block;
+margin-left: 36%;
+font-weight: 400;
+padding-bottom: 17px;
+text-decoration: none;
+}
+#frgt-pwd:hover{
+    opacity: 0.8;
+}
+.login_err i{
+color: green;
+background-position: 21px;
+font-size: 2.8em;
+font-weight: 600;
+margin-left: initial;
+margin-top: -11px;
+position: relative;
+left: -29px;
+}

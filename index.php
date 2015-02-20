@@ -8,18 +8,18 @@ ini_set('display_errors', 1);
 
 defined('APP_PATH') || define('APP_PATH', dirname(__FILE__).'/');
 defined('UPLOADS') || define('UPLOADS', dirname(__FILE__).'/uploads');
+defined('HR_MODULE') || define('HR_MODULE', dirname(__FILE__).'/hr_module/application');
+defined('EMP_MODULE') || define('EMP_MODULE', dirname(__FILE__).'/emp_module/application');
+
 date_default_timezone_set('Asia/Calcutta');
-require 'libs/bootstrap.php';
-require 'libs/controller.php';
-require 'libs/model.php';
-require 'libs/view.php';
 
-//libary 
-require 'libs/Database.php';
-require 'libs/Session.php';
+//requiring library files
+require 'library/bootstrap.php';
+require 'library/controller.php';
+require 'library/Model.php';
+require 'library/view.php';
+require 'library/Session.php';
+require 'library/paths.php';
 
-//config
-require 'config/paths.php';
-//require 'config/database.php';
 $bootstrap = new Bootstrap();
 ?>

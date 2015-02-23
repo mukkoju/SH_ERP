@@ -116,12 +116,16 @@
                 switch ($url[1]){
                     case 'apply':
                         (new Leaves()) -> apply();
+                        break;
                     case 'hr_approve':
                         (new Leaves()) -> hr_approve();
+                        break;
                     case 'hr_reject':
                         (new Leaves()) -> hr_reject();
+                        break;
                     case 'manger_status':
                         (new Leaves()) -> manger_status();
+                        break;
                     default:
                         (new Leaves())->index();    
                 }
@@ -146,6 +150,44 @@
             else if($url[0] === 'privileges'){
                 require HR_MODULE . '/controllers/privileges.php';
                 (new Privileges()) -> index();
+            }
+            
+            // @CUST_module routing
+            else if($url[0] === 'customer_ticket'){
+                require CUST_MODULE . '/controllers/customer_ticket.php';
+
+                switch ($url[1]){
+                    case 'add_ticket':
+                       (new Customer_ticket()) -> addTicket();
+                        break;
+                    case 'gtassingees':
+                       (new Customer_ticket()) -> gtassingees();
+                        break;
+                    default:
+                     (new Customer_ticket()) -> index();
+    
+                }
+                }
+                else if($url[0] === 'tickets'){
+                    require CUST_MODULE . '/controllers/tickets.php';
+                    
+                    switch ($url[1]){
+                    case 'view':
+                       (new Tickets()) -> view($url[2]);
+                        break;
+                    case 'updt':
+                       (new Tickets()) -> updt();
+                        break;
+                    default:
+                     (new Tickets()) -> index();
+    
+                }
+                    
+                }
+            
+            else{
+                require EMP_MODULE. '/controllers/error.php';
+                (new Error());
             }
         }
 

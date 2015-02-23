@@ -8,8 +8,9 @@ ini_set('display_errors', 1);
 
 defined('APP_PATH') || define('APP_PATH', dirname(__FILE__).'/');
 defined('UPLOADS') || define('UPLOADS', dirname(__FILE__).'/uploads');
-defined('HR_MODULE') || define('HR_MODULE', dirname(__FILE__).'/hr_module/application');
-defined('EMP_MODULE') || define('EMP_MODULE', dirname(__FILE__).'/emp_module/application');
+defined('HR_MODULE') || define('HR_MODULE', dirname(__FILE__).'/modules/HR/application');
+defined('EMP_MODULE') || define('EMP_MODULE', dirname(__FILE__).'/modules/EMP/application');
+defined('CUST_MODULE') || define('CUST_MODULE', dirname(__FILE__).'/modules/CUST/application');
 
 date_default_timezone_set('Asia/Calcutta');
 

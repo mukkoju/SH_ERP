@@ -1,3 +1,4 @@
+<?php $tct_notfcns = $this->tickets_notfcn;?>
 <html>
     <head>
         <title>Saddahaq Employes</title>
@@ -89,7 +90,7 @@
                         </ul>
                     </li>
                     <?php }?>
-                    <li class="usr-pic-name-hdr hidden-phone"><a href="#model" id="modal_trigger1">
+                    <li class="usr-pic-name-hdr hidden-phone">
                             <?php $mail = $_SESSION['loggedIn']; 
                         $profile_img = APP_PATH."/uploads/$mail/profile_pic";
                         if(file_exists($profile_img)){
@@ -98,13 +99,26 @@
                          $image_name = $image_name[2];
                                 ?>
                             <?php $email = $this->user_details[0]['_emp_email']; ?>
-                            <?php if (!file_exists("$profile_img/$image_name")) { ?><img src='/images/avtr.jpg' class="profile-avtr"><?php } else { ?><img src='/uploads/<?php echo $email?>/profile_pic/<?php echo $image_name?>' class="profile-avtr"><?php } ?> <?php echo $this->user_details[0]['_emp_name']; ?></a>
+                        <?php if(sizeof($tct_notfcns) > 0){ ?>
+                        <span class="notfcn" data-ntfnsize="<?= sizeof($tct_notfcns);?>"><?= sizeof($tct_notfcns); }?></span>
+                            <div class="notfcn_vew span3">
+                                <ul>
+                                    <?php for($i=0; $i<sizeof($tct_notfcns); $i++) {?> 
+                                    <li>
+                                        <div class="tckt-icn"><i class="icon-help"></i></div>
+                                        <div class="tckt-ntf-desc span16"><a class="spna5" href="/tickets/view/<?= $tct_notfcns[$i]['_servs_hstry_tckt_id']?>"><b><?= $tct_notfcns[$i]['_servs_hstry_tckt_asgn1'] ?></b> Assigned a ticket by  you</a></div>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                            <?php if (!file_exists("$profile_img/$image_name")) { ?><img src='/images/avtr.jpg' class="profile-avtr"><?php } else { ?><img src='/uploads/<?php echo $email?>/profile_pic/<?php echo $image_name?>' class="profile-avtr"><?php } ?> <a href="#model" id="modal_trigger1"><?php echo $this->user_details[0]['_emp_name']; ?></a>
                         <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" rel="nofollow"><span class="caret"></span></a>
                         <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
                         <li class="dropdown"><a href="/logout">LOGOUT</a></li><br>
                         </ul>
                     </li>
                 </ul>
+                
             </nav>
         </header>
         <div id="model" class="popupContainer1 pop_cont" style="display:none;">

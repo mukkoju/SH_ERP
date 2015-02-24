@@ -20,9 +20,11 @@ class Tickets extends Controller{
             $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
             require CUST_MODULE. '/models/tickets_model.php';
             $this -> view -> get_tickets = (new Tickets_model()) -> getTickets();
+            $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
             $this->view->render('tickets/index', CUST_MODULE);
     }
     
+    // @rendering ticket view page
     public function view($tckt_id){
             require EMP_MODULE. '/models/global_model.php';
             $this->view->user_details = (new Global_model()) -> getUserDetails($_SESSION['loggedIn']);
@@ -31,14 +33,25 @@ class Tickets extends Controller{
             $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
             require CUST_MODULE. '/models/tickets_model.php';
             $this->view->viewTicket = (new Tickets_model()) -> viewTicket($tckt_id);
+            $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
             $this-> view -> render('ticket_view/index', CUST_MODULE);
     }
     
-    // @update ticket ttl or desc or catgoy or assignee
+    // @update ticket ttl or desc or catgoy or assignee or comment
     public function updt(){
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
         require CUST_MODULE. '/models/tickets_model.php';
          echo (new Tickets_model()) -> updtTicket();
+        }else {
+            header("Location: /error");
+        }
+    }
+    
+    
+    public function ntf(){
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+        require CUST_MODULE. '/models/tickets_model.php';
+         echo (new Tickets_model()) -> Notfcn();
         }else {
             header("Location: /error");
         }

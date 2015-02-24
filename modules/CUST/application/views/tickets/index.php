@@ -1,4 +1,13 @@
  <div class="span10 cstmr_layout">
+     <div class="sb-nav">
+         <ul class="sb-nav-ul">
+             <li data-tp="all">All</li>
+             <li data-tp="asgnd">Assigned</li>
+             <li data-tp="clsed">Closed</li>
+             <li data-tp="opnd">Open</li>
+         </ul>
+     </div>
+     <div class="clearfix"></div>
      <?php $tckts = $this->get_tickets; ?>
      <div class="tbl-hdr"><h2>Total <?= sizeof($tckts) ?> tickets</h2></div>
      <table class="tckts-tbls table table-hover table-condensed table-bordered">
@@ -19,3 +28,4 @@
          <?php }?>
      </table>
      </div>
+<script type="text/javascript" src="/public/js/customer.js"></script>

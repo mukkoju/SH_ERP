@@ -178,6 +178,9 @@
                     case 'updt':
                        (new Tickets()) -> updt();
                         break;
+                    case 'ntf':
+                       (new Tickets()) -> ntf();
+                        break;
                     default:
                      (new Tickets()) -> index();
     

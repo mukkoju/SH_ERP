@@ -976,3 +976,103 @@ font-family: Bitter, Serif;
 font-size: 1.2em;
 color: rgb(62, 173, 19);   
 }
+
+.nav .notfcn {
+    position: absolute;
+    top: 1px;
+    right: 4px;
+    
+}
+
+.notfcn {
+    /*-webkit-border-radius: 50%;*/
+    /*-moz-border-radius: 50%;*/
+    border-radius: 2px;
+    font-size: 0.857em;
+    line-height: 1.285em;
+    height: 1.285em;
+    padding: .02em 0.45em;
+    text-align: center;
+    background-color: #DC2A1B;
+    color: #FFF;
+    position: absolute;
+    margin-left: 18px;
+    margin-top: -9px;
+    cursor: pointer;
+    display: block;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+    /*border: 1px solid rgba(0,0,0,0.5);*/
+    -webkit-animation: pulsate 1s ease-out;
+}
+
+.notfcn1{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 16px;
+    font-size: 0.857em;
+    line-height: 1.285em;
+    height: 0.9em;
+    padding: .02em 0.45em;
+    text-align: center;
+    background-color: #03F8C7;
+    color: #FFF;
+    position: absolute;
+    margin-left: 25px;
+    margin-top: -2px;
+    cursor: pointer;
+    display: block;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+    /* border: 1px solid rgba(0,0,0,0.5); */
+    -webkit-animation: pulsate 1s ease-out;
+}
+.notfcn_vew{
+    background-color: white;
+    /*width: 200px;*/
+    border: 1px solid #cccccc;
+    position: absolute;
+    top: 63px;
+    right: 160px;
+    min-height: 400px;
+    display: none;
+}
+.notfcn_vew:before{
+content: '';
+border: 10px solid transparent;
+border-bottom-color: #2e363f;
+border-bottom-color: white;
+position: absolute;
+top: -19px;
+left: 42%;
+left: calc(94% - 10px);
+}
+.notfcn_vew ul{
+    margin: 0 !important;
+}
+.notfcn_vew li{
+    
+    padding: 4px 8px 4px 8px;
+    border-bottom: 1px solid #ccc;
+    
+}
+.tckt-icn{
+    width: 20px;
+    float: left;
+}
+.tckt-icn i{
+    font-size: 2em;
+    color: red;
+    
+}
+.notfcn_vew li a{
+    color: #333 !important;
+}
+.notfcn_vew li a:hover{
+    color: #333 !important;
+}
+.tckt-icn{
+    float: left;
+    margin-left: -9px;
+}
+.tckt-ntf-desc{
+    margin-top: -17px;
+}

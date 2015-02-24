@@ -2549,9 +2549,9 @@ table th[class*="span"],
   background-position: -456px -48px;
 }
 
-.icon-pencil {
+/*.icon-pencil {
   background-position: 0 -72px;
-}
+}*/
 
 .icon-map-marker {
   background-position: -24px -72px;
@@ -2762,9 +2762,9 @@ table th[class*="span"],
   background-position: -288px -120px;
 }
 
-.icon-chevron-down {
+/*.icon-chevron-down {
   background-position: -313px -119px;
-}
+}*/
 
 .icon-retweet {
   background-position: -336px -120px;

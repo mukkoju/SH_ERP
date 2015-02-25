@@ -91,8 +91,7 @@ $(document).ready(function () {
         });
     });
 
-    $('#updt-tckt').click(function () {
-
+    $('#asgn-lst').find('.slct-itms').on('click', 'li', function () {
         $.ajax({
             url: '/tickets/updt',
             type: 'post',
@@ -106,14 +105,29 @@ $(document).ready(function () {
     });
     
     $('#cmnt-tckt').click(function(){
-       
+       var nw_cmnt = $('#cmnt_vlue').val();
         $.ajax({
            url: '/tickets/updt',
            type: 'post',
            data: { 'tp': 'cmnt',
                    'ownr': $('.shw-tckt-opndby').data('ownreml'),
                    'tckt_id': $('.tckt-ttl').data('tcktid'),
-                   'cmnt': $('#cmnt_vlue').val(),
+                   'cmnt': nw_cmnt,
+           },
+           success: function(data){
+               var d  = JSON.parse(data);
+               if(d.sts == 0){
+                   var p_pic = $('#lgdin_prfl_img').find('img').attr('src');
+                   var nme = $('#lgdin_nme').find('b').text();
+                   var cmnt_htm = '<div class="old-cmnts"><div class="comnt-prfle-img"><img src="'+p_pic+'"></div>';
+                       cmnt_htm += '<div class="comnt_old_inpt"><div class="comnt_old_hdr"><b>'+nme+'</b><span class="cmntd_on"> Commented on '+new Date(d.addedon*1000)+'</span>';
+                       cmnt_htm += '<span class="edt-cmnt"><i class="icon-pencil"></i></span></div><span class="cmnt-bdy"><p>'+nw_cmnt+'</p></span>';
+                       cmnt_htm += '<textarea class="cmnt_edt_vlue" placeholder="Post a comment" data-cmnt_id="'+d.id+'">'+nw_cmnt+'</textarea>';
+                       cmnt_htm += '<div class="cmnt-actns cmnt-edt-actns"><button class="btn btn-success updt-edt-cmnt">Update comment</button>';
+                       cmnt_htm += '<button class="cls-opn-tckt cncl-cmnt-updt" data-type="clse">Cancel</button></div></div><div class="clearfix"></div>';
+                       $('.old-cmnts-sctn').append(cmnt_htm);
+                       $('#cmnt_vlue').val('');
+                   }
            }
         });
     });
@@ -124,6 +138,14 @@ $(document).ready(function () {
            type: 'post',
            data: { 'tp': $(this).data('type'),
                    'tckt_id': $('.tckt-ttl').data('tcktid'),
+           },
+           success: function(d){
+               if(d == 0){
+                   $('.cls-opn-tckt').attr('data-type', 'ropn').text('Reopen Ticket');
+               }
+               else if(d == 1){
+                   $('.cls-opn-tckt').attr('data-type', 'clse').text('Close Ticket');
+               }
            }
         }); 
     });
@@ -218,4 +240,93 @@ $(document).ready(function () {
     $('#fltr_all').click(function(){
         window.location.reload();
     });
+    
+    $('#ttl-edt-btn').click(function(){
+       $('.tckt-ttl h2').hide();
+       $(this).hide();
+       $('.edt-ttl').show();
+       
+    });
+    
+    $('#actn-cncl').click(function(){
+        $('.edt-ttl').hide();
+       $('.tckt-ttl h2').show();
+       $('#ttl-edt-btn').show();
+       
+       
+    });
+    
+    $('#actn-sve').click(function(){
+       var nw_ttl =  $('#edt-ttl-inpt').val().trim();
+       if(nw_ttl == ''){
+           $('#edt-ttl-inpt').css({'border-color': 'red'});
+           return;
+       }
+       
+       $.ajax({
+           url: '/tickets/updt',
+           type: 'post',
+           data: {'tp': 'ttlupdt',
+                  'tckt_id': $('#edt-ttl-inpt').data('tcktid'),
+                  'ttl': nw_ttl },
+               success: function(d){
+                   
+                   if(d == 0){
+                       $('.edt-ttl').hide();
+                       $('.tckt-ttl h2').show();
+                       $('#ttl-edt-btn').show();
+                       $('.tckt-ttl h2').text(nw_ttl);
+                   }
+                   
+               }
+       })
+       
+        
+    });
+    
+    $('.old-cmnts-sctn').on('click', '.edt-cmnt', function(){
+        $(this).hide();
+       var cmt_blck = $(this).parents('.comnt_old_inpt'); 
+       cmt_blck.children('.cmnt-bdy').hide();
+       cmt_blck.children('.cmnt_edt_vlue').show().focus();
+       cmt_blck.children('.cmnt-edt-actns').show();
+    });
+    
+    
+    $('.cncl-cmnt-updt').click(function(){
+       var cmt_blck = $(this).parents('.comnt_old_inpt'); 
+       cmt_blck.children('.cmnt_edt_vlue').hide();
+       cmt_blck.children('.cmnt-edt-actns').hide();
+       cmt_blck.children('.cmnt-bdy').show();
+       $('.edt-cmnt').show();
+    });
+    
+    $('.updt-edt-cmnt').click(function(){
+        var cmt_blck = $(this).parents('.comnt_old_inpt');
+        var nw_cmnt = cmt_blck.children('.cmnt_edt_vlue');
+        
+        if(nw_cmnt.val().trim() == ''){
+           cmt_blck.children('.cmnt_edt_vlue').css({'border-color': 'red'});
+           return;
+       }
+       $.ajax({
+          url: '/tickets/updt',
+           type: 'post',
+           data: {'tp': 'cmntupdt',
+                  'cmnt': nw_cmnt.val(),
+                  'cmntid': nw_cmnt.data('cmnt_id'),
+                 },
+           success: function(d){
+               if(d == 0){
+                        cmt_blck.children('.cmnt_edt_vlue').hide();
+                        cmt_blck.children('.cmnt-edt-actns').hide();
+                        cmt_blck.children('.cmnt-bdy').show();
+                        cmt_blck.children('.cmnt-bdy').find('p').text(nw_cmnt.val());
+                        $('.edt-cmnt').show();
+                   }
+           }      
+       }); 
+    });
+    
+    
 });

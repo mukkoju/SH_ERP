@@ -41,7 +41,7 @@ class Tickets extends Controller{
     public function updt(){
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
         require CUST_MODULE. '/models/tickets_model.php';
-         echo (new Tickets_model()) -> updtTicket();
+         echo json_encode((new Tickets_model()) -> updtTicket());
         }else {
             header("Location: /error");
         }

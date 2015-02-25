@@ -22,6 +22,7 @@ class Tickets_model extends Model{
         $res2 = $get_asgnNme -> fetchAll(PDO::FETCH_ASSOC);
         
         $get_tckt_cmnts = $this -> db -> query("SELECT viv_cust_servs_cmnts_en._servs_cmnts_tckt_cmnt,"
+                                                    . " viv_cust_servs_cmnts_en._id_,"
                                                     . " viv_cust_servs_cmnts_en._servs_cmnts_tckt_cmntby,"
                                                     . " viv_cust_servs_cmnts_en._servs_cmnts_tckt_cmnton,"
                                                     . " viv_emp_en._emp_name FROM viv_cust_servs_cmnts_en"
@@ -34,11 +35,12 @@ class Tickets_model extends Model{
     }
     
     public function updtTicket(){
-        $tck_id = $_POST['tckt_id'];
+        
         
         
         // @UPDATE ASSIGNEE
         if($_POST['tp'] === 'asgn'){
+            $tck_id = $_POST['tckt_id'];
             $tckt_ownr = $_POST['ownr'];
             $asgn2 = $_POST['asgn2'];
             $asgn1 = $_POST['asgn1'];
@@ -74,44 +76,86 @@ class Tickets_model extends Model{
         else if($_POST['tp'] === 'cmnt'){
             $cmnt = $_POST['cmnt'];
             $tckt_ownr = $_POST['ownr'];
-            $addVote = $this -> db -> query("INSERT INTO viv_cust_servs_cmnts_en (_servs_cmnts_tckt_id,"
+            $tck_id = $_POST['tckt_id'];
+            $time = time();
+            $id = md5($time . rand(21, 221) . '#$sr');
+            $addCmnt = $this -> db -> query("INSERT INTO viv_cust_servs_cmnts_en (_id_, _servs_cmnts_tckt_id,"
                                                                                . "_servs_cmnts_tckt_ownr,"
                                                                                 . "_servs_cmnts_tckt_cmnt,"
                                                                                 . "_servs_cmnts_tckt_cmntby,"
                                                                                 . "_servs_cmnts_tckt_cmnton,"
                                                                                 . "_servs_cmnts_modifidby,"
-                                                                                . "_servs_cmnts_modifidon) VALUES (".$this -> db -> quote($tck_id).",".
+                                                                                . "_servs_cmnts_modifidon) VALUES (".$this -> db -> quote($id).",".
+                                                                                                                        $this -> db -> quote($tck_id).",".
                                                                                                                         $this -> db -> quote($tckt_ownr).",".
                                                                                                                         $this -> db -> quote($cmnt).",".
                                                                                                                         $this -> db -> quote($_SESSION['loggedIn']).",".
                                                                                                                         $this -> db -> quote(time()).",".
                                                                                                                         $this -> db -> quote($_SESSION['loggedIn']).",".
                                                                                                                         $this -> db -> quote(time()).")");
-            if($addVote == true){
-                
+            if($addCmnt == true){
+                $sts = array('sts' => 0, 'id' => $id, 'addedon' => time());
+            }else{
+                $sts = -0;
             }
+            return $sts;
         }
         
         // @close ticket
         else if($_POST['tp'] === 'clse'){
+        $tck_id = $_POST['tckt_id'];
         $clse_tckt = $this -> db -> query("UPDATE viv_cust_servs_en SET _cust_servs_tckt_sts = 0 WHERE _Id_ = ".$this -> db -> quote($tck_id)); 
+        
         if($clse_tckt == TRUE){
-            $sts = "Ticket closed successfully!!";
+            // if ticket closed returing 0
+            $sts = 0;
         }else{
-            $sts = "Somthing wrong while closing Ticket";
+            // suspended
+            $sts = -0;
         }
         return $sts;
         }
         
         // @reopen ticket
         else if ($_POST['tp'] === 'ropn') {
+            $tck_id = $_POST['tckt_id'];
             $reopen_tckt = $this->db->query("UPDATE viv_cust_servs_en SET _cust_servs_tckt_sts = 1 WHERE _Id_ = " . $this->db->quote($tck_id));
             if ($reopen_tckt == TRUE) {
-                $sts = "Ticket reopen successfully!!";
+                // if opend ticket returing 1
+                $sts = 1;
             } else {
-                $sts = "Somthing wrong while reopening Ticket";
+                // suspended
+                $sts = -0;
             }
             return $sts;
+        }
+        
+        // @ update ticket title
+        else if($_POST['tp'] === 'ttlupdt'){
+            $tck_id = $_POST['tckt_id'];
+            $nw_ttl = $_POST['ttl'];
+            $ttlUpdt = $this -> db -> query("UPDATE viv_cust_servs_en SET _cust_servs_tckt_ttl = ". $this->db->quote($nw_ttl)." WHERE _Id_ = ". $this->db->quote($tck_id));
+            if($ttlUpdt == true){
+                $sts = 0;
+            }else{
+                $sts = -0;
+            }
+            return $sts;
+        }
+        
+        // @ update ticket comment
+        else if($_POST['tp'] === 'cmntupdt') {
+            $nw_cmnt = $_POST['cmnt'];
+            $cmnt_id = $_POST['cmntid'];
+            $cmntUpdt = $this -> db -> query("UPDATE viv_cust_servs_cmnts_en SET _servs_cmnts_tckt_cmnt = ". $this->db->quote($nw_cmnt)." WHERE _id_ = ". $this->db->quote($cmnt_id));
+            
+            if($cmntUpdt == true){
+                $sts = 0;
+            }else{
+                $sts = -0;
+            }
+            return $sts;
+            
         }
     }
     

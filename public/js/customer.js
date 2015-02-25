@@ -147,12 +147,75 @@ $(document).ready(function () {
     });
     
     // filtering of tickets
-    $('.sb-nav-ul').find('li').click(function(){
-       $.ajax({
-          url: '/tickets/fltr',
+//    $('.sb-nav-ul').find('li').click(function(){
+//       $.ajax({
+//          url: '/tickets/fltr',
+//          type: 'post',
+//          data: { 'tp': $(this).data('tp')}
+//       });
+//       
+//    });
+    
+    $('.sb-nav-ul .sb-nav-li').click(function(){
+       $(this).siblings('li').children('.drpdwn-lst').hide(); 
+       $(this).children('.drpdwn-lst').toggle();
+       $(this).siblings('li').css({'background-color': 'white', 'color': '#333'});
+       $(this).css({'background-color': 'rgba(0, 0, 0 , .75)', 'color': 'white'});
+    });
+    
+    
+    $('#fltr-asgne').click(function(){
+        $('#fltr-asgne').children('.drpdwn-lst').find('ul').html('');
+              $.ajax({
+            url: '/customer_ticket/gtassingees',
+            method: 'post',
+            data: {'asgns': 'mngr'},
+            success: function (d) {
+                var r = JSON.parse(d);
+                $('#asgn-lst').toggle();
+                for (var i = 0; i < r.length; i++) {
+                    $('#fltr-asgne').children('.drpdwn-lst').find('ul').append('<li data-slctd="' + r[i]._emp_email + '">' + r[i]._emp_name + '</li>');
+                }
+            }
+    });
+    });
+    
+    
+    // filtering of tickets
+    $('.drpdwn-lst').on('click', 'li', function(){
+          $.ajax({
+          url:  '/tickets/fltr',
           type: 'post',
-          data: { 'tp': $(this).data('tp')}
+          data: {'tp' : $(this).parents('.sb-nav-li').data('tp'), 
+                 'slctd':$(this).data('slctd') },
+          beforeSend: function () {
+              $('.ligt-box').show();
+          },
+          success: function(data){
+          var d = JSON.parse(data);
+          $('.tckts-tbls').html('');
+          if(d.length > 0){
+          var i;
+          for(i=0; i< d.length; i++){
+              var lod_tickts = '<tr><td><i class="icon-help"></i><a href="tickets/view/'+d[i]._Id_+'"><span class="ttl-lnk">'+d[i]._cust_servs_tckt_ttl+'</span>';
+                  lod_tickts += '<span class="ttl-lnk-cat">'+d[i]._cust_servs_tckt_catg+'</span> ';
+                  lod_tickts += '<span class="ttl-lnk-sbcat">'+d[i]._cust_servs_tckt_sbcatg+'</span></a>';
+                  lod_tickts += '<div class="tckt-opnd-by">ticket opened on '+new Date(d[i]._cust_servs_tckt_addedon*1000)+' by '+d[i]._emp_name+'</div></td></tr>';
+                  $('.tckts-tbls').append(lod_tickts);
+              }
+          }else{
+              lod_tickts = '<tr><td style="height: 300px; background-color: rgba(238, 238, 238, 0.56)"><div class="ntg-fnd"><i class="icon-help"></i><h3>Sorry!! we couldn'+"'"+'t find any tickets.</h3></div></td></tr>';
+              $('.tckts-tbls').append(lod_tickts);
+          }
+         
+          $('.ligt-box').hide();
+          }
+          
        });
        
+    });
+    
+    $('#fltr_all').click(function(){
+        window.location.reload();
     });
 });

@@ -133,4 +133,61 @@ class Tickets_model extends Model{
         
     }
     
+    // @filtring tickets
+    public function tcktFltrng(){
+        $slctd = $_POST['slctd'];
+        
+        // filter by assignee
+        if($_POST['tp'] == 'asgne'){
+            $asgne = $this -> db -> query("SELECT viv_cust_servs_en.*, viv_emp_en._emp_name FROM viv_cust_servs_en, viv_emp_en WHERE _cust_servs_tckt_asigni  = ". $this -> db -> quote($slctd)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
+            $res = $asgne -> fetchAll(PDO::FETCH_ASSOC);
+            if ($asgne == true) {
+                return $res;
+            } else {
+                return 0;
+            }
+        }
+        
+        // filter by category
+        elseif ($_POST['tp'] == 'ctgry') {
+        $ctgry = $this -> db -> query("SELECT viv_cust_servs_en.*, viv_emp_en._emp_name FROM viv_cust_servs_en, viv_emp_en WHERE _cust_servs_tckt_catg  = ". $this -> db -> quote($slctd)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
+            $res = $ctgry -> fetchAll(PDO::FETCH_ASSOC);
+            if ($ctgry == true) {
+                return $res;
+            } else {
+                return 0;
+            }
+        }
+        
+        // filter by sort
+        elseif ($_POST['tp'] == 'sort') {
+            
+            if ($slctd == 'Newest') {
+                // seraching last weak tickets
+                $week = strtotime("-1 week");
+                $newest = $this->db->query("SELECT viv_cust_servs_en.*, viv_emp_en._emp_name FROM viv_cust_servs_en, viv_emp_en WHERE _cust_servs_tckt_addedon  >= " . $this->db->quote($week)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
+                $res = $newest->fetchAll(PDO::FETCH_ASSOC);
+                if ($newest == true) {
+                    return $res;
+                } else {
+                    return 0;
+                }
+            }
+            else if ($slctd == 'Oldest') {
+                // seraching last weak tickets
+                $week = strtotime("-1 week");
+                $newest = $this->db->query("SELECT viv_cust_servs_en.*, viv_emp_en._emp_name FROM viv_cust_servs_en, viv_emp_en WHERE viv_cust_servs_en._cust_servs_tckt_addedon  <= " . $this->db->quote($week)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
+                $res = $newest->fetchAll(PDO::FETCH_ASSOC);
+                if ($newest == true) {
+                    return $res;
+                } else {
+                    return 0;
+                }
+            }
+        }
+            
+            
+        }
+
+    
 }

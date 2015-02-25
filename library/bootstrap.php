@@ -181,6 +181,9 @@
                     case 'ntf':
                        (new Tickets()) -> ntf();
                         break;
+                    case 'fltr':
+                       (new Tickets()) -> fltr();
+                        break;
                     default:
                      (new Tickets()) -> index();
     

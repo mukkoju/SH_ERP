@@ -1,7 +1,10 @@
 <div class="span9 cstmr_layout">
     <?php $viewTicket = $this -> viewTicket; ?>
     <div class="shw-tckt">
-        <div class="actn-btns"><button class="actn-edit" id="ttl-edt-btn"><i class="icon-pencil"></i></button></div>
+        <div class="actn-btns">
+            <button class="actn-edit" id="ttl-edt-btn"><i class="icon-pencil"></i></button>
+            <button class="actn-edit" id="nw-tckt-btn"><a href="/customer_ticket">New ticket</a></button>
+        </div>
         <div class="tckt-ttl" data-tcktid='<?= $viewTicket[0][0]['_Id_'] ?>'><h2><?= $viewTicket[0][0]['_cust_servs_tckt_ttl'] ?></h2>
             <div class="edt-ttl">
                 <div class="actn-btns">

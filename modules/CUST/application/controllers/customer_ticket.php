@@ -17,13 +17,15 @@ class Customer_ticket extends Controller{
             $this->view->all_user_details = (new Global_model()) -> getAllUserDetails();
             $this->view->get_hldys = (new Global_model()) -> get_hldys();
             $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
+            require CUST_MODULE. '/models/tickets_model.php';
+            $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
             $this->view->render('customer_ticket/index', CUST_MODULE);
     }
     // @adding new ticket
     public function addTicket(){
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
         require CUST_MODULE. '/models/customer_ticket_model.php';
-        echo (new Customer_ticket_model()) -> addTicketEntry();
+        echo json_encode((new Customer_ticket_model()) -> addTicketEntry());
         }
         else {
             header("Location: /error");

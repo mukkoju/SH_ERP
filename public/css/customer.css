@@ -5,6 +5,7 @@
     margin-top: 40px;
 }
 
+
 #ticket-subjct{
     font-size: 1.4em;
     width: 100%;
@@ -27,13 +28,13 @@
     float: left;
 }
 .tckt-atrbts{
-    border-left: 1px solid #cccccc; 
-    float: left;
-    margin-top: 96px;
+    /*border-left: 1px solid #cccccc;*/ 
+    float: right;
+    /*margin-left: 8px;*/
 }
 .atrbt-itm{
     border-bottom: 1px solid #cccccc;
-    padding: 18px 32px 16px 16px;
+    padding: 15px 32px 18px 15px;
 }
 .atrbt-itm button{
     border: none !important;
@@ -69,7 +70,9 @@
     display: inline-block;
     border-top-left-radius: 5px;
     /*border-top-right-radius: 5px;*/
-    right: 559px;
+    /*right: 365px;*/
+    right: 0;
+    margin-right: 366px;
     margin-top: -44px;
     /*opacity: 0;*/
     background-color: rgb(226, 226, 226);
@@ -321,6 +324,12 @@ vertical-align: middle;
 .sb-nav li:nth-child(2){
     border-right: none;
 }
+.sb-nav li:nth-child(3){
+    border-right: none;
+}
+.sb-nav li:nth-child(4){
+    border-right: none;
+}
 .sb-nav li:last-child{
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -428,6 +437,7 @@ vertical-align: middle;
     margin-left: -172px;
     margin-top: 8px;
     display: none;
+    z-index: 100001;
 }
 .drpdwn-lst ul{
     overflow-y: auto;
@@ -540,4 +550,93 @@ box-shadow: none !important;
 }
 .cmnt-edt-actns{
     margin-bottom: 16px;
+}
+#new_tckfrm{
+    width: 78%;
+    float: left;
+}
+
+
+ /*Chart css*/
+.svg2{
+    margin-top: 8px !important;
+}
+input[type="radio"] {
+    width: auto;
+    
+}
+
+input[type="radio"]:checked + label:not(.no-dft), input[type="checkbox"]:checked + label:not(.no-dft), input[type="radio"]:checked + label:not(.no-dft) *, input[type="checkbox"]:checked + label:not(.no-dft) *{
+    color: #000;
+}
+input[type="radio"] + label:not(.no-dft), input[type="checkbox"] + label:not(.no-dft) {
+    position: relative;
+    padding: 0 0 0 25px;
+    font-size: 1em;
+    line-height: 1.2em;
+    color: #888;
+}
+input[type="radio"] + label:not(.no-dft), input[type="checkbox"] + label:not(.no-dft) {
+    position: relative;
+    padding: 0 0 0 25px;
+    font-size: 1em;
+    line-height: 1.2em;
+    color: #888;
+}
+input[type="radio"] + label:not(.no-dft):before, input[type="checkbox"] + label:not(.no-dft):before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 4px;
+    height: 14px;
+    width: 14px;
+    background: white;
+    border: 1px solid gray;
+    box-shadow: inset 0px 0px 0px 2px white;
+    -webkit-box-shadow: inset 0px 0px 0px 2px white;
+    -moz-box-shadow: inset 0px 0px 0px 2px white;
+    -o-box-shadow: inset 0px 0px 0px 2px white;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+input[type="radio"]:checked + label:not(.no-dft):before, input[type="checkbox"]:checked + label:not(.no-dft):before {
+    background: #FF4141;
+}
+input[type="radio"], input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+#tckt-cht{
+    border: 1px solid #cccccc;
+    padding: 8px 0px 8px 0px;
+    margin-bottom: 16px;
+}
+#nw-tckt-btn{
+    padding: 6px 11px 5px 8px;
+    background-color: #5cb85c !important;
+    border-color: #5cb85c !important;
+}
+#nw-tckt-btn a{
+    color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: lato;
+    font-size: 1em !important;
+}
+
+.tckt-hdr{
+    font-family: lato;
+}
+.tckt-hdr span{
+    font-size: 2em;
+    font-weight: 700;
+}
+.tckt-hdr button{
+    float: right; 
+    margin-right: 216px;
+    margin-top: 8px;
 }

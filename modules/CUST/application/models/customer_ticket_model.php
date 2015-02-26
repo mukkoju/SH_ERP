@@ -14,6 +14,11 @@ class Customer_Ticket_model extends Model{
         $catg = $_POST['catg'];
         $sb_catg = $_POST['sb_catg'];
         $asgni = $_POST['asgni'];
+        if($asgni == ''){
+            $asgni = $_SESSION['loggedIn'];
+        }else{
+            $asgni = $_POST['asgni'];
+        }
         $time = time();
         $id = md5($time . rand(21, 221) . '#$sr');
         
@@ -30,7 +35,9 @@ class Customer_Ticket_model extends Model{
                                                                                     $this -> db -> quote($_SESSION['loggedIn']).")");
         
         if($addTicket == true){
-            $sts = "Ticket added successfully!!";
+            $sts = ['sts'=> 1, 'tckt_id'=> $id];
+        }else{
+            $sts = ['sts'=> 1];
         }
         return $sts;
     }

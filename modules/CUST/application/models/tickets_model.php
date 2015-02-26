@@ -179,10 +179,11 @@ class Tickets_model extends Model{
     
     // @filtring tickets
     public function tcktFltrng(){
-        $slctd = $_POST['slctd'];
+        
         
         // filter by assignee
         if($_POST['tp'] == 'asgne'){
+            $slctd = $_POST['slctd'];
             $asgne = $this -> db -> query("SELECT viv_cust_servs_en.*, viv_emp_en._emp_name FROM viv_cust_servs_en, viv_emp_en WHERE _cust_servs_tckt_asigni  = ". $this -> db -> quote($slctd)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
             $res = $asgne -> fetchAll(PDO::FETCH_ASSOC);
             if ($asgne == true) {
@@ -194,6 +195,7 @@ class Tickets_model extends Model{
         
         // filter by category
         elseif ($_POST['tp'] == 'ctgry') {
+            $slctd = $_POST['slctd'];
         $ctgry = $this -> db -> query("SELECT viv_cust_servs_en.*, viv_emp_en._emp_name FROM viv_cust_servs_en, viv_emp_en WHERE _cust_servs_tckt_catg  = ". $this -> db -> quote($slctd)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
             $res = $ctgry -> fetchAll(PDO::FETCH_ASSOC);
             if ($ctgry == true) {
@@ -205,7 +207,7 @@ class Tickets_model extends Model{
         
         // filter by sort
         elseif ($_POST['tp'] == 'sort') {
-            
+            $slctd = $_POST['slctd'];
             if ($slctd == 'Newest') {
                 // seraching last weak tickets
                 $week = strtotime("-1 week");
@@ -229,6 +231,39 @@ class Tickets_model extends Model{
                 }
             }
         }
+         // @ getting graph data
+            else if ($_POST['tp'] == 'anlytcs') {
+//                // @ this week data
+//                $thiWeek = strtotime("-1 week");
+//                $thisWeek = $this -> db -> query("SELECT COUNT( * ) ,  _cust_servs_tckt_sts FROM  viv_cust_servs_en WHERE _cust_servs_tckt_addedon > $thiWeek GROUP BY _cust_servs_tckt_sts");
+//                $res = $thisWeek -> fetchAll(PDO::FETCH_ASSOC);
+                
+                // @ last week data
+                $lstWeek = strtotime("-1 week");
+                $lastWeek = $this -> db -> query("SELECT COUNT( * ) ,  _cust_servs_tckt_sts FROM  viv_cust_servs_en WHERE _cust_servs_tckt_addedon > $lstWeek GROUP BY _cust_servs_tckt_sts");
+                $res1 = $lastWeek -> fetchAll(PDO::FETCH_ASSOC);
+//                return $res1; 
+                
+                // @ last month data
+                $lstMonth = strtotime("-1 month");
+                $lastMonth = $this -> db -> query("SELECT COUNT( * ) ,  _cust_servs_tckt_sts FROM  viv_cust_servs_en WHERE _cust_servs_tckt_addedon > $lstMonth GROUP BY _cust_servs_tckt_sts");
+                $res2 = $lastMonth -> fetchAll(PDO::FETCH_ASSOC);
+//                return $res2;
+                
+                // @ last year data
+                $lstYear = strtotime("-1 year");
+                $lastYear = $this -> db -> query("SELECT COUNT( * ) ,  _cust_servs_tckt_sts FROM  viv_cust_servs_en WHERE _cust_servs_tckt_addedon > $lstYear GROUP BY _cust_servs_tckt_sts");
+                $res3 = $lastYear -> fetchAll(PDO::FETCH_ASSOC);
+                $res3;
+                
+//                var_dump(array('lastweek' => $res1, 'lastmonth' => $res2, 'lastyear' => $res2));
+                
+                
+                return array('lastweek' => ['pending' => $res1[1]['COUNT( * )'], 'closed' => $res1[0]['COUNT( * )'], 'total' =>$res1[0]['COUNT( * )']+$res1[1]['COUNT( * )'] ],
+                             'lastmonth' => ['pending' => $res2[1]['COUNT( * )'], 'closed' => $res2[0]['COUNT( * )'], 'total' =>$res2[0]['COUNT( * )']+$res2[1]['COUNT( * )']],
+                             'lastyear' => ['pending' => $res3[1]['COUNT( * )'], 'closed' => $res3[0]['COUNT( * )'], 'total' =>$res3[0]['COUNT( * )']+$res3[1]['COUNT( * )']]);
+                
+            }
             
             
         }

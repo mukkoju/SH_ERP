@@ -122,6 +122,7 @@
                 </ul>
                 
             </nav>
+            <div class="sts-strp"><p></p></div>
         </header>
         <div id="model" class="popupContainer1 pop_cont" style="display:none;">
             <header class="popupHeader6">

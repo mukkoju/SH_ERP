@@ -58,23 +58,36 @@ $(document).ready(function () {
     $('.atrbt-itm .select-list').find('.select-menu-item ul').on('click', 'li', function () {
         var txt = $(this).text();
         var mail = $(this).data('asgnmail');
+        var cat = $(this).data('asgncat');
         var prnt = $(this).parents('.atrbt-itm');
         prnt.children('.atr-slctd').css({'background-color': 'rgb(7, 112, 138)', 'border-radius': '3px', 'font-weight': 'bold', 'color': 'white'})
         prnt.children('.atr-slctd').text(txt);
-        prnt.children('.atr-slctd').attr('data-slctmail', mail);
+        prnt.children('.atr-slctd').data('slctmail', mail);
+        prnt.children('.atr-slctd').data('slctcat', cat);
         $('.select-list').css({'display': 'none'});
 
     });
 
     $('#nw_tckt_btn').click(function (e) {
         e.preventDefault();
-
-        var ttl = $('#ticket-subjct').val();
+        
+        var ttl = $('#ticket-subjct').val().trim();
         var desc = $('#ticket-description').val();
-        var cat = $('#cat-selctd').text();
+        var cat = $('#cat-selctd').data('slctcat').trim();
         var sb_cat = $('#sb-cat-selctd').text();
-        var asgni = $('#asgn-selctd').data('slctmail');
-
+        var asgni = $('#asgn-selctd').data('slctmail').trim();
+        
+        if(ttl == ''){
+            $('#ticket-subjct').css({'border-color': 'red'});
+            $('.sts-strp').css({'background-color': '#f44336'}).html('<i class="icon-warning-sign"></i> Title cannot be left blank').fadeIn('slow');
+            return;
+        }else if(cat == ''){
+            $('.sts-strp').css({'background-color': '#f44336'}).html('<i class="icon-warning-sign"></i> Please mention your ticket is related to wich category').fadeIn('slow');
+            return;
+        }else if(asgni == ''){
+            $('.sts-strp').css({'background-color': '#f44336'}).html('<i class="icon-warning-sign"></i> We cannot resolve your ticket without assining any one').fadeIn('slow');
+            return;
+        }
         $.ajax({
             url: '/customer_ticket/add_ticket',
             method: 'post',
@@ -85,7 +98,15 @@ $(document).ready(function () {
                 'asgni': asgni
             },
             success: function (d) {
-                alert(d);
+                var data = JSON.parse(d);
+                if(data.sts == 1){
+                $('.sts-strp').css({'background-color': '#0f9d58'}).text('Ticket added successfully!! wait while we are redirecting to ticket page.').fadeIn('slow');
+                 setTimeout(function () {
+                    window.location = '/tickets/view/'+data.tckt_id;
+                }, 2500);
+            }else if(data.sts == 0){
+                $('.sts-strp').css({'background-color': '#f44336'}).text('Sorry!! somthing went wrong while creting new ticket. please try again').fadeIn('slow');
+            }
             }
 
         });
@@ -191,7 +212,7 @@ $(document).ready(function () {
               $.ajax({
             url: '/customer_ticket/gtassingees',
             method: 'post',
-            data: {'asgns': 'mngr'},
+            data: {'asgns': 'emps'},
             success: function (d) {
                 var r = JSON.parse(d);
                 $('#asgn-lst').toggle();
@@ -215,6 +236,9 @@ $(document).ready(function () {
           },
           success: function(data){
           var d = JSON.parse(data);
+          if($('div').hasClass('chart') == true){
+              $('.chart').css({'display': 'none'});
+          }
           $('.tckts-tbls').html('');
           if(d.length > 0){
           var i;
@@ -225,9 +249,11 @@ $(document).ready(function () {
                   lod_tickts += '<div class="tckt-opnd-by">ticket opened on '+new Date(d[i]._cust_servs_tckt_addedon*1000)+' by '+d[i]._emp_name+'</div></td></tr>';
                   $('.tckts-tbls').append(lod_tickts);
               }
+              $('.tbl-hdr').children('h2').text('Total '+d.length+' ticket (s)');
           }else{
               lod_tickts = '<tr><td style="height: 300px; background-color: rgba(238, 238, 238, 0.56)"><div class="ntg-fnd"><i class="icon-help"></i><h3>Sorry!! we couldn'+"'"+'t find any tickets.</h3></div></td></tr>';
               $('.tckts-tbls').append(lod_tickts);
+              $('.tbl-hdr').children('h2').text('Total 0 tickets');
           }
          
           $('.ligt-box').hide();
@@ -239,6 +265,49 @@ $(document).ready(function () {
     
     $('#fltr_all').click(function(){
         window.location.reload();
+    });
+    
+    $('#fltr_anlytcs').click(function(){
+       
+       $.ajax({url:  '/tickets/fltr',
+          type: 'post',
+          data: {'tp' : $(this).data('tp')},
+          success: function(res){
+              res = JSON.parse(res);
+              var chrtData = {
+                  1 : {
+                      A : "Ticket Status",
+                      B : "Last Week",
+                      C : "Last Month",
+                      D : "Last Year"
+                  },
+                  2 : {
+                      A : "Pending",
+                      B : res.lastweek.pending,
+                      C : res.lastmonth.pending,
+                      D : res.lastyear.pending,
+                  },
+                  3: {
+                      A : "Closed",
+                      B : res.lastweek.closed,
+                      C : res.lastmonth.closed,
+                      D : res.lastyear.closed,
+                  },
+                  4: {
+                      A : "Created",
+                      B : res.lastweek.total,
+                      C : res.lastmonth.total,
+                      D : res.lastyear.total,
+                  }
+              };
+              var chtStr = '<div class="chart" id="tckt-cht"><h2 class="m-hd err-msg hideElement"></h2>' +
+                '<ul class="cht-opts"></ul><svg class="svg"></svg><ul class="chart-tags"></ul>' +
+                '</div>';
+              $('#tckt-sts-dt').prepend(chtStr);
+              $('#tckt-sts-dt').drawChart(chrtData, "l", $(window).width() - ($(window).width() / 4), 320, "tckt-cht", "1");
+          } 
+       });
+       
     });
     
     $('#ttl-edt-btn').click(function(){

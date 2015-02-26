@@ -1,7 +1,8 @@
-
+<link rel="stylesheet" href="/public/css/chartstyle.css" />
 <div class="span10 cstmr_layout">
      <div class="sb-nav">
          <ul class="sb-nav-ul">
+             <?php if($_SESSION['loggedInLevel'] == 1 || $_SESSION['loggedInLevel'] == 2){?>
              <li data-tp="all" id="fltr_all" class="sb-nav-li" style="background-color: rgba(0, 0, 0, 0.74902); color: white;">All</li>
              <li data-tp="asgne" class="sb-nav-li" id="fltr-asgne">Assignee <i class="icon-chevron-down"></i>
              <div class="drpdwn-lst">
@@ -38,10 +39,14 @@
                      </ul>
                  </div>
              </li>
+             <li class="sb-nav-li" id="fltr_anlytcs" data-tp="anlytcs">Analytics</li>
+             <?php } ?>
+             <li class="sb-nav-li"><a href="/customer_ticket">New ticket</a></li>
          </ul>
      </div>
      <div class="clearfix"></div>
      <?php $tckts = $this->get_tickets; ?>
+     <div id="tckt-sts-dt">
      <div class="tbl-hdr"><h2>Total <?= sizeof($tckts) ?> tickets</h2></div>
      <table class="tckts-tbls table table-hover table-condensed table-bordered">
          <tr><?php for  ($i=0;  $i<sizeof($tckts); $i++){ ?>
@@ -61,4 +66,7 @@
          <?php }?>
      </table>
      </div>
+     </div>
 <script type="text/javascript" src="/public/js/customer.js"></script>
+<script type="text/javascript" src="/public/js/chart.js"></script>
+<script type="text/javascript" src="https://saddahaq.blob.core.windows.net/v11/gbojd3.v3.min.js"></script>

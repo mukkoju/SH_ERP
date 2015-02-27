@@ -24,6 +24,10 @@ class Home extends Controller {
           require  EMP_MODULE. '/models/home_model.php';
           $this->view->getLeavesDeatils =  (new Home_model()) -> getLeavesDeatils($_SESSION['loggedIn']);
           $this->view->getLeavesDeatilsByHr =  (new Home_model()) -> getLeavesDeatilsByHr($_SESSION['loggedIn']);
+          
+          require CUST_MODULE. '/models/tickets_model.php';
+          $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();   
+          
           $this->view->render('home/index', EMP_MODULE);
     }
 public function logout(){

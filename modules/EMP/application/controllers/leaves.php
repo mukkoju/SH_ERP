@@ -22,6 +22,10 @@ class Leaves extends Controller {
         $this->view->getTakenLeaves = (new Global_model()) -> getUserLeaves($_SESSION['loggedIn']);
         $this->view->get_hldys = (new Global_model()) -> get_hldys();
         $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
+        
+        require CUST_MODULE. '/models/tickets_model.php';
+        $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts(); 
+          
         $this->view->render('leaves/index', EMP_MODULE);
     }
     

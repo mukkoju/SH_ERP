@@ -18,10 +18,15 @@
             $this->view->all_user_details = (new Global_model()) -> getAllUserDetails();
             $this->view->get_hldys = (new Global_model()) -> get_hldys();
             $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
+            
+            require CUST_MODULE. '/models/tickets_model.php';
+            $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
+            
             if($_SESSION['loggedInLevel'] == 2 || $_SESSION['loggedInLevel'] == 0){
             header('location: ../error');
             return;
             }
+            
             $this->view->render('emp_data/index', HR_MODULE);
         }
         public function mail(){

@@ -79,6 +79,7 @@
                     <li><a href="/download">DOWNLOADS</a></li>
                     <li><a href="#model_directory" class="modal_trigger6">DIRECTORY</a></li>
                     <li><a href="#model_holiday" class="modal_trigger6">HOLIDAY CAL</a></li>
+                    <li><a href="/tickets" class="modal_trigger6">TICKETS</a></li>
                     <!--<li><a href="#" class="menu-news">NEWS<span class="caret"></span></a></li>-->
                     <?php if($this->user_details[0]['_emp_level'] == HR_MANAGER){ ?>
                     <li class="dropdown"><a href="" id="dLabel" class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" rel="nofollow">HR<span class="caret"></span></a>

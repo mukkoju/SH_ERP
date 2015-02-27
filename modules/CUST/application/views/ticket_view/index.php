@@ -81,9 +81,6 @@
                 <span class="cmnt-bdy"><p><?=$viewTicket[0][0]['_cust_servs_tckt_desc']?><p></span>
             
             </div>
-            
-        </div>
-        <div class="clearfix">
         </div>
         <div class="cmnt-sctn">
             <div class="old-cmnts-sctn">

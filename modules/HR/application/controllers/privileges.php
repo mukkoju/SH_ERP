@@ -21,6 +21,9 @@ public function index(){
     $this->view->user_details = (new Global_model()) -> getUserDetails($_SESSION['loggedIn']);
     $this->view->get_hldys = (new Global_model()) -> get_hldys();
     $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
+    
+    require CUST_MODULE. '/models/tickets_model.php';
+    $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
     if($this->view->user_details[0]['user_level'] == 2 || $this->view->user_details[0]['user_level'] == 0){
         header('location: ../error');
             return;

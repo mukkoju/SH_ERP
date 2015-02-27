@@ -1,6 +1,12 @@
 body{
     background-image: url("/images/item1.jpg");
     background-size: 1380px, 1500px;
+    font-family: lato !important;
+    font-weight: 500;
+    line-height: 24px;
+    font-style: normal;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 }
 
 #table{
@@ -26,7 +32,8 @@ margin-top: 10%;
 .Login{
     padding-bottom: 0px;
     font-size: 1.6em;
-    font-family: 'Roboto',sans-serif;
+    /*font-family: 'Roboto',sans-serif;*/
+    font-family: lato;
     font-weight: 300;
     color: #635D5D;
     padding-bottom: 15px;

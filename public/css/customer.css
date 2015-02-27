@@ -234,7 +234,7 @@ vertical-align: middle;
 .tckt-desc{
     border: 1px solid #ddd;
     margin-top: 24px;
-    min-height: 274px;
+    min-height: 200px;
     float: left;
     width: 68%;
     border-radius: 2px;
@@ -514,7 +514,7 @@ vertical-align: middle;
 }
 #edt-ttl-inpt{
     height: 40px;
-    width: 85%;
+    width: 76%;
     font-size: 1.2em;
 }
 #actn-sve{

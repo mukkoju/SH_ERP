@@ -2,6 +2,13 @@ body
 {
     padding-right: 0px;
     padding-left: 0px;
+    font-family: lato !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 24px !important;
+    font-style: normal !important;
+    font-smoothing: antialiased !important;
+    -webkit-font-smoothing: antialiased !important;
 }
 .dashboard{
     float: left;
@@ -82,7 +89,8 @@ padding-bottom: 25%;
 {
     
     font-size: 50px;
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
+    font-family: lato;
 }
 
 #header{
@@ -127,7 +135,8 @@ textarea{
 
 .apply{
 line-height: 1.2em !important;
-font-family: 'Open Sans Condensed',sans-serif !important;
+/*font-family: 'Open Sans Condensed',sans-serif !important;*/
+font-family: lato !important;
 font-size: 2em;
 font-weight: 600;
 letter-spacing: -1px;
@@ -390,7 +399,8 @@ li {
 }
 
 nav li a{
-    font-family: 'Roboto',sans-serif;
+    /*font-family: 'Roboto',sans-serif;*/
+    font-family: lato;
     font-weight: 400;
     // padding: 0;
     line-height: 20px;
@@ -490,7 +500,8 @@ background-size: cover;
 }
 .tbl-hdr h2{
      margin-top: 0px !important;
-    font-family: 'Roboto',sans-serif !important;
+    /*font-family: 'Roboto',sans-serif !important;*/
+    font-family: lato;
     font-size: 1.232em;
     line-height: 40px;
     text-align: center;
@@ -536,7 +547,8 @@ margin-left: 2%;
 
 td{
     font-size: 0.91em !important;
-    font-family: 'Roboto',sans-serif !important;
+    /*font-family: 'Roboto',sans-serif !important;*/
+    font-family: lato !important;
     text-align: center !important;
 }
 
@@ -684,7 +696,8 @@ border: 1px solid #333;
 .profle-pop-degnatn{
 font-size: 1.242em;
 font-weight: 100;
-font-family: 'Gentium Basic',serif;
+/*font-family: 'Gentium Basic',serif;*/
+font-family: lato;
 text-align: center;
 position: absolute;
 height: 40.4px;
@@ -722,14 +735,16 @@ border-bottom-left-radius: 10px;
 }
 #user-level h3{
 line-height: 1.2em !important;
-font-family: 'Open Sans Condensed',sans-serif !important;
+/*font-family: 'Open Sans Condensed',sans-serif !important;*/
+font-family: lato !important;
 font-size: 2em;
 font-weight: 400 !important;
 letter-spacing: -1px;
 }
 #chnge-pswrd-hr h3{
 line-height: 1.2em !important;
-font-family: 'Open Sans Condensed',sans-serif !important;
+/*font-family: 'Open Sans Condensed',sans-serif !important;*/
+font-family: lato !important;
 font-size: 2em;
 font-weight: 400 !important;
 letter-spacing: -1px;
@@ -748,7 +763,8 @@ letter-spacing: -1px;
 .prvlgs-header h3{
 margin-left: 25%;
 line-height: 1.2em !important;
-font-family: 'Open Sans Condensed',sans-serif !important;
+/*font-family: 'Open Sans Condensed',sans-serif !important;*/
+font-family: lato !important;
 font-size: 2em;
 font-weight: 600 !important;
 letter-spacing: -1px;
@@ -835,8 +851,8 @@ background-image: linear-gradient(to bottom, #171A24, #636363) !important;
     width: 450px;
 }
 .holiday_desc h5{
-    /*font-family: 'Roboto Slab', serif;*/
-    font-family: Bitter, Serif;
+    /*font-family: Bitter, Serif;*/
+    font-family: lato;
     font-size: 1.2em;
     color: #d60000;
 }
@@ -991,7 +1007,8 @@ font-size: 1.3em;
  position: absolute;
 padding-left: 41px;
 padding-top: 13px;
-font-family: Bitter, Serif;
+/*font-family: Bitter, Serif;*/
+font-family: lato;
 font-size: 1.2em;
 color: rgb(62, 173, 19);   
 }

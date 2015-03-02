@@ -27,6 +27,8 @@
         <script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.js"></script>
         <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/public/js/ripple.js"></script>
+        <script type="text/javascript" src="/public/js/matrial.js"></script>
     </head>
     <body>
     <div class="ligt-box" style="margin-left: 0"><img src="/images/loading.gif"></div> 
@@ -74,12 +76,12 @@
                 </ul>
                 <!--          Hidden phone menu-->
                 <ul class="hidden-phone">
-                    <li><a href="/home" class="current">HOME</a></li>
-                    <li><a href="/leaves">LEAVES</a></li>
-                    <li><a href="/download">DOWNLOADS</a></li>
+                    <li><a href="/home" data-pg="home">HOME</a></li>
+                    <li><a href="/leaves" data-pg="leaves">LEAVES</a></li>
+                    <li><a href="/download" data-pg="download">DOWNLOADS</a></li>
                     <li><a href="#model_directory" class="modal_trigger6">DIRECTORY</a></li>
                     <li><a href="#model_holiday" class="modal_trigger6">HOLIDAY CAL</a></li>
-                    <li><a href="/tickets" class="modal_trigger6">TICKETS</a></li>
+                    <li><a href="/tickets" class="modal_trigger6" data-pg="tickets">TICKETS</a></li>
                     <!--<li><a href="#" class="menu-news">NEWS<span class="caret"></span></a></li>-->
                     <?php if($this->user_details[0]['_emp_level'] == HR_MANAGER){ ?>
                     <li class="dropdown"><a href="" id="dLabel" class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" rel="nofollow">HR<span class="caret"></span></a>
@@ -296,7 +298,10 @@
             <section class="popupBody">
                 <div><form id="docs-form" enctype="multipart/form-data">
                         <p id="upload-doc-err"></p>
-                        <label>Employee Email:<br><input type="text" name="emp_doc_email" id="emp-doc-emial" class="emp-doc-emial" placeholder="Mail id of employe" style="height: 30px; width: 250px;"></label>
+                        <label>Employee Email:<br>
+                            <input type="text" name="emp_doc_email" id="emp-doc-emial" class="emp-doc-emial form-control" placeholder="Mail id of employe" style="height: 30px; width: 250px;">
+                            <span class="bar"></span>
+                        </label>
                         <!--<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>-->
                         <label>Select Document:<br><input type="file" name = "empdoc" id="docs-file1" style="display: inline-block;">
                                     <select class="slct-month">
@@ -447,7 +452,8 @@
         <div id="tdy-bdy"></div>
         <?php //}?>
         <script type="text/javascript">
-            $(".modal_trigger6").leanModal({top: 10, overlay: 0.2, closeButton: ".modal_close"});
-            $("#modal_trigger1").leanModal({top: 120, overlay: 0.2, closeButton: ".modal_close"});
+            $(".modal_trigger6").leanModal({top: 10, overlay: 0.5, closeButton: ".modal_close"});
+            $("#modal_trigger1").leanModal({top: 120, overlay: 0.5, closeButton: ".modal_close"});
+            $.material.init();
         </script>
         <?php // var_dump($this->user_details)?> 

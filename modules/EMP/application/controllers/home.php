@@ -20,6 +20,7 @@ class Home extends Controller {
           $this->view->all_user_details = (new Global_model()) -> getAllUserDetails();
           $this->view->all_user_details = (new Global_model()) -> getAllUserDetails();
           $this->view->chosen_hldys = (new Global_model())-> get_chosen_hldys();
+          $this->view->get_hldys = (new Global_model()) -> get_hldys();
           
           require  EMP_MODULE. '/models/home_model.php';
           $this->view->getLeavesDeatils =  (new Home_model()) -> getLeavesDeatils($_SESSION['loggedIn']);

@@ -55,7 +55,7 @@
                         for ($i = 0; $i < sizeof($row); $i++) {
                             ?>
                             <tr>
-                                <td align="center"><a id="<?php echo $i; ?>" href="#payslip-popup" class="modal_trigger6 hr-lev prsnl-levs-list"><?php echo $row[$i]['_emp_per_name']; ?></a></td>
+                                <td align="center"><?php echo $row[$i]['_emp_per_name']; ?></td>
                                 <td align="center"><?php echo date("j-m-Y", $row[$i]['_emp_leaves_applyedon']); ?></td>
                                 <td align="center"><?php if($row[$i]['_emp_leaves_manager_status'] == 1){
                                     echo 'Approved';
@@ -94,7 +94,7 @@
                         for ($i = 0; $i < sizeof($row); $i++) {
                             ?>
                             <tr>
-                                <td  align="center"><a id="<?php echo $i; ?>" href="#leave_manager" class="modal_trigger6 maneger-lev prsnl-levs-list"><?php echo $row[$i]['_emp_per_name']; ?></a></td>
+                                <td  align="center"><?php echo $row[$i]['_emp_per_name']; ?></td>
                                 <td  align="center"><?php echo date("j-m-Y", $row[$i]['_emp_leaves_applyedon']); ?></td>
                                 <td  align="center"><a id="<?php echo $i; ?>" href="#leave_manager" class="modal_trigger6 maneger-lev prsnl-levs-list"><i class="icon-eye-open"></i>
                                             <?php

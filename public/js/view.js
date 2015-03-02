@@ -1245,6 +1245,72 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
                 }
             });
         });
+    var p = location.pathname.split("/")[1];
+//    alert($('nav ul').find('li [data-pg="'+p+'"]').attr('href'));
+        var mn = $('nav ul').find('li [data-pg="'+p+'"]');
+            mn.parent('li').addClass('mnu-activ');
+    
+    $('input').focus(function(){
+//       $(this).after('<span class="bar"></span>');
+       $('.bar:before, .bar:after').width($(this).width());
+       
+    });
+    
+ 
+    
+    
+    $('button').click(function (e) {
+        var $this = $(this);
+        var parent = $this.parent()
+        var color = $this.css('color');
+        if ($this.find(".rippl").length == 0) {
+            $this.append("<span class='rippl'></span>");
+        }
+        var rpl = $this.find(".rippl");
+        rpl.removeClass("animate");
+        if (!rpl.height() && !rpl.width())
+        {
+            var d = Math.max($this.outerWidth(), $this.outerHeight());
+            rpl.css({height: d, width: d});
+        }
+        var x = e.pageX - $this.offset().left - rpl.width() / 2;
+        var y = e.pageY - $this.offset().top - rpl.height() / 2;
+        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
+    }); 
+    
+    
+    
+    $('nav li a, td a').mousedown(function(e){
+       
+        var $this = $(this);
+        var parent = $(this).parent();
+         var color = $(this).css('color');
+         parent.css({'overflow': 'hidden'});
+        if(parent.find('.rippl').length == 0){
+            parent.prepend('<span class="rippl"></span>')
+        }
+        
+        var rpl = parent.find(".rippl");
+        rpl.removeClass("animate");
+        
+        if(!rpl.height() && !rpl.width())
+	{
+		var d = Math.max(parent.outerWidth(), parent.outerHeight());
+		rpl.css({height: d, width: d});
+	}  
+        
+        var x = e.pageX - $this.offset().left - rpl.width()/2;
+	var y = e.pageY - $this.offset().top - rpl.height()/2;
+        
+       rpl.css({top: y+'px', left: x+'px', 'background': color, 'opacity': '0.2'}).addClass("animate");
+       
+      
+        
+        setTimeout(function () {
+                     parent.css({'overflow': 'visible'});
+                }, 400);
+        
+    });
     
     
     

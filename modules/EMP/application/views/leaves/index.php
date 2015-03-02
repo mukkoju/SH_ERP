@@ -9,7 +9,9 @@
                     <div ><label>Description:</br><textarea name="dec" id="leve-description" style="width: 90%; height: 150px;"placeholder="Reason for leave"></textarea></label></div>    
                     <input hidden value="<?php echo $this->emp_per_details[0]['_emp_name']; ?>" name="emp_name">
                     <input hidden value="<?php echo $this->user_details[0]['emp_id']; ?>" name="emp_id">
-                    <button id="leave_apply_btn" class="btn btn-info">Apply</button> 
+                    <div class="ripc">
+                    <button id="leave_apply_btn" class="btn btn-info">Apply</button>
+                    </div>
                 </form>
             </div>
             </div>
@@ -87,6 +89,10 @@
             </div>
         </div>
     </div>
+    
+    
+    
+    
     <script type="text/javascript">
         $(".modal_trigger5").leanModal({top: 50, overlay: 0.2, closeButton: ".modal_close"});
         $(".modal_trigger_status").leanModal({top: 150, overlay: 0.2, closeButton: ".modal_close"});

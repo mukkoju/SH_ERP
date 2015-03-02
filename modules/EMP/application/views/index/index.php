@@ -17,6 +17,7 @@
     <script type="text/javascript" src="/public/js/popup.js"></script>
     <link type="text/css" rel="stylesheet" href="/public/css/style.css" />
 <!--    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />-->
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.js"></script>

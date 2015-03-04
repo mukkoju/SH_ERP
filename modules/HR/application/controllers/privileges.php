@@ -5,7 +5,7 @@ class Privileges extends Controller {
     function __construct() {
         parent::__construct();
         
-        Session::init();
+//        Session::init();
         $logged = Session::get('loggedIn');
 
         if ($logged == false) {
@@ -24,7 +24,7 @@ public function index(){
     
     require CUST_MODULE. '/models/tickets_model.php';
     $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
-    if($this->view->user_details[0]['user_level'] == 2 || $this->view->user_details[0]['user_level'] == 0){
+    if($_SESSION['loggedInLevel'] == 2 || $_SESSION['loggedInLevel'] == 0){
         header('location: ../error');
             return;
     }

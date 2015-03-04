@@ -19,6 +19,8 @@
         <script src="/public/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
         <link type="text/css" rel="stylesheet" href="/public/css/style.css" />
+        <link type="text/css" rel="stylesheet" href="/public/css/chkbx.css" />
+        <link type="text/css" rel="stylesheet" href="/public/css/form_control.css" />
         <link rel="stylesheet" href="/public/css/customer.css" />
         <!--<link rel="stylesheet" href="/public/global/bootstrap/css/logout.css"/>-->
         <script src="/public/js/logout.js"></script>
@@ -189,8 +191,8 @@
                             <input name="mothername" id="mothername_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="mothername"/>
                             <br>
                             <label>Gender</label>
-                            Male: <input name="gender" id="gender_reg" type="radio" value="Male" style="height: 15px; width: 15px;" checked="true"> &nbsp;&nbsp;&nbsp;Female: <input name="gender" value="Female" type="radio" style="height: 15px; width: 15px;">
-                            <br><br>
+                            <div class="radio" style="margin-top: -5px;">Male: <label><input name="gender" id="gender_reg" type="radio" value="Male"></label></div>
+                            <div class="radio">Female: <label><input name="gender" value="Female" type="radio"></label></div>
                         </div>
                         <div class="emr_details">
                             <label>Phone no</label>
@@ -221,7 +223,7 @@
                         </div>
                         <div class="action_btns">
                             <div class="one_half last">
-                                <button class="btn btn-info" id="Next" value="Next" type="button" style="color: #FF7171;">Next<i class="icon-chevron-right"></i></button></div>
+                                <button class="btn btn-success" id="Next" value="Next" type="button" style="color: #FF7171;">Next<i class="icon-chevron-right"></i></button></div>
                         </div>
                     </div>
                     <div class="slide_left">
@@ -282,8 +284,8 @@
                         </div>
                         <div class="action_btns">
                             <ul class="one_half_last">
-                                <li><button class="btn btn-info" id="Back" value="Back" type="button" style="color: #FF7171;"><i class="icon-chevron-left"></i> Back</button></li>
-                                <li class="reg-li"><input class="btn btn_red" id="register-btn" value="Register"></li>
+                                <li><button class="btn btn-warning" id="Back" value="Back" type="button" style="color: #FF7171;"><i class="icon-chevron-left"></i> Back</button></li>
+                                <li class="reg-li"><input class="btn btn-success btn_red" id="register-btn" value="Register"></li>
                             </ul>
                         </div>   
                     </div>
@@ -313,7 +315,7 @@
                                         <option value="4">Other</option>
                                     </select><a href="#"><i class="icon-plus-strong" id="pluse-doc" style="margin-left: 5%;"></i></a>
                                 </label>
-                                <button class="btn btn-info" value="POST" id="upload-docs-butn" type="button" style="color: #FF7171;">Upload</button>
+                        <button class="btn btn-success" value="POST" id="upload-docs-butn" type="button" style="color: #FF7171;"><i class="icon-upload"></i>Upload</button>
                        </form>
                        <!--<progress></progress>-->
                 </div>
@@ -353,7 +355,8 @@
                     </ul>
             </section>
             <footer class="popupfooter_holiday"><p class="note_hldy">Note: Choose before JAN 7th 2015</p>
-                <span class="footer_title hldys"><button class="btn btn-info"  id="hldy-btn" value="Save" type="button" style="color: white;">Save</button></span></footer>
+                <span class="footer_title hldys">
+                    <button class="btn btn-success"  id="hldy-btn" value="Save" type="button" style="color: white;">Save</button></span></footer>
         </div>
         
         <div id="model_holiday_hr" class="popupContainer" style="display:none; ">

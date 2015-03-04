@@ -7,10 +7,8 @@
                     <div style="float: left; padding-right: 15%; "><label>From:<br/><input type="text" id="datepicker-frm" name="from" class="datepicker" placeholder="From date" style="height: 30px; width: 250px;"></label></div>
                     <div style="float: left;"><label>To:<br/><input type="text" class="datepicker" name="to" placeholder="To date" style="height: 30px; width: 250px;" id="datepicker-to"/></label></div>
                     <div ><label>Description:</br><textarea name="dec" id="leve-description" style="width: 90%; height: 150px;"placeholder="Reason for leave"></textarea></label></div>    
-                    <input hidden value="<?php echo $this->emp_per_details[0]['_emp_name']; ?>" name="emp_name">
-                    <input hidden value="<?php echo $this->user_details[0]['emp_id']; ?>" name="emp_id">
                     <div class="ripc">
-                    <button id="leave_apply_btn" class="btn btn-info">Apply</button>
+                    <button id="leave_apply_btn" class="btn btn-success">Apply</button>
                     </div>
                 </form>
             </div>
@@ -32,7 +30,7 @@
                             $row = $this->getTakenLeaves;
                             for ($i = 0; $i < sizeof($row); $i++) {
                                 ?>
-                            <td><a href="#<?php echo $i; ?>" class="modal_trigger5 prsnl-levs-list"><?php echo date("j-m-Y", $row[$i]['_emp_leaves_fromdate']); ?></a></td>
+                            <td><?php echo date("j-m-Y", $row[$i]['_emp_leaves_fromdate']); ?></td>
                                 <td><?php echo $row[$i]['_emp_leaves_subject']; ?></td>
                                 <td><a href="#<?php echo $i; ?>" class="modal_trigger5 prsnl-levs-list"><i class="icon-eye-open"></i>
                                         <?php

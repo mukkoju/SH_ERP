@@ -2,13 +2,14 @@
     <?php $viewTicket = $this -> viewTicket; ?>
     <div class="shw-tckt">
         <div class="actn-btns">
-            <button class="actn-edit" id="ttl-edt-btn"><i class="icon-pencil"></i></button>
-            <button class="actn-edit" id="nw-tckt-btn"><a href="/customer_ticket">New ticket</a></button>
+            <button class="btn btn-success" id="ttl-edt-btn">Edit<i class="icon-pencil"></i></button>
+            <a href="/customer_ticket"><button class="btn btn-primary" id="nw-tckt-btn">New ticket</button></a>
         </div>
         <div class="tckt-ttl" data-tcktid='<?= $viewTicket[0][0]['_Id_'] ?>'><h2><?= $viewTicket[0][0]['_cust_servs_tckt_ttl'] ?></h2>
             <div class="edt-ttl">
                 <div class="actn-btns">
-                <button class="actn-edit" id="actn-sve">Save</button> <button class="actn-edit" id="actn-cncl">Cancel</button></div>
+                <button class="btn btn-success" id="actn-sve">Save</button>
+                <button class="btn btn-danger" id="actn-cncl">Cancel</button></div>
                 <input id="edt-ttl-inpt" data-tcktid='<?= $viewTicket[0][0]['_Id_'] ?>' type="text" value="<?= $viewTicket[0][0]['_cust_servs_tckt_ttl'] ?>">
             </div>    
         <div class="shw-tckt-opndby"  data-ownreml='<?= $viewTicket[0][0]['_cust_servs_tckt_holder']?>'><b><?= $viewTicket[0][0]['_emp_name']?></b> opened this ticket on <?= date('M j Y', $viewTicket[0][0]['_cust_servs_tckt_addedon'])?>
@@ -106,7 +107,7 @@
                             <textarea class="cmnt_edt_vlue" placeholder="Post a comment" data-cmnt_id="<?= $viewTicket[2][$i]['_id_'] ?>"><?= $viewTicket[2][$i]['_servs_cmnts_tckt_cmnt'] ?></textarea>
                             <div class="cmnt-actns cmnt-edt-actns">
                             <button class="btn btn-success updt-edt-cmnt">Update comment</button>
-                            <button class="cls-opn-tckt cncl-cmnt-updt" data-type="clse">Cancel</button>
+                            <button class="btn btn-warning cls-opn-tckt cncl-cmnt-updt" data-type="clse">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -127,9 +128,9 @@
                 <div class="cmnt-actns">
                     <button id="cmnt-tckt" class="btn btn-success">Comment</button>
                     <?php if($viewTicket[0][0]['_cust_servs_tckt_sts']  == 1) {?>
-                    <button class="cls-opn-tckt" id="clse-cmnt-tckt" data-type="clse">Close Ticket</button>
+                    <button class="cls-opn-tckt btn btn-danger" id="clse-cmnt-tckt" data-type="clse">Close Ticket</button>
                     <?php } else { ?>
-                    <button class="cls-opn-tckt" id="ropn-cmnt-tckt" data-type="ropn">Reopen Ticket</button>
+                    <button class="cls-opn-tckt btn btn-warning" id="ropn-cmnt-tckt" data-type="ropn">Reopen Ticket</button>
                     <?php } ?>
                 </div>
             </div>

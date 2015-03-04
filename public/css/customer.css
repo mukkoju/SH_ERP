@@ -19,11 +19,7 @@
     height: 200px;
     border-radius: 3px; 
 }
-#nw_tckt_btn{
-    border: 2px solid #FF5252;
-    color: #FF5252;
-    background-color: white;
-}
+
 .tckt_form{
     float: left;
 }
@@ -38,7 +34,7 @@
 }
 .atrbt-itm button{
     border: none !important;
-    background-color: white !important;
+    background-color: inherit;
     font-weight: bold;
     width: 140px;
     text-align: left;
@@ -98,7 +94,7 @@ a{
     overflow: hidden;
     margin-left: -68px;
     overflow: hidden;
-    font-size: 12px;
+    font-size: 14px;
     color: #666;
     background-color: #fff;
     background-clip: padding-box;
@@ -126,6 +122,7 @@ a{
 }
 .slct-itms{
     width: 100%;
+    margin-bottom: 0px;
 }
 .slct-itms li{
     margin-left: -25px; 
@@ -134,6 +131,7 @@ a{
     /*line-height: 0 !important ;*/
     border-bottom: 1px solid rgba(200,200,200,0.4);
     cursor: pointer;
+    padding: 8px 8px 8px 24px;
 }
 .slct-itms li:hover{
     background-color: rgb(226, 226, 226);
@@ -161,7 +159,7 @@ vertical-align: middle;
 
 }
 .ttl-lnk:hover{
-    color: #16B81D;
+    color: #009587;
 }
 .tckts-tbls a .ttl-lnk-cat{
     padding: 2px 4px 2px 4px;
@@ -209,8 +207,9 @@ vertical-align: middle;
 }
 .actn-btns{
     float: right;
+    margin-top: -8px;
 }
-.actn-edit{
+/*.actn-edit{
     border: 1px solid green;
     background-color: white;
     padding: 8px 24px 8px 12px;
@@ -226,7 +225,7 @@ vertical-align: middle;
      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1d733 !important;
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1d733f !important;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1d733f !important;
-}
+}*/
 .tckt-bdy{
     border-top: 1px solid #cccccc;
     margin: 4px;
@@ -254,7 +253,7 @@ vertical-align: middle;
     content: '';
     border: 10px solid transparent;
     /*border-bottom-color: #2e363f;*/
-    border-right-color: #eee;
+    border-right-color: #B1DBAF;
     position: absolute;
     margin-left: -20px;
     margin-top: 8px;;
@@ -262,7 +261,8 @@ vertical-align: middle;
 }
 
 .tckt-desc-hdr{
-    background-color: #f7f7f7;
+    /*background-color: #f7f7f7;*/
+    background-color: #B1DBAF;
     height: 32px;
     border-bottom: 1px solid #eee;
     padding: 6px 6px 6px 16px;
@@ -314,6 +314,8 @@ vertical-align: middle;
         cursor: pointer;
         font-weight: bold;
         margin-bottom: 16px !important;
+        display: inline-block;
+        margin-left: -3px;
 }
 
 .sb-nav li:first-child{
@@ -347,7 +349,7 @@ vertical-align: middle;
     content: '';
     border: 10px solid transparent;
     /*border-bottom-color: #2e363f;*/
-    border-right-color: #eee;
+    border-right-color: #B1DBAF;
     position: absolute;
     margin-left: -20px;
     margin-top: 8px;
@@ -374,7 +376,7 @@ vertical-align: middle;
     /*left: calc(94% - 10px);*/
 }
 .comnt_hdr{
-    background-color: #f7f7f7;
+    background-color: #B1DBAF;
     height: 32px;
     border-bottom: 1px solid #eee;
     padding: 6px 6px 6px 16px;
@@ -396,13 +398,13 @@ vertical-align: middle;
     float: right;
     margin-right: 16px;
 }
-#cmnt-tckt{
+/*#cmnt-tckt{
     background-color: #5cb85c !important;
     border-color: #5cb85c;
     padding: 6px 16px 5px 16px;
     border-radius: 0;
     border: none;
-}
+}*/
 .edt-cmnt{
     float: right;
     opacity: 0.6;
@@ -413,13 +415,13 @@ vertical-align: middle;
 .edt-cmnt:hover{
     opacity: 1 !important; 
 }
-.cls-opn-tckt{
+/*.cls-opn-tckt{
     background-color: white !important;
     border: 1px solid #333333 !important;
     padding: 5px 16px 4px 16px;
     border-radius: 0;
     border: none;
-}
+}*/
 .cmnt-bdy p{
     padding: 6px 8px 0px 16px;
 }
@@ -517,18 +519,18 @@ vertical-align: middle;
     width: 76%;
     font-size: 1.2em;
 }
-#actn-sve{
+/*#actn-sve{
 padding: 8px !important;
 border: 1px solid green !important;
 color: green !important;
-}
+}*/
 
-#actn-cncl{
+/*#actn-cncl{
 padding: 8px !important;
 border: 1px solid red !important;
 color: red !important;
 box-shadow: none !important;
-}
+}*/
 .cmnt_edt_vlue{
     width: 95%;
     height: 16%;
@@ -557,76 +559,8 @@ box-shadow: none !important;
 }
 
 
- /*Chart css*/
-.svg2{
-    margin-top: 8px !important;
-}
-input[type="radio"] {
-    width: auto;
-    
-}
 
-input[type="radio"]:checked + label:not(.no-dft), input[type="checkbox"]:checked + label:not(.no-dft), input[type="radio"]:checked + label:not(.no-dft) *, input[type="checkbox"]:checked + label:not(.no-dft) *{
-    color: #000;
-}
-input[type="radio"] + label:not(.no-dft), input[type="checkbox"] + label:not(.no-dft) {
-    position: relative;
-    padding: 0 0 0 25px;
-    font-size: 1em;
-    line-height: 1.2em;
-    color: #888;
-}
-input[type="radio"] + label:not(.no-dft), input[type="checkbox"] + label:not(.no-dft) {
-    position: relative;
-    padding: 0 0 0 25px;
-    font-size: 1em;
-    line-height: 1.2em;
-    color: #888;
-}
-input[type="radio"] + label:not(.no-dft):before, input[type="checkbox"] + label:not(.no-dft):before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 4px;
-    height: 14px;
-    width: 14px;
-    background: white;
-    border: 1px solid gray;
-    box-shadow: inset 0px 0px 0px 2px white;
-    -webkit-box-shadow: inset 0px 0px 0px 2px white;
-    -moz-box-shadow: inset 0px 0px 0px 2px white;
-    -o-box-shadow: inset 0px 0px 0px 2px white;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -o-border-radius: 8px;
-}
-input[type="radio"]:checked + label:not(.no-dft):before, input[type="checkbox"]:checked + label:not(.no-dft):before {
-    background: #FF4141;
-}
-input[type="radio"], input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-}
 
-#tckt-cht{
-    border: 1px solid #cccccc;
-    padding: 8px 0px 8px 0px;
-    margin-bottom: 16px;
-}
-#nw-tckt-btn{
-    padding: 6px 11px 5px 8px;
-    background-color: #5cb85c !important;
-    border-color: #5cb85c !important;
-}
-#nw-tckt-btn a{
-    color: white !important;
-    font-weight: bold;
-    text-decoration: none;
-    font-family: lato;
-    font-size: 1em !important;
-}
 
 .tckt-hdr{
     font-family: lato;

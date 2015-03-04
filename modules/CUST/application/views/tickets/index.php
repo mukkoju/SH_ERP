@@ -67,6 +67,65 @@
      </table>
      </div>
      </div>
+
+<style> /*Chart css*/
+.svg2{
+    margin-top: 8px !important;
+}
+input[type="radio"] {
+    width: auto;
+    
+}
+
+input[type="radio"]:checked + label:not(.no-dft), input[type="checkbox"]:checked + label:not(.no-dft), input[type="radio"]:checked + label:not(.no-dft) *, input[type="checkbox"]:checked + label:not(.no-dft) *{
+    color: #000;
+}
+input[type="radio"] + label:not(.no-dft), input[type="checkbox"] + label:not(.no-dft) {
+    position: relative;
+    padding: 0 0 0 25px;
+    font-size: 1em;
+    line-height: 1.2em;
+    color: #888;
+}
+input[type="radio"] + label:not(.no-dft), input[type="checkbox"] + label:not(.no-dft) {
+    position: relative;
+    padding: 0 0 0 25px;
+    font-size: 1em;
+    line-height: 1.2em;
+    color: #888;
+}
+input[type="radio"] + label:not(.no-dft):before, input[type="checkbox"] + label:not(.no-dft):before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 4px;
+    height: 14px;
+    width: 14px;
+    background: white;
+    border: 1px solid gray;
+    box-shadow: inset 0px 0px 0px 2px white;
+    -webkit-box-shadow: inset 0px 0px 0px 2px white;
+    -moz-box-shadow: inset 0px 0px 0px 2px white;
+    -o-box-shadow: inset 0px 0px 0px 2px white;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+input[type="radio"]:checked + label:not(.no-dft):before, input[type="checkbox"]:checked + label:not(.no-dft):before {
+    background: #FF4141;
+}
+input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+}
+
+#tckt-cht{
+    border: 1px solid #cccccc;
+    padding: 8px 0px 8px 0px;
+    margin-bottom: 16px;
+}</style>
 <script type="text/javascript" src="/public/js/customer.js"></script>
 <script type="text/javascript" src="/public/js/chart.js"></script>
 <script type="text/javascript" src="https://saddahaq.blob.core.windows.net/v11/gbojd3.v3.min.js"></script>

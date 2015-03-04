@@ -6,7 +6,7 @@
     <label>Email:<br><input type="email" placeholder="Email" id="user-lvl-eml"></label>
     <label>User level:<br><input type="text" placeholder="HR:1, PM:2, EMP:0" id="lvl-num"></label>
     </form>
-    <button class="btn btn-info hr-privlages-btn" id="user-lvl-submit" type="button" style="color: #FF7171;">SET</button>
+    <button class="btn btn-success hr-privlages-btn" id="user-lvl-submit" type="button" style="color: #FF7171;">SET</button>
 </div>
     <div id="chnge-pswrd-hr" class="span5">
     <h3>Change Emp password</h3>
@@ -14,7 +14,7 @@
     <label>Email:<br><input type="email" placeholder="Email" id="pswrd-chnge-eml"></label>
     <label>New password:<br><input type="password" id="nwpwd"></label>
     </form>
-    <button class="btn btn-info hr-privlages-btn" id="pswrd-chng-submit" type="button" style="color: #FF7171;">Change</button>
+    <button class="btn btn-success hr-privlages-btn" id="pswrd-chng-submit" type="button" style="color: #FF7171;">Change</button>
 </div>
 </div>
 

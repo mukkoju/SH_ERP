@@ -1,19 +1,3 @@
-
-<?php // print_r(geoip_record_by_name('flipkart.com'))?>
-
-           <?php // if (!$this->user_details[0]['_emp_level'] == 0){?>
-           <?php // if ($this->user_details[0]['leaves_alert'] == 1){?>
-            <div class="alert alert-info alert-dismissable alert-leaves">
-                <button type="button" class="close" data-dismiss="alert" 
-                        aria-hidden="true">
-                    &times;
-                </button>
-                <?php $row = $this->getLeavesDeatilsByHr;?>
-                <b><?php // echo $row[0]['emp_name']; ?></b> Applied a leave. On <span><?php // echo date("j-M-Y" ,$row[0]['apply_date']); ?></span>
-                <span class="alert-desc" style="display: block"><?php // echo $row[0]['description']; ?></span>
-            </div>
-           <?php //}?>
-           <?php // }?>
             <div class="span7 left-cntnt">
                 <div id="myCarousel" class="carousel slide">
                     <div class="carousel-inner">
@@ -159,8 +143,8 @@
                         <b><p id="hrlev-emp-name"></p></b>
                         <b class="hidden"><p id="hrlev-emp-email"></p></b>
                     </i></div>
-                <button name="hr_status" value="Rejected" class="btn btn-info lev-rejct-btn hr_status">Reject</button>
-                <button name="hr_status" value="Approved" class="btn btn-info lev-aprv-btn hr_status">Approve</button>
+                <button name="hr_status" value="Rejected" class="btn btn-danger lev-rejct-btn hr_status">Reject</button>
+                <button name="hr_status" value="Approved" class="btn btn-success lev-aprv-btn hr_status">Approve</button>
             </section>
         </div>
      <!--Hr leave pop up area close-->
@@ -189,8 +173,8 @@
                         <p id="mngrlev-emp-name"> </p>
                         <p class="hidden" id="mngrlev-emp-email"> </p>
                     </i></div>
-                <button name="mngr_status" value="0" class="btn btn-info lev-rejct-btn mngr_status">Reject</button>
-                <button name="mngr_status" value="1" class="btn btn-info lev-aprv-btn mngr_status">Approve</button>
+                <button name="mngr_status" value="0" class="btn btn-danger lev-rejct-btn mngr_status">Reject</button>
+                <button name="mngr_status" value="1" class="btn btn-success lev-aprv-btn mngr_status">Approve</button>
             </section>
         </div>
         <!--manager leave pop up area close-->

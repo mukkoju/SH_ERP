@@ -126,7 +126,10 @@ $(document).ready(function () {
     });
     
     $('#cmnt-tckt').click(function(){
-       var nw_cmnt = $('#cmnt_vlue').val();
+       var nw_cmnt = $('#cmnt_vlue').val().trim();
+       if(nw_cmnt == ''){
+           $('.sts-strp').css({'background-color': '#f44336'}).html('<i class="icon-warning-sign"></i> Comment cannot be empty').fadeIn('slow');
+       }
         $.ajax({
            url: '/tickets/updt',
            type: 'post',
@@ -313,6 +316,7 @@ $(document).ready(function () {
     $('#ttl-edt-btn').click(function(){
        $('.tckt-ttl h2').hide();
        $(this).hide();
+       $('#nw-tckt-btn').hide();
        $('.edt-ttl').show();
        
     });
@@ -321,6 +325,7 @@ $(document).ready(function () {
         $('.edt-ttl').hide();
        $('.tckt-ttl h2').show();
        $('#ttl-edt-btn').show();
+       $('#nw-tckt-btn').show();
        
        
     });
@@ -344,6 +349,7 @@ $(document).ready(function () {
                        $('.edt-ttl').hide();
                        $('.tckt-ttl h2').show();
                        $('#ttl-edt-btn').show();
+                       $('#nw-tckt-btn').show();
                        $('.tckt-ttl h2').text(nw_ttl);
                    }
                    

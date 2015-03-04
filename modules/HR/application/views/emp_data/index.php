@@ -2,7 +2,7 @@
                 <h2 class="apply">Post new Update</h2><br>
                 <p class="val_err" id="posterr"></p>
                 <textarea style="width: 50%;" placeholder="Notice:" id="post-txt"></textarea>
-                <button class="btn btn-info" value="POST" id="post-butn" type="button" style="color: #FF7171;">Post</button>
+                <button class="btn btn-success" value="POST" id="post-butn" type="button" style="color: #FF7171;">Post</button>
             </div>      
     <h2 class="apply">Employees Zone</h2><br>
     <div id="all_emp" data-complete = <?php echo "'".json_encode($this->all_user_details)."'"; ?> >

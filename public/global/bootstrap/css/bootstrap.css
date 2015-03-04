@@ -14,7 +14,7 @@
 
 .clearfix:before,
 .clearfix:after {
-  display: table;for 
+  display: table;
   line-height: 0;
   content: "";
 }
@@ -2413,9 +2413,9 @@ table th[class*="span"],
   background-position: -120px -24px;
 }
 
-.icon-upload {
+/*.icon-upload {
   background-position: -144px -24px;
-}
+}*/
 
 .icon-inbox {
   background-position: -168px -24px;

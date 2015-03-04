@@ -28,8 +28,9 @@
     <p style="position: relative; top: 18px;">Cheque no:</p>
     <input type="text" id="cq-no" class="chq-no" placeholder="Cheque no">
     <i class="icon-cog procss-btn"></i>
-    <input type="button" id="process" class="btn btn-info" value="Process" name="textarea_hidden" style="color: black;">
-    <a href="#"><button type="button" id="exprt" class="btn btn-info exprt" value="Export" name="textarea_hidden" style="color: black;">Export<i class="icon-xlsx"></i></button></a>
+    <button id="process" class="btn btn-success" name="textarea_hidden">Process</button>
+    <a href="#">
+        <button type="button" id="exprt" class="btn btn-primary exprt" value="Export" name="textarea_hidden" style="color: black;">Export<i class="icon-xlsx"></i></button></a>
     <p class="err-sal" style="opacity: 0; line-height: 0.5%; color: red;">ERRR</p>
     </div>
 </div>
@@ -110,7 +111,7 @@ $(document).ready(function(){
                     if (d[i]['_emp_stmnts_status'] == 1 || d[i]['_emp_stmnts_status'] == 2)
                         str += "";
                     else
-                        str += "<input type='checkbox' name='checkbox' value='1' class='checkbox'>";
+                        str += "<div class='checkbox'><label><input type='checkbox' name='checkbox' value='1' class='checkbox'><span class=ripple></span><span class=check></span></label></div>";
                     str += "</td><td  class='sal-name'>" + d[i]['_emp_per_name'] + "</td>";
                     str += "<td id=''>" + "<input type='text'  class='max-pay' value=" + d[i]['_emp_financial_basic_sal'] + " style='border: none; height: 50px; width: 95px; margin-top: 0px; outline: none;' readonly>" +
                             "</td><td id=''>";
@@ -127,7 +128,7 @@ $(document).ready(function(){
                     else
                         str += "</td><td contenteditable='true'  class='tol-pay'>" + d[i]['_emp_financial_basic_sal'] + "</td>";
                     if (d[i]['_emp_stmnts_status'] == 1)
-                        str += "<td class='stats_td'><button class='btn btn-info pay_cnfrm' id='pay_cnfrm' value='Done' type='button'>Done</button><button class='btn btn-info pay_cncl' id='pay_cncl' value='Cancel' type='button' style='color: #FF7171;'>Cancel</button></td>";
+                        str += "<td class='stats_td'><button class='btn btn-success pay_cnfrm' id='pay_cnfrm' value='Done' type='button'>Confirm</button><button class='btn btn-danger pay_cncl' id='pay_cncl' value='Cancel' type='button' style='color: #FF7171;'>Cancel</button></td>";
                     else if (d[i]['_emp_stmnts_status'] == 2)
                         str += "<td class='paid-img stats_td'><img src='/images/paid.png' style='max-width: 50px;'><div class='revrt'>Revert</div></td>";
                     else

@@ -629,11 +629,11 @@ class Home_model extends Model {
     
     public function get_directory_list(){
         if($_POST['dprtmt'] == 'All'){
-            $details = $this->db->prepare("SELECT emp_name, emp_email, phone_no, department FROM new_emp");
+            $details = $this->db->prepare("SELECT viv_emp_per_en._emp_per_name, viv_emp_per_en._emp_per_email, viv_emp_per_en._emp_per_phone, viv_emp_rol_en._emp_rol_department FROM viv_emp_per_en, viv_emp_rol_en WHERE viv_emp_per_en._emp_per_email = viv_emp_rol_en._emp_rol_email");
             $details->execute(array(':departmnt'=>$_POST['dprtmt']));
             $res = $details->fetchAll(PDO::FETCH_ASSOC);
         }else{
-        $details = $this->db->prepare("SELECT emp_name, emp_email, phone_no, department FROM new_emp WHERE department = :departmnt");
+        $details = $this->db->prepare("SELECT viv_emp_per_en._emp_per_name, viv_emp_per_en._emp_per_email, viv_emp_per_en._emp_per_phone, viv_emp_rol_en._emp_rol_department FROM viv_emp_per_en, viv_emp_rol_en WHERE viv_emp_per_en._emp_per_email = viv_emp_rol_en._emp_rol_email AND _emp_rol_department = :departmnt");
         $details->execute(array(':departmnt'=>$_POST['dprtmt']));
         $res = $details->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -675,19 +675,15 @@ class Home_model extends Model {
             print $contents;
     }
     public function file_download(){
-        
     $file = APP_PATH."/uploads/hr@saddahaq.com/download.jpg"; 
-
     header("Content-Description: File Transfer"); 
     header("Content-Type: application/octet-stream"); 
     header("Content-Disposition: attachment; filename=\"$file\""); 
-
     readfile ($file); 
-
     }
     
     public function search(){
-         $name = $_POST['kwd'];
+        $name = $_POST['kwd'];
         $search = $this->db->prepare("SELECT emp_name, emp_email, id FROM new_emp WHERE emp_name like '%".$name."%'");
         $search->execute();
         $res = $search->fetchAll(PDO::FETCH_ASSOC);

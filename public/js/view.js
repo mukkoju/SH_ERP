@@ -952,7 +952,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
            var d = JSON.parse(res);
            $('#dir_tbl').html('<tr><th>Name</th><th>Email</th><th>Ph no</th><th>Department</th></tr>');
            for(var i=0; i<d.length; i++){
-           $('#dir_tbl').append('<tr><td>'+d[i]['emp_name']+'</td><td>'+d[i]['emp_email']+'</td><td>'+d[i]['phone_no']+'</td><td>'+d[i]['department']+'</td></tr>');
+           $('#dir_tbl').append('<tr><td>'+d[i]['_emp_per_name']+'</td><td>'+d[i]['_emp_per_email']+'</td><td>'+d[i]['_emp_per_phone']+'</td><td>'+d[i]['_emp_rol_department']+'</td></tr>');
        }
        }
      });    
@@ -1259,7 +1259,26 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
  
     
     
-    $('button').click(function (e) {
+    $(document).on('click', 'button', function (e) {
+        var $this = $(this);
+        var parent = $this.parent()
+        var color = $this.css('color');
+        if ($this.find(".rippl").length == 0) {
+            $this.append("<span class='rippl'></span>");
+        }
+        var rpl = $this.find(".rippl");
+        rpl.removeClass("animate");
+        if (!rpl.height() && !rpl.width())
+        {
+            var d = Math.max($this.outerWidth(), $this.outerHeight());
+            rpl.css({height: d, width: d});
+        }
+        var x = e.pageX - $this.offset().left - rpl.width() / 2;
+        var y = e.pageY - $this.offset().top - rpl.height() / 2;
+        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
+    }); 
+    
+     $('button').click(function (e) {
         var $this = $(this);
         var parent = $this.parent()
         var color = $this.css('color');
@@ -1279,9 +1298,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
     }); 
     
     
-    
-    $('nav li a, td a').mousedown(function(e){
-       
+    $('nav li a').mousedown(function(e){
         var $this = $(this);
         var parent = $(this).parent();
          var color = $(this).css('color');
@@ -1312,7 +1329,10 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
         
     });
     
-    
+    $('input[type=checkbox]').after("<span class=ripple></span><span class=check></span>");
+    $('input[type=radio]').after("<span class=circle></span><span class=check></span>");
+    $('input').addClass("form-control");
+    $('textarea').addClass("form-control");
     
     
 });

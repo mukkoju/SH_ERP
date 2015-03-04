@@ -1,7 +1,7 @@
         <div class="span10 left-cntnt cstmr_layout">
             <div class="apply_form" id="aply">
                 <div class="tckt-hdr"><span>New Ticket</span>
-                    <button class="actn-edit" id="nw-tckt-btn"><a href="/tickets">Tickets</a></button>
+                    <a href="/tickets"><button class="actn-edit btn btn-primary" id="nw-tckt-btn">Tickets</button></a>
                 </div><br>
                 <form name="leave_apply_form" id="new_tckfrm">
                     <label class="form_txt"><input type="text" name="sub" placeholder="Subject" id="ticket-subjct"></label>
@@ -12,7 +12,7 @@
                     <!--<i class="icon-briefcase"></i>-->
                     </div>
                     </div>    
-                    <button id="nw_tckt_btn" class="btn btn-info">Submit new ticket</button> 
+                    <button id="nw_tckt_btn" class="btn btn-success">Submit new ticket</button> 
                 </form>
                 
             </div>

@@ -184,6 +184,9 @@
                     case 'fltr':
                        (new Tickets()) -> fltr();
                         break;
+                    case 'lodmre':
+                       (new Tickets()) -> lodmre();
+                        break;
                     default:
                      (new Tickets()) -> index();
     

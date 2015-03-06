@@ -732,15 +732,15 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
      var empdoc_upld = 1;
      $('#pluse-doc').on('click', function(){
          empdoc_upld++;
-         $('#upload-docs-butn').before("<label>Select Document:<br><input type='file' name = 'empdoc' id='docs-file"+empdoc_upld+"' style='display: inline-block;'><select class='slct-month'><option value='' selected>--Select Doc type--</option><option value='1'>10th</option><option value='2'>Bachelor</option><option value='3'>Experience</option><option value='4'>Address</option><option value='4'>Other</option></select><a href='#'  class='minus-doc'><i class='icon-minus-sign'></i></a></label>");
+         $('#upload-docs-butn').before("<div class='upld-fle-itm'>Select Document:<br><input type='file' name = 'empdoc' id='docs-file"+empdoc_upld+"'><select class='slct-month'><option value='' selected>--Select Doc type--</option><option value='1'>10th</option><option value='2'>Bachelor</option><option value='3'>Experience</option><option value='4'>Address</option><option value='4'>Other</option></select><i class='minus-doc mdi-content-remove-circle-outline'></i></div>");
      });
      
      $('#docs-form').on('click', '.minus-doc', function(){
-        $(this).parents("label").remove();
+        $(this).parents(".upld-fle-itm").remove();
      });
      
      $('.profile-img-change-input').change(function(){
-         $('.profile_pop_save').html('<button class="btn btn-info profile_save" id="" value="Done" type="button">Save</button>');
+         $('.profile_pop_save').html('<button class="btn btn-success profile_save" value="Done" type="button">Save</button>');
          var formData = new FormData();
          var files = document.getElementById('p-pic-change');
          files = files.files;
@@ -796,7 +796,6 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
         method: 'post',
         success:function(d){
             // var d = JSON.parse(d);
-            
             var arry_length = d.length;
             for(i=0; i<arry_length; i++){
                 var now = new Date();
@@ -1329,10 +1328,32 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
         
     });
     
+    
+    
+    $('td').click(function (e) {
+        var $this = $(this);
+        var parent = $this.parent()
+        var color = $this.css('color');
+        if ($this.find(".rippl").length == 0) {
+            $this.append("<span class='rippl'></span>");
+        }
+        var rpl = $this.find(".rippl");
+        rpl.removeClass("animate");
+        if (!rpl.height() && !rpl.width())
+        {
+            var d = Math.max($this.outerWidth(), $this.outerHeight());
+            rpl.css({height: d, width: d});
+        }
+        var x = e.pageX - $this.offset().left - rpl.width() / 2;
+        var y = e.pageY - $this.offset().top - rpl.height() / 2;
+        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
+    });
+    
     $('input[type=checkbox]').after("<span class=ripple></span><span class=check></span>");
     $('input[type=radio]').after("<span class=circle></span><span class=check></span>");
-    $('input').addClass("form-control");
+    $('input').not(':input[type=file]').addClass("form-control");
     $('textarea').addClass("form-control");
+    
     
     
 });

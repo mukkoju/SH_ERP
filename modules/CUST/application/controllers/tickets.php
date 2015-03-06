@@ -66,6 +66,15 @@ class Tickets extends Controller{
         }
     }
     
+    public function lodmre(){
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+        require CUST_MODULE. '/models/tickets_model.php';
+         echo json_encode((new Tickets_model()) -> getTickets());
+        }else {
+            header("Location: /error");
+        }
+    }
+    
 }
 
 

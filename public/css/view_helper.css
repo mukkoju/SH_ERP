@@ -17,7 +17,7 @@ body
 
 .btn {
     position: relative !important;
-/*    padding: 8px 30px !important;*/
+    /*padding: 8px 30px !important;*/
     padding: 8px 16px !important;
     border: 0 !important;
     margin: 10px 1px !important;
@@ -70,7 +70,17 @@ textarea{
 input{
     border-radius: 0px !important;
     outline: none !important;
-    p
+}
+input:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #cccccc !important;
+    border:1px solid #cccccc !important;
+}
+
+textarea:focus{
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .profile{
@@ -82,9 +92,10 @@ input{
         /*font-family: 'Gentium Basic',serif;*/
     }
     .profile i{
-        width: 35px;
+        padding-right: 8px;
         font-size: 1.4em;
-        color: #FF5252; 
+        color: #009587; 
+        vertical-align: middle;
     }
     
     .profile_img{
@@ -189,7 +200,7 @@ textarea{
 }
 .form_txt{
     font-size: 15px;
-    
+    margin-bottom: 16px;   
 }
 
 .apply{
@@ -197,7 +208,20 @@ line-height: 1.2em !important;
 /*font-family: 'Open Sans Condensed',sans-serif !important;*/
 font-family: lato !important;
 font-size: 2em;
-font-weight: 600;    
+font-weight: 600;
+display: inline;
+}
+.apply i{
+    font-size: 0.5em !important;
+    vertical-align: middle;
+    position: absolute;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.apply:hover i{
+    color: #009587;
+    opacity: 0.9;
 }
 .apply_form{
     // float: left;
@@ -305,8 +329,8 @@ font-weight: 600;
 }*/
 
 #Next i{
-    font-size: 1.2em;
-    background-position: 30px !important;
+    font-size: 1.5em;
+    vertical-align: middle;
 }
 
 #post-butn{
@@ -366,8 +390,8 @@ font-weight: 600;
 
 
 #Back i{
-    font-size: 1.2em;
-    background-position: 30px !important;
+    font-size: 1.5em;
+    vertical-align: middle;
 }
 
 .profile-avtr{
@@ -375,6 +399,29 @@ font-weight: 600;
     height: 42px !important;
     border-radius: 50%;
     -webkit-border-radius: 50%;
+}
+
+#docs-form i{
+    font-size: 1.4em;
+    color: #009587;
+    vertical-align: middle;
+    padding-left: 16px;
+    line-height: 1.5em;
+}
+
+#upload-docs-butn i{
+    font-size: 1.4em;
+    color: white !important;
+    vertical-align: middle;
+    padding: 0 !important;
+    line-height: 0 !important;
+}
+
+#docs-form select{
+    float: left;
+}
+#docs-form input[type="file"]{
+    float: left;
 }
 .month-leavs_err{
 border: none !important;
@@ -729,14 +776,24 @@ a .icon-minus-sign:hover{
 .p-pic-change{
    
 }
-.icon-add-image{
+.profile_img i{
+   font-size: 4em;
+   margin-top: 95px !important;
+   position: absolute !important;
+   margin-left: -144px;
+   opacity: 0;
+   /*color: #009587;*/
+   color: white;
+}
+
+/*.icon-add-image{
 font-size: 4em;
 margin-top: 95px !important;
 position: absolute !important;
 margin-left: -162px;
 opacity: 0;
-}
-.profile_img:hover .icon-add-image{
+}*/
+.profile_img:hover i{
     opacity: 1;
     font-size: 4.2em;
 }
@@ -757,7 +814,7 @@ border: 1px solid #333;
 .prsnl-levs-list:hover{
     color: #FF7171;
 }
-.dash_table td{
+td{
     overflow: hidden;
     position: relative;
 }
@@ -1024,14 +1081,7 @@ font-size: 1.5em;
 background-position: 20px;
 vertical-align: sub;
 }
-.profile_save{
-border: 1px solid green !important;
-color: green !important;
-padding-left: 10px !important;
-padding-bottom: 6px !important;
-padding-right: 10px !important;
-padding-top: 6px !important;
-}
+
 .profile_close{
 border: 1px solid #FF7171 !important;
 color: #FF7171 !important;
@@ -1253,4 +1303,8 @@ button{
     overflow: hidden !important;
     position: relative;
     outline: none !important;
+}
+
+.upld-fle-itm{
+    margin-bottom: 16px;
 }

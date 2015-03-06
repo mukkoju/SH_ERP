@@ -7,7 +7,12 @@ class Tickets_model extends Model{
     
     // @get all tickets by manager
     public function getTickets(){
-        $get_all_tickets = $this->db->query("SELECT * FROM viv_cust_servs_en, viv_emp_en WHERE viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
+        if(isset($_POST['pc'])){
+            $pc = $_POST['pc']; 
+        }else{
+            $pc = 0; 
+        }
+        $get_all_tickets = $this->db->query("SELECT * FROM viv_cust_servs_en, viv_emp_en WHERE viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email AND viv_cust_servs_en._cust_servs_tckt_sts = 1 ORDER BY _cust_servs_tckt_addedon DESC LIMIT $pc,15");
         $res = $get_all_tickets -> fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }

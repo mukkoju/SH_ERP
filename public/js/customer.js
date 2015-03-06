@@ -404,4 +404,35 @@ $(document).ready(function () {
     });
     
     
+    $('#ticket-description').focus(function(){
+       $('.atch-strp').css({bottom:'0px'}); 
+    });
+    
+    $('#tckt-loamre-btn').click(function(){
+        $.ajax({
+           url: '/tickets/lodmre',
+           method: 'post',
+           data: {
+             'pc': $('.tckts-tbls').find('td').length
+           },
+           success: function (data){
+               var d = JSON.parse(data);
+               if(d.length == 0){
+                   $('#tckt-loamre-btn').attr('disabled','disabled');
+               }
+               for(var i=0; i<d.length; i++){
+                    var htm = '<tr><td><i class="icon-help"></i><a href="tickets/view/' + d[i]._Id_ + '"><span class="ttl-lnk">' + d[i]._cust_servs_tckt_ttl + '</span>';
+//                    if (d[i]._cust_servs_tckt_catg != '') {
+                        htm += '<span class="ttl-lnk-cat">' + d[i]._cust_servs_tckt_catg + '</span>';
+//                    };
+//                    if (d[i]._cust_servs_tckt_sbcatg += '') {
+                        htm += ' <span class="ttl-lnk-sbcat">' + d[i]._cust_servs_tckt_sbcatg + '</span>';
+//                    };
+                    htm += '</a><div class="tckt-opnd-by">ticket opened on '+new Date(d[i]._cust_servs_tckt_addedon*1000)+' by ' + d[i]._emp_name + '</div></td></tr>';
+                    $('.tckts-tbls').append(htm);
+           }
+           }
+        });
+    });
+    
 });

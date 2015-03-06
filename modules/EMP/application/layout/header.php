@@ -18,9 +18,10 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <script src="/public/js/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="/public/css/style.css" />
-        <link type="text/css" rel="stylesheet" href="/public/css/chkbx.css" />
-        <link type="text/css" rel="stylesheet" href="/public/css/form_control.css" />
+        <link type="text/css" rel="stylesheet" href="/public/css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="/public/css/chkbx.css"/>
+        <link type="text/css" rel="stylesheet" href="/public/css/form_control.css"/>
+        <link type="text/css" rel="stylesheet" href="/public/global/saddahaq/css/material-wfont.css"/>
         <link rel="stylesheet" href="/public/css/customer.css" />
         <!--<link rel="stylesheet" href="/public/global/bootstrap/css/logout.css"/>-->
         <script src="/public/js/logout.js"></script>
@@ -144,9 +145,9 @@
                         }
                          $image_name = $image_name[2];?>
                         <?php if(file_exists("$profile_img/$image_name")){ ?>
-                        <img src="/uploads/<?php echo $email?>/profile_pic/<?php echo $image_name?>" id="profile_image_style"/><input type="file" class="profile-img-change-input" id="p-pic-change"><i class="icon-add-image"></i>
+                        <img src="/uploads/<?php echo $email?>/profile_pic/<?php echo $image_name?>" id="profile_image_style"/><input type="file" class="profile-img-change-input" id="p-pic-change"><i class="mdi-image-photo-camera"></i>
                         <?php }else{?>
-                        <img src="/images/avtr.jpg" id="profile_image_style"/><input type="file" class="profile-img-change-input" id="p-pic-change"><i class="icon-add-image"></i>
+                        <img src="/images/avtr.jpg" id="profile_image_style"/><input type="file" class="profile-img-change-input" id="p-pic-change"><i class="mdi-image-photo-camera"></i>
                         <?php }?>
                         <p class="profle-pop-degnatn"><?= $_SESSION['loggedInDesignation'] ?></p>
                         <div class="profile_pop_save">
@@ -155,9 +156,9 @@
                     
                     <div class="profile">
                         <p style="margin-left: 5px;">ID:<span style="padding-left: 10px" ><?= $_SESSION['loggedInId'] ?></span></p>
-                        <p><i class="icon-mail"></i><span><?= $_SESSION['loggedIn'] ?></span></p>
+                        <p><i class="mdi-content-mail"></i><span><?= $_SESSION['loggedIn'] ?></span></p>
                         <!--<p><i class="icon-map-location"></i><span><?php // echo $this->emp_per_details[0]['_emp_per_adrs']; ?></span></p>-->
-                        <p><i class="icon-call"></i><span><?= $_SESSION['loggedInPhone'] ?></span></p>
+                        <p><i class="mdi-notification-phone-in-talk"></i><span><?= $_SESSION['loggedInPhone'] ?></span></p>
                     </div>
 
                 </section>
@@ -223,7 +224,7 @@
                         </div>
                         <div class="action_btns">
                             <div class="one_half last">
-                                <button class="btn btn-success" id="Next" value="Next" type="button" style="color: #FF7171;">Next<i class="icon-chevron-right"></i></button></div>
+                                <button class="btn btn-success" id="Next" value="Next" type="button" style="color: #FF7171;">Next<i class="mdi-navigation-chevron-right"></i></button></div>
                         </div>
                     </div>
                     <div class="slide_left">
@@ -284,7 +285,7 @@
                         </div>
                         <div class="action_btns">
                             <ul class="one_half_last">
-                                <li><button class="btn btn-warning" id="Back" value="Back" type="button" style="color: #FF7171;"><i class="icon-chevron-left"></i> Back</button></li>
+                                <li><button class="btn btn-warning" id="Back" value="Back" type="button" style="color: #FF7171;"><i class="mdi-navigation-chevron-left"></i> Back</button></li>
                                 <li class="reg-li"><input class="btn btn-success btn_red" id="register-btn" value="Register"></li>
                             </ul>
                         </div>   
@@ -300,12 +301,14 @@
             <section class="popupBody">
                 <div><form id="docs-form" enctype="multipart/form-data">
                         <p id="upload-doc-err"></p>
-                        <label>Employee Email:<br>
+                        Employee Email:<br>
                             <input type="text" name="emp_doc_email" id="emp-doc-emial" class="emp-doc-emial form-control" placeholder="Mail id of employe" style="height: 30px; width: 250px;">
                             <span class="bar"></span>
-                        </label>
+                        
                         <!--<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>-->
-                        <label>Select Document:<br><input type="file" name = "empdoc" id="docs-file1" style="display: inline-block;">
+                        <div class="clearfix"></div>
+                        <div class="upld-fle-itm">
+                        Select Document:<br><input type="file" name ="empdoc" id="docs-file1">
                                     <select class="slct-month">
                                         <option value='0' selected>--Select Doc type--</option>
                                         <option value="1">10th</option>
@@ -313,9 +316,11 @@
                                         <option value="3">Experience</option>
                                         <option value="4">Address</option>
                                         <option value="4">Other</option>
-                                    </select><a href="#"><i class="icon-plus-strong" id="pluse-doc" style="margin-left: 5%;"></i></a>
-                                </label>
-                        <button class="btn btn-success" value="POST" id="upload-docs-butn" type="button" style="color: #FF7171;"><i class="icon-upload"></i>Upload</button>
+                                    </select>
+                                    <i class="mdi-content-add-circle-outline" id="pluse-doc"></i>
+                        </div>
+                                    <div class="clearfix"></div>
+                                    <button class="btn btn-success" value="POST" id="upload-docs-butn" type="button" style="color: #FF7171;"><i class="mdi-file-cloud-upload" style="color: white"></i>Upload</button>
                        </form>
                        <!--<progress></progress>-->
                 </div>
@@ -345,9 +350,17 @@
                                           $index = array_search($temp, $h_dyas);
                                           if($index >= 0 && $index !== false){
                                                   ?>
-                            <input type="checkbox" class="hldys_chkbx" checked>
+                            <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="hldys_chkbx" checked>
+                                        </label>
+                                    </div>
                                           <?php }else{?>
-                            <input type="checkbox" class="hldys_chkbx">
+                            <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="hldys_chkbx">
+                                        </label>
+                            </div>
                                               <?php  } ?>
                         </div>
                     </li>

@@ -1,6 +1,6 @@
 <div class="span7 left-cntnt">
             <div class="apply_form" id="aply">
-                <h2 class="apply">Apply leave Here</h2><br>
+                <h2 class="apply">Apply leave Here <i class="mdi-action-help"></i></h2><br>
                 <p class="val_err"></p>
                 <form name="leave_apply_form" id="leaveform">
                     <label class="form_txt">Subject:</br><textarea name="sub" style="width: 90%" placeholder="Ex: Request for leave" id="leve-subjct"></textarea></label>

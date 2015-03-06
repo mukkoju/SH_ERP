@@ -23,12 +23,12 @@
         <tr>
             <?php $row = $this->all_user_details; ?>
             <?php for ($i = 0; $i < sizeof($row); $i++) { ?>
-                <td align="center"><?php echo $row[$i]['emp_id']; ?></td>
-                <td align="center"><?php echo $row[$i]['emp_name']; ?></td>
-                <td align="center"><?php echo $row[$i]['emp_email']; ?></td>
-                <td align="center"><?php echo $row[$i]['phone_no']; ?></td>
-                <td align="center"><?php echo $bdy = date("j-M-Y", $row[$i]['dob']); ?></td>
-                <td align="center"><?php echo $row[$i]['department']; ?></td>
+                <td align="center"><?= $i+1?></td>
+                <td align="center"><?php echo $row[$i]['_emp_per_name']; ?></td>
+                <td align="center"><?php echo $row[$i]['_emp_per_email']; ?></td>
+                <td align="center"><?php echo $row[$i]['_emp_per_phone']; ?></td>
+                <td align="center"><?php echo $bdy = date("j-M-Y", $row[$i]['_emp_per_age']); ?></td>
+                <td align="center"><?php echo $row[$i]['_emp_rol_department']; ?></td>
                 <!-- <td align="center"><a href="#<?php echo $i; ?>" class="modal_trigger7">View full</a></td>-->
                 <td align="center" class="dwnld"><a href="#<?php echo $i; ?>" class="modal_trigger7"><i class="icon-download"></i></a></td>
                 <td align="center" class="dwnld"><a href="#<?php echo $i; ?>-edit" class="modal_trigger7"><i class="icon-pencil"></i></a></td>

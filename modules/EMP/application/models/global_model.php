@@ -25,9 +25,9 @@ class Global_model extends Model {
     }
     
     public function getAllUserDetails() {
-        $sth10 = $this->db->prepare("SELECT * FROM new_emp");
+        $sth10 = $this->db->prepare("SELECT viv_emp_per_en.*, viv_emp_rol_en._emp_rol_department FROM viv_emp_per_en, viv_emp_rol_en WHERE viv_emp_per_en._emp_per_email = viv_emp_rol_en._emp_rol_email");
         $sth10->execute();
-           $row = $sth10->rowCount();
+        $row = $sth10->rowCount();
         $res = $sth10->fetchAll(PDO::FETCH_ASSOC) ;   
         return $res;   
     }

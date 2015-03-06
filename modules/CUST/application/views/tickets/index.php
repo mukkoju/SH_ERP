@@ -49,8 +49,9 @@
      <div id="tckt-sts-dt">
      <div class="tbl-hdr"><h2>Total <?= sizeof($tckts) ?> tickets</h2></div>
      <table class="tckts-tbls table table-hover table-condensed table-bordered">
-         <tr><?php for  ($i=0;  $i<sizeof($tckts); $i++){ ?>
-             <td>
+         <?php for  ($i=0;  $i<sizeof($tckts); $i++){ ?>
+         <tr>
+                <td>
                  <i class="icon-help"></i>
                  <a href="tickets/view/<?= $tckts[$i]['_Id_']; ?>">
                      <span class="ttl-lnk"><?= $tckts[$i]['_cust_servs_tckt_ttl']; ?></span>
@@ -61,11 +62,11 @@
                  </a>
                  <div class="tckt-opnd-by">ticket opened on <?= date('M j Y', $tckts[$i]['_cust_servs_tckt_addedon']);?> by <?= $tckts[$i]['_emp_name'];?></div>
              </td>
-         
          </tr>
          <?php }?>
      </table>
      </div>
+     <div class="lod_mre"><button class="btn btn-warning" id="tckt-loamre-btn">Load More</button></div>
      </div>
 
 <style> /*Chart css*/

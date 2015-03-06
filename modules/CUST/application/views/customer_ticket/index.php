@@ -4,12 +4,11 @@
                     <a href="/tickets"><button class="actn-edit btn btn-primary" id="nw-tckt-btn">Tickets</button></a>
                 </div><br>
                 <form name="leave_apply_form" id="new_tckfrm">
-                    <label class="form_txt"><input type="text" name="sub" placeholder="Subject" id="ticket-subjct"></label>
-                    <div><label><textarea name="dec" id="ticket-description" placeholder="Write"></textarea></label>
+                    <div class="form_txt"><input type="text" name="sub" placeholder="Subject" id="ticket-subjct"></div>
+                    <div class="tckt-desc-bx"><textarea name="dec" id="ticket-description" placeholder="Write"></textarea>
                     <div class="atch-strp">
-                    <a href="#"><i class="icon-add-image"></i></a>
-                    <a href="#"><i class="icon-trash-closed"></i></a>
-                    <!--<i class="icon-briefcase"></i>-->
+                    <a href="#"><i class="mdi-editor-attach-file"></i></a>
+                    <a href="#"><i class="mdi-action-delete"></i></a>
                     </div>
                     </div>    
                     <button id="nw_tckt_btn" class="btn btn-success">Submit new ticket</button> 

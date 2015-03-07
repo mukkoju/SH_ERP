@@ -1358,3 +1358,6 @@ button{
     font-size: 1.3em;
     vertical-align: sub;
 }
+#cq-no{
+    width: 120px !important;
+}

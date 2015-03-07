@@ -1,4 +1,4 @@
-<div class="salaries span7 table-responsive">
+<div class="salaries span12 table-responsive">
     <select id="slct-year"></select>
     <select id='slct-month'>
     <option value="1" selected>January</option>
@@ -13,10 +13,33 @@
     <option value="10">October</option>
     <option value="11">November</option>
     <option value="12">December</option>
-    </select><br><br>
+    </select>
+    <select name="department">
+        <option>Select Department</option>   
+        <option>Content</option>   
+        <option>Tech</option>   
+        <option>Marketing</option>   
+        <option>Communications</option>   
+        <option>HR</option>
+        <option>Operations</option>   
+        <option>Management</option>
+        <option>All</option>
+    </select>
+    <button class="btn btn-success stmnts-expnd"><i class="mdi-action-assignment"></i>Statements<i class="mdi-navigation-expand-more"></i></button>
+    <div class="span5 overflow bnk-stmnts-tbl">
+            <div class="tbl-hdr"><h2>Download Bank Statements</h2></div>
+            <table border="2" class="table table-condensed table-bordered" id="bank_stmnt-table">
+                <tr><th style="text-align: center;">Statements</th>
+                    <th style="text-align: center;">Get</th>
+                </tr>
+                <tr class="td-apndg-bnk-stmnt">
+                    
+                </tr>
+            </table>
+            </div>
     <h4 id="empty" style="display: none"></h4>
     <h4 id="selct-mnth-prcd"></h4>
-    <table class="table table-hover table-bordered" id="table1">
+    <table class="table table-bordered" id="table1">
         <tr><th>Select</th>
             <th>Name</th>
             <th>Max-payable</th>
@@ -30,21 +53,11 @@
     <i class="icon-cog procss-btn"></i>
     <button id="process" class="btn btn-success" name="textarea_hidden">Process</button>
     <a href="#">
-        <button type="button" id="exprt" class="btn btn-primary exprt" value="Export" name="textarea_hidden" style="color: black;">Export<i class="icon-xlsx"></i></button></a>
+    <button type="button" id="exprt" class="btn btn-primary exprt" value="Export" name="textarea_hidden" style="color: black;">Export<i class="icon-xlsx"></i></button></a>
     <p class="err-sal" style="opacity: 0; line-height: 0.5%; color: red;">ERRR</p>
     </div>
 </div>
-<div class="span5 overflow">
-            <div class="tbl-hdr"><h2>Download Bank Statements</h2></div>
-            <table border="2" class="table table-hover table-condensed table-bordered" id="bank_stmnt-table">
-                <tr><th style="text-align: center;">Statements</th>
-                    <th style="text-align: center;">Get</th>
-                </tr>
-                <tr class="td-apndg-bnk-stmnt">
-                    
-                </tr>
-            </table>
-            </div>
+
 
 <div class="ajax-loading"></div>
 <a id= "btn-trgr" href="#resp-popup" class="modal_trigger_status" hidden></a>

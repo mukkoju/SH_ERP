@@ -11,8 +11,6 @@
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap-responsive.css" />
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap-responsive.min.css" />
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic,700.js' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/public/global/bootstrap/css/jquery-ui.css" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">

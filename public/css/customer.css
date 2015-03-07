@@ -156,8 +156,9 @@ a{
 
 .tckts-tbls td {
     text-align: left !important;
-    padding-top: 8px !important;
-    padding-bottom: 8px !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+    line-height: 2em !important;
 }
 .tckts-tbls a{
 text-decoration: none;
@@ -167,13 +168,13 @@ width: 96%;
 display: inline-block;
 padding-right: 3px;
 margin-bottom: 2px;
-font-size: 15px;
+font-size: 1.3em;
 font-weight: bold;
-line-height: 1.2;
+line-height: 1.2em;
 color: #333;
 word-break: break-word;
 vertical-align: middle;
-
+letter-spacing: 0.02em;
 }
 .ttl-lnk:hover{
     color: #009587;

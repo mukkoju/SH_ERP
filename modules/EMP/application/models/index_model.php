@@ -62,22 +62,23 @@ class Index_model extends Model {
             
             // recording login location and ip address
             $eserver = $this -> db -> quote($_SERVER['REMOTE_ADDR']);
-            if($_SERVER['SERVER_NAME'] == "localhost"){
+            if(0){
               $remote = geoip_record_by_name("202.133.59.131");  
             }
             else{
-                $remote = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
+//                $remote = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
+                $remote = 'Hyderabad';
             }
             
-            $loc = $this -> db -> quote($remote['city']. '/'. $remote['country_name']);
+//            $loc = $this -> db -> quote($remote['city']. '/'. $remote['country_name']);
+            $loc = $this -> db -> quote('hyderabad/India');
             $record = $this->db->query("INSERT INTO viv_lgn_rec_en ( _lgn_email,
                                           _lgn_ip,
                                           _lgn_loc,
-                                          _lgn_time ) VALUES(".$this->db->quote($em).",".$eserver.",".$loc.",".time().")");
-            
-        } else {
-           $err = "Incorect email or password";
-           return $err;
+                                          _lgn_time ) VALUES(".$this -> db -> quote($em).",".$eserver.",".$loc.",".time().")");
+            } else {
+            $err = "Incorect email or password";
+            return $err;
                    }
     }
     public function forgetpwd(){

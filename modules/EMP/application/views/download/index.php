@@ -1,5 +1,5 @@
 
-            <div class="span7 left-cntnt">
+<!--            <div class="span7 left-cntnt">
                 <div id="myCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="active item">
@@ -19,10 +19,10 @@
                     </a>
 
                 </div>
-            </div>
-            <div class="span5 overflow">
-            <div class="tbl-hdr"><h2>Download Payslips</h2></div>
-            <table border="2" class="table table-hover table-condensed table-bordered">
+            </div>-->
+            <div class="span7 cstmr_layout">
+                <div class="dwnld-clps"><h2>Pay slips<i class="mdi-navigation-expand-more"></i></h2>
+                 <table border="2" class="table table-hover table-condensed table-bordered" style="opacity: 0">
                 <tr><th>Payslip</th>
                     <th>Get</th>
                 </tr>
@@ -33,6 +33,12 @@
                     </tr>
                 <?php } ?>
             </table>
+                </div>
+                <div class="dwnld-clps"><h2>Form 16 <i class="mdi-navigation-expand-more"></i></h2></div>
+                <div class="dwnld-clps"><h2>Employment letter <i class="mdi-navigation-expand-more"></i></h2></div>
+                <div class="dwnld-clps"><h2>Bonafide certificate <i class="mdi-navigation-expand-more"></i></h2></div>
+                
+            
             </div>
         </div>
     </div>

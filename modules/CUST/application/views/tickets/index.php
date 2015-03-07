@@ -3,7 +3,7 @@
      <div class="sb-nav">
          <ul class="sb-nav-ul">
              <?php if($_SESSION['loggedInLevel'] == 1 || $_SESSION['loggedInLevel'] == 2){?>
-             <li data-tp="all" id="fltr_all" class="sb-nav-li" style="background-color: rgba(0, 0, 0, 0.74902); color: white;">All</li>
+             <li data-tp="all" id="fltr_all" class="sb-nav-li" style="background-color: #009587; color: white;">All</li>
              <li data-tp="asgne" class="sb-nav-li" id="fltr-asgne">Assignee <i class="icon-chevron-down"></i>
              <div class="drpdwn-lst">
                      <div class="select-list-header">

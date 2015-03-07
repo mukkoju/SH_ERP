@@ -93,7 +93,7 @@
         var regform = document.forms['login'];
         $.ajax({
          url: "/login",
-         method:'post',
+         type:'post',
          data:{
           "email":regform.elements['email'].value,
           "password":regform.elements['password'].value,

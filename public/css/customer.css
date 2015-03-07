@@ -43,8 +43,8 @@
     text-align: left;
 }
 .atrbt-itm button i{
-    background-position: -336px -48px;
     float: right;
+    font-size: 1.4em;
 }
 .atr-slctd{
     color: #C2BFBF;
@@ -85,11 +85,9 @@ a{
 .select-list{
     position: absolute;
     width:  200px;
-    margin-top: -18px;
+    margin-top: -32px;
     margin-bottom: 20px;
-    overflow: hidden;
-    margin-left: -68px;
-    overflow: hidden;
+    margin-left: -32px;
     font-size: 14px;
     color: #666;
     background-color: #fff;
@@ -100,21 +98,39 @@ a{
     display: none;
     z-index: 10001;
     max-height: 300px;
-    overflow-y: auto;
+}
+.select-list:before{
+    content: '';
+    border: 10px solid transparent;
+    border-bottom-color: #2e363f;
+    border-bottom-color: #009587;;
+    position: absolute;
+    top: -19px;
+    left: 75%;
+    /*left: calc(50% - 10px);*/
 }
 
 .select-list-header{
-    padding: 8px 10px;
-    background: #f5f5f5;
+    padding: 4px 10px;
+    background-color: #009587 ;
     border-bottom: 1px solid rgba(200,200,200,0.4);
 }
 .select-list-title{
     font-weight: bold;
-    color: #333;
-    text-shadow: 0 1px 0 #fff;
+    color: white;
+    text-shadow: 0 0 1px #333;
 }
 .select-list-rmv{
     float: right;
+    padding-top: 4px;
+    color: white;
+    text-decoration: none;
+}
+.select-list-rmv:hover{
+    color: white !important;
+}
+.select-list-rmv i{
+    font-size: 1.3em;
 }
 .slct-itms{
     width: 100%;
@@ -128,6 +144,11 @@ a{
     border-bottom: 1px solid rgba(200,200,200,0.4);
     cursor: pointer;
     padding: 8px 8px 8px 24px;
+}
+.select-menu-item{
+    max-height: 265px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .slct-itms li:hover{
     background-color: rgb(226, 226, 226);
@@ -315,6 +336,7 @@ vertical-align: middle;
         margin-bottom: 16px !important;
         display: inline-block;
         margin-left: -3px;
+        position: relative;
 }
 
 .sb-nav li:first-child{

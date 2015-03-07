@@ -17,12 +17,12 @@
             </div>
             
             <div class="tckt-atrbts">
-                <div class="atrbt-itm"><button id="atr-cat" class="attr-lst"><i class="icon-list"></i>Category</button>
+                <div class="atrbt-itm"><button id="atr-cat" class="attr-lst"><i class="mdi-action-settings"></i>Category</button>
                     <div class="atr-slctd" id="cat-selctd" data-slctcat="">Nothing for now</div>
                     <div class="select-list" id="cat-list">
                         <div class="select-list-header">
                             <span class="select-list-title">All Categories</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                         <div class="select-menu-item" style="">
                             <ul class="slct-itms">
@@ -34,12 +34,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="atrbt-itm"><button id="atr-sb-cat"  class="attr-lst"><i class="icon-list"></i>Sub category</button>
+                <div class="atrbt-itm"><button id="atr-sb-cat"  class="attr-lst"><i class="mdi-action-settings"></i>Sub category</button>
                     <div class="atr-slctd" id="sb-cat-selctd">Nothing for now</div>
                     <div class="select-list" id="sb-cat-lst">
                         <div class="select-list-header">
                             <span class="select-list-title">All Sub-categories</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                         <div class="select-menu-item" style="">
                             <ul class="slct-itms">
@@ -51,12 +51,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="atrbt-itm"><button id="atr-asgn" class="attr-lst"><i class="icon-list"></i>Assign to</button>
+                <div class="atrbt-itm"><button id="atr-asgn" class="attr-lst"><i class="mdi-action-settings"></i>Assign to</button>
                     <div class="atr-slctd" id="asgn-selctd" data-slctmail="">Nothing for now</div>
                     <div class="select-list" id="asgn-lst">
                         <div class="select-list-header">
                             <span class="select-list-title">Managers</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                         <div class="select-menu-item" style="">
                             <ul class="slct-itms">

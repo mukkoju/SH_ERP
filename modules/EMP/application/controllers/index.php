@@ -3,8 +3,8 @@
 class Index extends Controller {
     function __construct() {
         parent::__construct();
-        // echo "index(login page)";
     }
+    
     public function index($module) {
         //  var_dump($_SESSION['loggedIn']);
         if ($_SESSION['loggedIn']) {

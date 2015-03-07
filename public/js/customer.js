@@ -202,11 +202,32 @@ $(document).ready(function () {
 //       
 //    });
     
-    $('.sb-nav-ul .sb-nav-li').click(function(){
+    $('.sb-nav-ul .sb-nav-li').click(function(e){
+        
+//       var $this = $(this);
+//        var parent = $this.parent()
+//        var color = $this.css('color');
+//        if ($this.find(".rippl").length == 0) {
+//            $this.append("<span class='rippl'></span>");
+//        }
+//        var rpl = $this.find(".rippl");
+//        rpl.removeClass("animate");
+//        if (!rpl.height() && !rpl.width())
+//        {
+//            var d = Math.max($this.outerWidth(), $this.outerHeight());
+//            rpl.css({height: d, width: d});
+//        }
+//        var x = e.pageX - $this.offset().left - rpl.width() / 2;
+//        var y = e.pageY - $this.offset().top - rpl.height() / 2;
+//        rpl.css({top: y + 'px', left: x + 'px', 'background-color': '#f0f1f2', 'opacity': '0.5'}).addClass("animate");
+        
+//       setTimeout(function () {
+//       $(this).css({'overflow': 'visible'});
        $(this).siblings('li').children('.drpdwn-lst').hide(); 
        $(this).children('.drpdwn-lst').toggle();
-       $(this).siblings('li').css({'background-color': 'white', 'color': '#333'});
-       $(this).css({'background-color': 'rgba(0, 0, 0 , .75)', 'color': 'white'});
+       $(this).siblings('li').css({'background-color': 'white', 'color': '#333', 'border-color': '#cccccc'});
+       $(this).css({'background-color': '#009587', 'color': 'white', 'border': '1px solid #009587'});
+//       }, 600);
     });
     
     
@@ -310,7 +331,6 @@ $(document).ready(function () {
               $('#tckt-sts-dt').drawChart(chrtData, "l", $(window).width() - ($(window).width() / 4), 320, "tckt-cht", "1");
           } 
        });
-       
     });
     
     $('#ttl-edt-btn').click(function(){

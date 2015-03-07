@@ -2,7 +2,7 @@
     <?php $viewTicket = $this -> viewTicket; ?>
     <div class="shw-tckt">
         <div class="actn-btns">
-            <button class="btn btn-success" id="ttl-edt-btn">Edit<i class="icon-pencil"></i></button>
+            <button class="btn btn-success" id="ttl-edt-btn">Edit<i class="mdi-editor-mode-edit"></i></button>
             <a href="/customer_ticket"><button class="btn btn-primary" id="nw-tckt-btn">New ticket</button></a>
         </div>
         <div class="tckt-ttl" data-tcktid='<?= $viewTicket[0][0]['_Id_'] ?>'><h2><?= $viewTicket[0][0]['_cust_servs_tckt_ttl'] ?></h2>
@@ -24,12 +24,12 @@
         </div>
         <div class="tckt-bdy">
             <div class="tckt-atrbts tckt-atrbts-shw">
-                <div class="atrbt-itm "><button id="atr-cat" class="attr-lst"><i class="icon-list"></i>Category</button>
+                <div class="atrbt-itm "><button id="atr-cat" class="attr-lst"><i class="mdi-action-settings"></i>Category</button>
                     <div class="atr-slctd atr-slctd-shw" id="cat-selctd"><?= $viewTicket[0][0]['_cust_servs_tckt_catg']?></div>
                     <div class="select-list" id="cat-list">
                         <div class="select-list-header">
                             <span class="select-list-title">All Categories</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="javascript:void(0)" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                         <div class="select-menu-item" style="">
                             <ul class="slct-itms">
@@ -41,12 +41,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="atrbt-itm"><button id="atr-sb-cat"  class="attr-lst"><i class="icon-list"></i>Sub category</button>
+                <div class="atrbt-itm"><button id="atr-sb-cat"  class="attr-lst"><i class="mdi-action-settings"></i>Sub category</button>
                     <div class="atr-slctd atr-slctd-shw" id="sb-cat-selctd"><?= $viewTicket[0][0]['_cust_servs_tckt_sbcatg']?></div>
                     <div class="select-list" id="sb-cat-lst">
                         <div class="select-list-header">
                             <span class="select-list-title">All Sub-categories</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="javascript:void(0)" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                         <div class="select-menu-item" style="">
                             <ul class="slct-itms">
@@ -58,12 +58,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="atrbt-itm"><button id="atr-asgn-to" class="attr-lst"><i class="icon-list"></i>Asign to</button>
+                <div class="atrbt-itm"><button id="atr-asgn-to" class="attr-lst"><i class="mdi-action-settings"></i>Asign to</button>
                 <div class="atr-slctd atr-slctd-shw" id="asgn-selctd" data-slctmail2='<?= $viewTicket[0][0]['_cust_servs_tckt_asigni']?>' data-slctmail="<?= $viewTicket[0][0]['_cust_servs_tckt_asigni']?>"><?= $viewTicket[1][0]['_emp_name']?></div>
                     <div class="select-list" id="asgn-lst">
                         <div class="select-list-header">
                             <span class="select-list-title">Assignee</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="javascript:void(0)" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                         <div class="select-menu-item" style="">
                             <ul class="slct-itms"></ul>
@@ -78,7 +78,7 @@
                                    ?>
             <div class="comnt-prfle-img"><?php if(!file_exists("$tckt_owner_pimg_path/$tckt_owner_pimg")){ ?><img src="/images/avtr.jpg"><?php } else {  ?><img src="/uploads/<?php echo $tckt_owner?>/profile_pic/<?php echo $tckt_owner_pimg?>"><?php }?></div>
             <div class="tckt-desc">
-                <div class="tckt-desc-hdr"><b><?= $viewTicket[0][0]['_emp_name']?></b><span class="edt-cmnt"><i class="icon-pencil"></i></span></div>
+                <div class="tckt-desc-hdr"><b><?= $viewTicket[0][0]['_emp_name']?></b><span class="edt-cmnt"><i class="mdi-editor-mode-edit"></i></span></div>
                 <span class="cmnt-bdy"><p><?=$viewTicket[0][0]['_cust_servs_tckt_desc']?><p></span>
             
             </div>
@@ -100,7 +100,7 @@
                                 <b><?= $viewTicket[2][$i]['_emp_name'] ?></b>
                                 <span class="cmntd_on"> Commented on <?= date("M j Y", $viewTicket[2][$i]['_servs_cmnts_tckt_cmnton']) ?></span>
                                 <?php if($viewTicket[2][$i]['_servs_cmnts_tckt_cmntby'] == $_SESSION['loggedIn']){ ?>
-                                <span class="edt-cmnt"><i class="icon-pencil"></i></span>
+                                <span class="edt-cmnt"><i class="mdi-editor-mode-edit"></i></span>
                                 <?php }?>
                             </div>
                             <span class="cmnt-bdy"><p><?= $viewTicket[2][$i]['_servs_cmnts_tckt_cmnt'] ?></p></span>

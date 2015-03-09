@@ -19,7 +19,12 @@ class Customer_ticket extends Controller{
             $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
             require CUST_MODULE. '/models/tickets_model.php';
             $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
-            $this->view->render('customer_ticket/index', CUST_MODULE);
+            // @Checking url come form ajax or not
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+            $this->view->render('customer_ticket/index', CUST_MODULE, 'ajax');
+            }else{
+            $this->view->render('customer_ticket/index', CUST_MODULE, 'notajax');
+            }
     }
     // @adding new ticket
     public function addTicket(){

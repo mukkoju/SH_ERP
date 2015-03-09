@@ -18,7 +18,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
         var total = maxpay - cut;
         $this.parents("tr").find(".tol-pay").html(total);
     });
-    $("#process").click(function () {
+    $('.main-content').on('click', "#process", function () {
         var chq_no = $.trim($('#cq-no').val());
         if(chq_no == ''){
             $('.err-sal').css("opacity", "1").text("* Cheque no cannot be empty");
@@ -129,7 +129,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
     var end = new Date().getFullYear();
     $("#slct-year").val(end);
 
-    $('#slct-month, #slct-year').change(function () {
+    $('.main-content').on('change', '#slct-month, #slct-year', function () {
         // $('#data-tr').remove();
         $.ajax({
             url: "/home/due_deatils",
@@ -595,7 +595,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
             });
         }
     });
-    $('#post-butn').click(function(){
+    $('.main-content').on('click', '#post-butn', function(){
         var data = $.trim($('#post-txt').val()); 
         if( data === ''){
         $('#posterr').text('Nothig is there to post!!');  
@@ -957,7 +957,8 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
      });    
     });
     
-    $('#table1').on('click', '.pay_cncl', function(){
+    // @pay slip cancle after stage 1 
+    $('.main-content').on('click', '.pay_cncl', function(){
         $.ajax({
            url: "home/cancel_payslip",
            method: "post",
@@ -968,7 +969,9 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
         });
         
     });
-    $('#table1').on('click', '.pay_cnfrm', function(){
+    
+    // @pay slip Confirm after stage 1
+    $('.main-content').on('click', '.pay_cnfrm', function(){
         
                var slctd_emp = [], obj;
                 var avl_days = $(this).parents("tr").find(".avilble_days").val();
@@ -1031,7 +1034,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
                 
         
     });
-    $('#table1').on('mouseenter', '.paid-img', function(){
+    $('.main-content').on('mouseenter', '.paid-img', function(){
     $(this).find('.revrt').animate({
             height: 'toggle',
             }, 290, function() {
@@ -1062,40 +1065,6 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
                     window.location.reload();
                 });
     });
-    
-////  $('#model_holiday_hr #emp_srch-list').autocomplete({
-//        source: [
-//            "ActionScript",
-//            "AppleScript",
-//            "Asp",
-//            "BASIC",
-//            "C",
-//            "C++",
-//            "Clojure",
-//            "COBOL",
-//            "ColdFusion",
-//            "Erlang",
-//            "Fortran",
-//            "Groovy",
-//            "Haskell",
-//            "Java",
-//            "JavaScript",
-//            "Lisp",
-//            "Perl",
-//            "PHP",
-//            "Python",
-//            "Ruby",
-//            "Scala",
-//            "Scheme"
-//            ],
-//        response: function(event, ui) {
-//            if (ui.content.length === 0) {
-//                alert("No results found");
-//            } else {
-//                $(".ui-autocomplete").addClass('srch');
-//            }
-//        }
-//    });
     
     
     $('#model_holiday_hr #emp_srch-list').autocomplete({
@@ -1186,7 +1155,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
     });
     
     
-    $("#leave_apply_btn").click(function (e) {
+        $('.main-content').on('click', '#leave_apply_btn', function(e){
             e.preventDefault();
             var regform = document.forms['leave_apply_form'];
             var fromdate = regform.elements['from'].value;
@@ -1354,7 +1323,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
     $('input').not(':input[type=file]').addClass("form-control");
     $('textarea').addClass("form-control");
     
-    $('.stmnts-expnd').click(function(){
+    $('.main-content').on('click', '.stmnts-expnd', function(){
         if($('.bnk-stmnts-tbl').height() == 1){
              $('.stmnts-expnd i:nth-child(2)').removeClass('mdi-navigation-expand-more').addClass('mdi-navigation-expand-less');
             $('.bnk-stmnts-tbl').css({'opacity':'1', 'height': '240px'}); 
@@ -1365,7 +1334,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
     });
     
     
-    $('.dwnld-clps').click(function(){
+    $('.main-content').on('click', '.dwnld-clps', function(){
         $(this).find('h2').addClass('clps-actv');
         $(this).children().css({'opacity': '1'});
         $(this).css({'height': '200', 'border-top-left-radius': '4px', 'border-top-right-radius': '4px'});
@@ -1373,5 +1342,47 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
         $(this).siblings('.dwnld-clps').find('h2').removeClass('clps-actv');
         $(this).siblings('.dwnld-clps').find('h2').css({'border-top-left-radius': '0px', 'border-top-right-radius': '0px'});
       });
+      
+      
+    // @loading body content via AJAX cal 
+    $('body').on('click', '.cntnt', function(e){
+        e.preventDefault();
+        var pageurl = $(this).attr('href');
+        var tabtitle = $(this).data('pg');
+        $.ajax({
+            url: pageurl,
+            method: 'post',
+            beforeSend: function () {
+              $('.ligt-box').css({'display': 'block'});  
+            },
+            success: function(d){
+                $('.main-content').html('');
+                $('.main-content').html(d);
+                $('.ligt-box').fadeOut('slow');
+            }
+        });
+        if(pageurl != location.pathname){
+			window.history.pushState({path: pageurl}, tabtitle, pageurl);	
+		}
+    });
+    
+    
+    // @resending ajax call when click back button 
+    $(window).bind('popstate', function() {
+        $.ajax({
+            url: location.pathname,
+            method: 'post',
+            beforeSend: function () {
+              $('.ligt-box').css({'display': 'block'});  
+            },
+            success: function(d){
+                $('.main-content').html('');
+                $('.main-content').html(d);
+                $('.ligt-box').fadeOut('slow');
+            }
+        });
+    });
+
+
 });
 

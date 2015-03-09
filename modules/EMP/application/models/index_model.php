@@ -70,7 +70,7 @@ class Index_model extends Model {
                 $remote = 'Hyderabad';
             }
             
-//            $loc = $this -> db -> quote($remote['city']. '/'. $remote['country_name']);
+        //  $loc = $this -> db -> quote($remote['city']. '/'. $remote['country_name']);
             $loc = $this -> db -> quote('hyderabad/India');
             $record = $this->db->query("INSERT INTO viv_lgn_rec_en ( _lgn_email,
                                           _lgn_ip,

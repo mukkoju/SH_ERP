@@ -32,7 +32,7 @@
         <script type="text/javascript" src="/public/js/matrial.js"></script>
     </head>
     <body>
-    <div class="ligt-box" style="margin-left: 0"><img src="/images/loading.gif"></div> 
+        <div class="ligt-box" style="margin-left: 0;"><i class="mdi-action-settings rotating"></i></div>
         <header>
             <?php // echo $_SESSION['loggedIn']?>
          
@@ -77,22 +77,22 @@
                 </ul>
                 <!--          Hidden phone menu-->
                 <ul class="hidden-phone">
-                    <li><a href="/home" data-pg="home">HOME</a></li>
-                    <li><a href="/leaves" data-pg="leaves">LEAVES</a></li>
-                    <li><a href="/download" data-pg="download">DOWNLOADS</a></li>
+                    <li><a href="/home" data-pg="home" class="cntnt">HOME</a></li>
+                    <li><a href="/leaves" data-pg="leaves" class="cntnt">LEAVES</a></li>
+                    <li><a href="/download" data-pg="download" class="cntnt">DOWNLOADS</a></li>
                     <li><a href="#model_directory" class="modal_trigger6">DIRECTORY</a></li>
                     <li><a href="#model_holiday" class="modal_trigger6">HOLIDAY CAL</a></li>
-                    <li><a href="/tickets" class="modal_trigger6" data-pg="tickets">TICKETS</a></li>
+                    <li><a href="/tickets" data-pg="tickets" class="cntnt">TICKETS</a></li>
                     <!--<li><a href="#" class="menu-news">NEWS<span class="caret"></span></a></li>-->
                     <?php if($this->user_details[0]['_emp_level'] == HR_MANAGER){ ?>
                     <li class="dropdown"><a href="" id="dLabel" class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" rel="nofollow">HR<span class="caret"></span></a>
                         <ul class="dropdown-menu hr-dropdwn" role="menu" aria-labelledby="dLabel">
-                            <li class="dropdown"><a href="/salaries">SALARIES</a></li>
+                            <li class="dropdown"><a href="/salaries" class="cntnt">SALARIES</a></li>
                             <li class="dropdown"><a href="#model_reg" class="modal_trigger6">NEW EMP</a></li>
                             <li class="dropdown"><a href="#model_doc" class="modal_trigger6">EMP DOCS</a></li>
                             <li class="dropdown"><a href="#model_holiday_hr" class="modal_trigger6">HOLIDAYS</a></li>
                             <!--<li class="dropdown"><a href="#">EXIT SETTILEMENT</a></li>-->
-                            <li class="dropdown"><a href="/emp_data">ALL EMP</a></li>
+                            <li class="dropdown"><a href="/emp_data" class="cntnt">ALL EMP</a></li>
                         </ul>
                     </li>
                     <?php }?>
@@ -458,16 +458,8 @@
         <div id="main">
         <div class="container all-content">
         <div class="main-content">
-        <div class="news">We coudn't find any News!!!</div>
-        <?php // if( $this->user_details[0]['notice_alert'] == 1){?>
-        <div id="notifc"></div>
-        <?php //}?>
-        <?php // if( $this->user_details[0]['bdy_alert'] == 1){?>
-        <div id="tdy-bdy"></div>
-        <?php //}?>
         <script type="text/javascript">
             $(".modal_trigger6").leanModal({top: 10, overlay: 0.5, closeButton: ".modal_close"});
             $("#modal_trigger1").leanModal({top: 120, overlay: 0.5, closeButton: ".modal_close"});
             $.material.init();
         </script>
-        <?php // var_dump($this->user_details)?> 

@@ -21,7 +21,11 @@ class Tickets extends Controller{
             require CUST_MODULE. '/models/tickets_model.php';
             $this -> view -> get_tickets = (new Tickets_model()) -> getTickets();
             $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
-            $this->view->render('tickets/index', CUST_MODULE);
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+            $this->view->render('tickets/index', CUST_MODULE, 'ajax');
+            }else{
+            $this->view->render('tickets/index', CUST_MODULE, 'notajax');
+            }
     }
     
     // @rendering ticket view page
@@ -34,7 +38,12 @@ class Tickets extends Controller{
             require CUST_MODULE. '/models/tickets_model.php';
             $this->view->viewTicket = (new Tickets_model()) -> viewTicket($tckt_id);
             $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
-            $this-> view -> render('ticket_view/index', CUST_MODULE);
+            // @Checking url come form ajax or not
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+            $this-> view -> render('ticket_view/index', CUST_MODULE, 'ajax');
+            }else{
+            $this-> view -> render('ticket_view/index', CUST_MODULE, 'notajax');
+            }
     }
     
     // @update ticket ttl or desc or catgoy or assignee or comment

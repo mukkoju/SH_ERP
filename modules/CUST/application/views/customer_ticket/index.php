@@ -1,7 +1,7 @@
         <div class="span10 left-cntnt cstmr_layout">
             <div class="apply_form" id="aply">
                 <div class="tckt-hdr"><span>New Ticket</span>
-                    <a href="/tickets"><button class="actn-edit btn btn-primary" id="nw-tckt-btn">Tickets</button></a>
+                    <a href="/tickets" class="cntnt"><button class="actn-edit btn btn-primary" id="nw-tckt-btn">Tickets</button></a>
                 </div><br>
                 <form name="leave_apply_form" id="new_tckfrm">
                     <div class="form_txt"><input type="text" name="sub" placeholder="Subject" id="ticket-subjct"></div>

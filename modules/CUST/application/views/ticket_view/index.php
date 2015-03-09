@@ -3,7 +3,7 @@
     <div class="shw-tckt">
         <div class="actn-btns">
             <button class="btn btn-success" id="ttl-edt-btn">Edit<i class="mdi-editor-mode-edit"></i></button>
-            <a href="/customer_ticket"><button class="btn btn-primary" id="nw-tckt-btn">New ticket</button></a>
+            <a href="/customer_ticket" class="cntnt"><button class="btn btn-primary" id="nw-tckt-btn">New ticket</button></a>
         </div>
         <div class="tckt-ttl" data-tcktid='<?= $viewTicket[0][0]['_Id_'] ?>'><h2><?= $viewTicket[0][0]['_cust_servs_tckt_ttl'] ?></h2>
             <div class="edt-ttl">

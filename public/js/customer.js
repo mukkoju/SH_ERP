@@ -51,7 +51,8 @@ $(document).ready(function () {
         }
     });
 
-    $('.select-list-rmv').click(function () {
+    $('.select-list-rmv').click(function (e) {
+        e.preventDefault();
         $('.select-list').css({'display': 'none'});
     });
 

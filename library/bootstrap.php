@@ -15,6 +15,9 @@
                 require EMP_MODULE . '/controllers/home.php';
                 
                 switch ($url[1]) {
+                    case 'index':
+                        (new Home())->index();
+                        break;
                     case 'register':
                         (new Home())->register();
                         break;
@@ -106,6 +109,9 @@
                     case 'down_docs':
                         (new Download())-> down_docs($url[2]);
                         break;
+                    case 'index':
+                        (new Download())->index();
+                        break;
                 default:
                         (new Download())->index();
                 }
@@ -114,6 +120,9 @@
                 require EMP_MODULE . '/controllers/leaves.php';
                 
                 switch ($url[1]){
+                    case 'index':
+                        (new Leaves()) ->index();
+                        break;
                     case 'apply':
                         (new Leaves()) -> apply();
                         break;
@@ -172,6 +181,9 @@
                     require CUST_MODULE . '/controllers/tickets.php';
                     
                     switch ($url[1]){
+                        case 'index':
+                       (new Tickets()) ->index();
+                        break;
                     case 'view':
                        (new Tickets()) -> view($url[2]);
                         break;

@@ -8,7 +8,7 @@
              <div class="drpdwn-lst">
                      <div class="select-list-header">
                             <span class="select-list-title">Filter by Assignee</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                         <ul></ul>
                  </div>
@@ -17,7 +17,7 @@
                  <div class="drpdwn-lst">
                      <div class="select-list-header">
                             <span class="select-list-title">Filter by category</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                      <ul>
                                 <li data-slctd="Category1">Category1</li>
@@ -31,7 +31,7 @@
                  <div class="drpdwn-lst" style="margin-left: -206px;">
                      <div class="select-list-header">
                             <span class="select-list-title">Sort by</span>
-                            <a href="#" class="select-list-rmv" >X</a>
+                            <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
                         </div>
                      <ul>
                                 <li data-slctd="Newest">Newest</li>
@@ -41,7 +41,7 @@
              </li>
              <li class="sb-nav-li" id="fltr_anlytcs" data-tp="anlytcs">Analytics</li>
              <?php } ?>
-             <li class="sb-nav-li"><a href="/customer_ticket">New ticket</a></li>
+             <li class="sb-nav-li"><a href="/customer_ticket" class="cntnt">New ticket</a></li>
          </ul>
      </div>
      <div class="clearfix"></div>
@@ -53,7 +53,7 @@
          <tr>
                 <td>
                  <i class="icon-help"></i>
-                 <a href="tickets/view/<?= $tckts[$i]['_Id_']; ?>">
+                 <a href="tickets/view/<?= $tckts[$i]['_Id_']; ?>" class="cntnt">
                      <span class="ttl-lnk"><?= $tckts[$i]['_cust_servs_tckt_ttl']; ?></span>
                      <?php if(!empty($tckts[$i]['_cust_servs_tckt_catg'])){ ?>
                      <span class="ttl-lnk-cat"><?= $tckts[$i]['_cust_servs_tckt_catg']; }?></span>

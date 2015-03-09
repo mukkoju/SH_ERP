@@ -28,7 +28,12 @@ class Salaries extends Controller{
         header('location: ../error');
             return;
     }
-        $this->view->render('salaries/index', HR_MODULE);
+    // @Checking url come form ajax or not
+    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+        $this->view->render('salaries/index', HR_MODULE, 'ajax');
+    }else{
+        $this->view->render('salaries/index', HR_MODULE, 'notajax');
+    }
     }
 }
 

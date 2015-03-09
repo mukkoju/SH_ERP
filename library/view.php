@@ -6,7 +6,7 @@ class View {
         
     }
 
-    public function render($file_name, $module) {
+    public function render($file_name, $module, $request) {
         if($file_name === 'index/index'){
             require $module . '/views/' . $file_name . '.php';
         }
@@ -16,9 +16,13 @@ class View {
         }
         
         else{
-        require EMP_MODULE. '/layout/header.php';
+            if($request === 'notajax'){
+	require EMP_MODULE. '/layout/header.php';
+            }
         require $module . '/views/' . $file_name . '.php';
-        require EMP_MODULE. '/layout/footer.php';
+        if($request === 'notajax'){
+	require EMP_MODULE. '/layout/footer.php';
+        }
         }
     }
 

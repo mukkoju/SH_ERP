@@ -23,7 +23,13 @@
         $this->view->chosen_hldys = (new Global_model()) -> get_chosen_hldys();
         require CUST_MODULE. '/models/tickets_model.php';
         $this -> view -> tickets_notfcn =  (new Tickets_model()) -> asgndTckts();
-        $this->view->render('download/index', EMP_MODULE);
+        
+        // @Checking url come form ajax or not
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+        $this->view->render('download/index', EMP_MODULE, 'ajax');
+        }else{
+        $this->view->render('download/index', EMP_MODULE, 'notajax');
+        }
     }
     
     // @downloadling employee payslips by employee

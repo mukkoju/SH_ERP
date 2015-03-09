@@ -28,7 +28,7 @@
                  </div>
              </li>
              <li data-tp="sort" class="sb-nav-li">Sort <i class="icon-chevron-down"></i>
-                 <div class="drpdwn-lst" style="margin-left: -206px;">
+                 <div class="drpdwn-lst" style="margin-left: -40px;">
                      <div class="select-list-header">
                             <span class="select-list-title">Sort by</span>
                             <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>

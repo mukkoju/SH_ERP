@@ -1,4 +1,4 @@
-            <div class="span7 left-cntnt">
+<div class="span7 left-cntnt">
                 <div id="myCarousel" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="active item">
@@ -286,5 +286,3 @@
         });
     });
 </script>
-
-<?php // require 'views/footer.php'; ?>

@@ -1297,28 +1297,8 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
         
     });
     
-    
-    
-//    $('td').click(function (e) {
-//        var $this = $(this);
-//        var parent = $this.parent()
-//        var color = $this.css('color');
-//        if ($this.find(".rippl").length == 0) {
-//            $this.append("<span class='rippl'></span>");
-//        }
-//        var rpl = $this.find(".rippl");
-//        rpl.removeClass("animate");
-//        if (!rpl.height() && !rpl.width())
-//        {
-//            var d = Math.max($this.outerWidth(), $this.outerHeight());
-//            rpl.css({height: d, width: d});
-//        }
-//        var x = e.pageX - $this.offset().left - rpl.width() / 2;
-//        var y = e.pageY - $this.offset().top - rpl.height() / 2;
-//        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
-//    });
-    
-    $('input[type=checkbox]').after("<span class=ripple></span><span class=check></span>");
+
+//    $('input[type=checkbox]').after("<span class=ripple></span><span class=check></span>");
     $('input[type=radio]').after("<span class=circle></span><span class=check></span>");
     $('input').not(':input[type=file]').addClass("form-control");
     $('textarea').addClass("form-control");
@@ -1359,6 +1339,9 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
                 $('.main-content').html('');
                 $('.main-content').html(d);
                 $('.ligt-box').fadeOut('slow');
+                $('body input[type=radio]').after("<span class=circle></span><span class=check></span>");
+                $('body input').not(':input[type=file]').addClass("form-control");
+                $('body textarea').addClass("form-control");
             }
         });
         if(pageurl != location.pathname){
@@ -1379,6 +1362,9 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
                 $('.main-content').html('');
                 $('.main-content').html(d);
                 $('.ligt-box').fadeOut('slow');
+                $('body input[type=radio]').after("<span class=circle></span><span class=check></span>");
+                $(' body input').not(':input[type=file]').addClass("form-control");
+                $('body textarea').addClass("form-control");
             }
         });
     });

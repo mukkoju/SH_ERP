@@ -790,35 +790,6 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
            }
         });
      });
-     
-     $.ajax({
-        url: 'home/get_bdys',
-        method: 'post',
-        success:function(d){
-            // var d = JSON.parse(d);
-            var arry_length = d.length;
-            for(i=0; i<arry_length; i++){
-                var now = new Date();
-                now = now.getMonth() + 1 + "/" + now.getDate();
-                var bdy = new Date(d[i].dob*1000);
-                var bdycmpr = bdy.getMonth() + 1 + "/" + bdy.getDate();
-                if(bdycmpr == now){
-                $('#tdy-bdy').append("<div class='alert alert-success alert-dismissable bdy-ribbn'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button><b>Today Birthday</b><br/>"+d[i]['emp_name']+"<span></span><span class='alert-desc' style='display: block'></span><img src='/images/hpybdy.png' class='hpybdy'></div>");
-               } 
-//              <img src='/uploads/"+d[i]['emp_email']+"/profile_pic/Profile_pic.jpg' class='bdy-prfl-pic'>
-                var month = bdy.getMonth() + 1;
-                var bdyfrtbl = bdy.getDate() + "-" + month + "-" + bdy.getFullYear();
-                var exststcpmr = new Date(d[i].dob*1000);
-                exststcpmr = exststcpmr.getDate();
-                var tdy = new Date();    
-                var tdy = tdy.getDate();
-                if(exststcpmr >= tdy){
-                $('.bdy-rmindr').append("<tr><td>"+d[i].emp_name+"</td><td>"+bdyfrtbl+"</td></tr>");
-            }
-            }
-    }
-     });
-     
      $( "#autocomplete" ).autocomplete({
     source: function( req, resp ) {
         $.post( "/echo/json/", {
@@ -1215,7 +1186,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
         });
     var p = location.pathname.split("/")[1];
 //    alert($('nav ul').find('li [data-pg="'+p+'"]').attr('href'));
-        var mn = $('nav ul').find('li [data-pg="'+p+'"]');
+        var mn = $('nav ul').find('li a[data-pg="'+p+'"]');
             mn.parent('li').addClass('mnu-activ');
     
     $('input').focus(function(){
@@ -1227,7 +1198,7 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
  
     
     
-    $(document).on('click', 'button', function (e) {
+    $('.main-content').on('click', 'button', function (e) {
         var $this = $(this);
         var parent = $this.parent()
         var color = $this.css('color');
@@ -1246,24 +1217,24 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
         rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
     }); 
     
-     $('button').click(function (e) {
-        var $this = $(this);
-        var parent = $this.parent()
-        var color = $this.css('color');
-        if ($this.find(".rippl").length == 0) {
-            $this.append("<span class='rippl'></span>");
-        }
-        var rpl = $this.find(".rippl");
-        rpl.removeClass("animate");
-        if (!rpl.height() && !rpl.width())
-        {
-            var d = Math.max($this.outerWidth(), $this.outerHeight());
-            rpl.css({height: d, width: d});
-        }
-        var x = e.pageX - $this.offset().left - rpl.width() / 2;
-        var y = e.pageY - $this.offset().top - rpl.height() / 2;
-        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
-    }); 
+//     $('button').click(function (e) {
+//        var $this = $(this);
+//        var parent = $this.parent()
+//        var color = $this.css('color');
+//        if ($this.find(".rippl").length == 0) {
+//            $this.append("<span class='rippl'></span>");
+//        }
+//        var rpl = $this.find(".rippl");
+//        rpl.removeClass("animate");
+//        if (!rpl.height() && !rpl.width())
+//        {
+//            var d = Math.max($this.outerWidth(), $this.outerHeight());
+//            rpl.css({height: d, width: d});
+//        }
+//        var x = e.pageX - $this.offset().left - rpl.width() / 2;
+//        var y = e.pageY - $this.offset().top - rpl.height() / 2;
+//        rpl.css({top: y + 'px', left: x + 'px', 'background-color': color, 'opacity': '0.5'}).addClass("animate");
+//    }); 
     
     
     $('nav li a').mousedown(function(e){
@@ -1342,6 +1313,9 @@ $('.popupContainer_all').on('click', '.edit_emp_save', function(e){
                 $('body input[type=radio]').after("<span class=circle></span><span class=check></span>");
                 $('body input').not(':input[type=file]').addClass("form-control");
                 $('body textarea').addClass("form-control");
+                var p = location.pathname.split("/")[1];
+                var mn = $('nav ul').find('li a[data-pg="'+p+'"]');
+                mn.parent('li').addClass('mnu-activ').siblings().removeClass('mnu-activ');
             }
         });
         if(pageurl != location.pathname){

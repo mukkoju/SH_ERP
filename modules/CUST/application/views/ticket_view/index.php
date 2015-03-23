@@ -80,8 +80,8 @@
             <div class="tckt-desc">
                 <div class="tckt-desc-hdr"><b><?= $viewTicket[0][0]['_emp_name']?></b><span class="edt-cmnt"><i class="mdi-editor-mode-edit"></i></span></div>
                 <span class="cmnt-bdy"><p><?=$viewTicket[0][0]['_cust_servs_tckt_desc']?><p></span>
-            
             </div>
+            <div class="fine_atchmnts" style="margin-left: 56px;"><?php for($i=0; $i<sizeof($viewTicket[3]); $i++){ ?><div class="atchmnt-itm" style="background-color: beige"><a href="/uploads/multimedia/<?= $viewTicket[3][$i]['_cust_servs_atchmnts_nme']?>" target="_blank"><?= substr($viewTicket[3][$i]['_cust_servs_atchmnts_nme'], 9)?></a><i class="mdi-editor-attach-file"></i></div> <?php }?></div>
         </div>
         <div class="cmnt-sctn">
             <div class="old-cmnts-sctn">

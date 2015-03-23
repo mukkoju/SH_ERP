@@ -172,6 +172,9 @@
                     case 'gtassingees':
                        (new Customer_ticket()) -> gtassingees();
                         break;
+                    case 'new_tckt_atchmnt':
+                       (new Customer_ticket()) -> new_tckt_atchmnt();
+                        break;
                     default:
                      (new Customer_ticket()) -> index();
     

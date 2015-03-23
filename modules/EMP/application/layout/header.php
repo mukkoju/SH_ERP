@@ -30,6 +30,7 @@
         <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="/public/js/ripple.js"></script>
         <script type="text/javascript" src="/public/js/matrial.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
     </head>
     <body>
         <div class="ligt-box" style="margin-left: 0;"><i class="mdi-action-settings rotating"></i></div>

@@ -462,7 +462,7 @@ class Home_model extends Model {
         $folder = UPLOADS."/$email/profile_pic/";
         if ((($file["type"] == "application/pdf") || ($file["type"] == "application/x-pdf") || ($file["type"] == "image/png") || ($file["type"] == "image/jpg") || ($file["type"] == "image/jpeg")|| ($file["type"] == "image/JPG") || ($file["type"] == "image/JPEG")) && ($file["size"] < 40000000) && in_array($extension, $allowedExts)) {
             if ($file["error"] > 0) {
-                $mpty = "Selece max one file" .$file['error'];
+                $mpty = "File format not supporting for this" .$file['error'];
                 return $mpty;
             } else {
                  $name = $file["name"] . "<br>";

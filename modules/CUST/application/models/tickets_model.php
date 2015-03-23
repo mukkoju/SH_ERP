@@ -20,12 +20,15 @@ class Tickets_model extends Model{
     // @selected ticket view
     public function viewTicket($tckt_id){
         
+        // @getting ticket data
         $selct_tckt = $this -> db -> query("SELECT * FROM viv_cust_servs_en, viv_emp_en WHERE viv_cust_servs_en._Id_ = ". $this -> db -> quote($tckt_id)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email");
         $res1 = $selct_tckt -> fetchAll(PDO::FETCH_ASSOC);
         
+        // @getting assigni name
         $get_asgnNme = $this -> db -> query("SELECT _emp_name FROM viv_emp_en WHERE _emp_email =" . $this -> db -> quote($res1[0]['_cust_servs_tckt_asigni']));
         $res2 = $get_asgnNme -> fetchAll(PDO::FETCH_ASSOC);
         
+        // @getting comments on the tickets
         $get_tckt_cmnts = $this -> db -> query("SELECT viv_cust_servs_cmnts_en._servs_cmnts_tckt_cmnt,"
                                                     . " viv_cust_servs_cmnts_en._id_,"
                                                     . " viv_cust_servs_cmnts_en._servs_cmnts_tckt_cmntby,"
@@ -34,9 +37,14 @@ class Tickets_model extends Model{
                                                     . " JOIN viv_emp_en ON viv_emp_en._emp_email = viv_cust_servs_cmnts_en._servs_cmnts_tckt_cmntby"
                                                     . " WHERE viv_cust_servs_cmnts_en._servs_cmnts_tckt_id = ". $this -> db -> quote($tckt_id));
   
-   $res3 = $get_tckt_cmnts -> fetchAll(PDO::FETCH_ASSOC);        
-//        var_dump(array($res1,$res2,$res3));
-        return array($res1,$res2,$res3);
+        $res3 = $get_tckt_cmnts -> fetchAll(PDO::FETCH_ASSOC); 
+        
+        // @getting ticket attachments
+        $get_attchmnts = $this -> db -> query("SELECT _cust_servs_atchmnts_nme FROM viv_cust_servs_atchmnts_en WHERE _cust_servs_atchmnts_tcktid =" . $this -> db -> quote($tckt_id));
+        $res4 = $get_attchmnts -> fetchAll(PDO::FETCH_ASSOC);
+        
+//        var_dump(array($res1,$res2,$res3,$res4));
+        return array($res1,$res2,$res3, $res4);
     }
     
     public function updtTicket(){
@@ -191,8 +199,28 @@ class Tickets_model extends Model{
             $slctd = $_POST['slctd'];
             $asgne = $this -> db -> query("SELECT viv_cust_servs_en.*, viv_emp_en._emp_name FROM viv_cust_servs_en, viv_emp_en WHERE _cust_servs_tckt_asigni  = ". $this -> db -> quote($slctd)." AND viv_cust_servs_en._cust_servs_tckt_holder = viv_emp_en._emp_email ORDER BY _cust_servs_tckt_addedon DESC");
             $res = $asgne -> fetchAll(PDO::FETCH_ASSOC);
+                
+                // @ last week data
+                $lstWeek = strtotime("-1 month");
+                $lastWeek = $this -> db -> query("SELECT COUNT( * ) ,  _cust_servs_tckt_sts FROM  viv_cust_servs_en WHERE _cust_servs_tckt_addedon > $lstWeek AND _cust_servs_tckt_asigni  = ". $this -> db -> quote($slctd)." GROUP BY _cust_servs_tckt_sts");
+                $res1 = $lastWeek -> fetchAll(PDO::FETCH_ASSOC);
+                
+                // @ last month data
+                $lstMonth = strtotime("-1 month");
+                $lastMonth = $this -> db -> query("SELECT COUNT( * ) ,  _cust_servs_tckt_sts FROM  viv_cust_servs_en WHERE _cust_servs_tckt_addedon > $lstMonth AND _cust_servs_tckt_asigni  = ". $this -> db -> quote($slctd)." GROUP BY _cust_servs_tckt_sts");
+                $res2 = $lastMonth -> fetchAll(PDO::FETCH_ASSOC);
+                
+                // @ last year data
+                $lstYear = strtotime("-1 year");
+                $lastYear = $this -> db -> query("SELECT COUNT( * ) ,  _cust_servs_tckt_sts FROM  viv_cust_servs_en WHERE _cust_servs_tckt_addedon > $lstYear AND _cust_servs_tckt_asigni  = ". $this -> db -> quote($slctd)." GROUP BY _cust_servs_tckt_sts");
+                $res3 = $lastYear -> fetchAll(PDO::FETCH_ASSOC);
+                
+                
             if ($asgne == true) {
-                return $res;
+                $chrt = ['lastweek' => ['pending' => $res1[1]['COUNT( * )'], 'closed' => $res1[0]['COUNT( * )'], 'total' =>$res1[0]['COUNT( * )']+$res1[1]['COUNT( * )'] ],
+                             'lastmonth' => ['pending' => $res2[1]['COUNT( * )'], 'closed' => $res2[0]['COUNT( * )'], 'total' =>$res2[0]['COUNT( * )']+$res2[1]['COUNT( * )']],
+                             'lastyear' => ['pending' => $res3[1]['COUNT( * )'], 'closed' => $res3[0]['COUNT( * )'], 'total' =>$res3[0]['COUNT( * )']+$res3[1]['COUNT( * )']]]; 
+                return [$res, $chrt];
             } else {
                 return 0;
             }
@@ -272,6 +300,6 @@ class Tickets_model extends Model{
             
             
         }
-
-    
+        
+ 
 }

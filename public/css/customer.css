@@ -29,8 +29,9 @@
 .tckt-atrbts{
     /*border-left: 1px solid #cccccc;*/ 
     float: right;
-    /*margin-left: 8px;*/
+    margin-top: -11px;
 }
+
 .atrbt-itm{
     border-bottom: 1px solid #cccccc;
     padding: 15px 32px 18px 15px;
@@ -63,10 +64,10 @@
     background-color: rgb(226, 226, 226);
     bottom: -100px;
     -webkit-transition: all .5s ease;
-     -moz-transition: all .5s ease;
-      -ms-transition: all .5s ease;
-       -o-transition: all .5s ease;
-          transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
 }
 .atch-strp a{
     text-decoration: none;
@@ -78,7 +79,13 @@
     position: relative !important;
     opacity: 1 !important;
     padding: 4px;
-}
+    }
+.atch-strp input[type = 'file']{
+    position: absolute;
+    top: 8px;
+    width: 32px;
+    opacity: 0;
+    }
 a{
     color: #333;
 }
@@ -259,6 +266,20 @@ letter-spacing: 0.02em;
 .tckt-desc-bx{
     overflow: hidden;
 }
+.fine_atchmnts .atchmnt-itm{
+    margin-top: 8px;
+    margin-right: 8px;
+    border: 1px solid #AAAAAA;
+    display: inline-block;
+    padding: 2px 4px 2px 4px;
+    font-weight: bold;
+    background-color: white;
+ }
+ .fine_atchmnts .atchmnt-itm i{
+     font-weight: bold;
+     padding-left: 16px;
+     vertical-align: middle;
+ }
 .comnt-prfle-img{
  float: left;
 }
@@ -618,9 +639,15 @@ box-shadow: none !important;
 }
 .tckt-hdr button{
     float: right;
-    margin-right: 216px !important;
+    margin-right: 213px !important;
     margin-top: -6px !important;
 }
 .lod_mre{
     text-align: center;
+}
+.chrtdt{
+    float: left;
+    border: 1px solid #ddd;
+    margin-left: 4px;
+    padding-left: 4px;
 }

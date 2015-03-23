@@ -9,22 +9,22 @@
                     <div class="atch-strp">
                     <a href="#"><i class="mdi-editor-attach-file"></i></a>
                     <a href="#"><i class="mdi-action-delete"></i></a>
+                    <input type="file" id="tckt-attcmnt">
                     </div>
-                    </div>    
+                    </div>
+                    <div class="fine_atchmnts"></div>
                     <button id="nw_tckt_btn" class="btn btn-success">Submit new ticket</button> 
                 </form>
-                
             </div>
-            
             <div class="tckt-atrbts">
                 <div class="atrbt-itm"><button id="atr-cat" class="attr-lst"><i class="mdi-action-settings"></i>Category</button>
                     <div class="atr-slctd" id="cat-selctd" data-slctcat="">Nothing for now</div>
                     <div class="select-list" id="cat-list">
                         <div class="select-list-header">
                             <span class="select-list-title">All Categories</span>
-                            <a href="#" class="select-list-rmv" ><i class="mdi-content-clear"></i></a>
+                            <a href="#" class="select-list-rmv"><i class="mdi-content-clear"></i></a>
                         </div>
-                        <div class="select-menu-item" style="">
+                        <div class="select-menu-item">
                             <ul class="slct-itms">
                                 <li data-asgncat="Category1">Category1</li>
                                 <li data-asgncat="Category2">Category2</li>

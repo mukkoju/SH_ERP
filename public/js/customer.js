@@ -77,7 +77,15 @@ $(document).ready(function () {
         var cat = $('#cat-selctd').data('slctcat').trim();
         var sb_cat = $('#sb-cat-selctd').text();
         var asgni = $('#asgn-selctd').data('slctmail').trim();
-        
+        var atmnts = [];
+        // @finding attachments
+        if($('.fine_atchmnts').find('.atchmnt-itm').length > 0){
+        $('.fine_atchmnts').find('.atchmnt-itm').each(function(){
+            var atchmnt = $(this).data('atch');
+            atmnts.push(atchmnt);
+        });
+        }
+        atmnts = atmnts.join();
         if(ttl == ''){
             $('#ticket-subjct').css({'border-color': 'red'});
             $('.sts-strp').css({'background-color': '#f44336'}).html('<i class="icon-warning-sign"></i> Title cannot be left blank').fadeIn('slow');
@@ -96,7 +104,8 @@ $(document).ready(function () {
                 'desc': desc,
                 'catg': cat,
                 'sb_catg': sb_cat,
-                'asgni': asgni
+                'asgni': asgni,
+                'atchmnts': atmnts
             },
             success: function (d) {
                 var data = JSON.parse(d);
@@ -261,17 +270,91 @@ $(document).ready(function () {
           },
           success: function(data){
           var d = JSON.parse(data);
-          if($('div').hasClass('chart') == true){
+              if($('div').hasClass('chart') == true){
               $('.chart').css({'display': 'none'});
           }
           $('.tckts-tbls').html('');
           if(d.length > 0){
+              var res = d[1];
+             var chrtData1 = {
+                  1 : {
+                      A : "Ticket Status",
+                      B : "Last Week"
+                  },
+                  2 : {
+                      A : "Pending",
+                      B : res.lastweek.pending
+                  },
+                  3: {
+                      A : "Closed",
+                      B : res.lastweek.closed
+                  },
+                  4: {
+                      A : "Created",
+                      B : res.lastweek.total
+                  }
+              };
+              
+               var chrtData2 = {
+                  1 : {
+                      A : "Ticket Status",
+                      B : "Last Month"
+                  },
+                  2 : {
+                      A : "Pending",
+                      B : res.lastmonth.pending
+                  },
+                  3: {
+                      A : "Closed",
+                      B : res.lastmonth.closed
+                  },
+                  4: {
+                      A : "Created",
+                      B : res.lastmonth.total
+                  }
+              };
+              
+               var chrtData3 = {
+                  1 : {
+                      A : "Ticket Status",
+                      B : "Last Year"
+                  },
+                  2 : {
+                      A : "Pending",
+                      B : res.lastyear.pending
+                  },
+                  3: {
+                      A : "Closed",
+                      B : res.lastyear.closed
+                  },
+                  4: {
+                      A : "Created",
+                      B : res.lastyear.total
+                  }
+              };
+              
+              $('.tckts-tbls').append('<tr><td><div class="chrtdt chart1"></div><div class="chrtdt chart2"></div><div class="chrtdt chart3"></div></td></tr>');
+              var chtStr1 = '<div class="chart" id="tckt-cht1"><h2 class="m-hd err-msg hideElement"></h2>' +
+                '<ul class="cht-opts"></ul><svg class="svg"></svg><ul class="chart-tags"></ul>' +
+                '</div>';
+              var chtStr2 = '<div class="chart" id="tckt-cht2"><h2 class="m-hd err-msg hideElement"></h2>' +
+                '<ul class="cht-opts"></ul><svg class="svg"></svg><ul class="chart-tags"></ul>' +
+                '</div>';
+              var chtStr3 = '<div class="chart" id="tckt-cht3"><h2 class="m-hd err-msg hideElement"></h2>' +
+                '<ul class="cht-opts"></ul><svg class="svg"></svg><ul class="chart-tags"></ul>' +
+                '</div>';
+              $('.chart1').prepend(chtStr1);
+              $('.chart1').drawChart(chrtData1, "l", $(window).width()/5, 220, "tckt-cht1", "1");
+              $('.chart2').prepend(chtStr2);
+              $('.chart2').drawChart(chrtData2, "l", $(window).width()/5, 220, "tckt-cht2", "1");
+              $('.chart3').prepend(chtStr3);
+              $('.chart3').drawChart(chrtData3, "l", $(window).width()/5, 220, "tckt-cht3", "1");
           var i;
-          for(i=0; i< d.length; i++){
-              var lod_tickts = '<tr><td><i class="icon-help"></i><a href="tickets/view/'+d[i]._Id_+'"><span class="ttl-lnk">'+d[i]._cust_servs_tckt_ttl+'</span>';
-                  lod_tickts += '<span class="ttl-lnk-cat">'+d[i]._cust_servs_tckt_catg+'</span> ';
-                  lod_tickts += '<span class="ttl-lnk-sbcat">'+d[i]._cust_servs_tckt_sbcatg+'</span></a>';
-                  lod_tickts += '<div class="tckt-opnd-by">ticket opened on '+new Date(d[i]._cust_servs_tckt_addedon*1000)+' by '+d[i]._emp_name+'</div></td></tr>';
+          for(i=0; i< d[0].length; i++){
+              var lod_tickts = '<tr><td><i class="icon-help"></i><a href="tickets/view/'+d[0][i]._Id_+'"><span class="ttl-lnk">'+d[0][i]._cust_servs_tckt_ttl+'</span>';
+                  lod_tickts += '<span class="ttl-lnk-cat">'+d[0][i]._cust_servs_tckt_catg+'</span> ';
+                  lod_tickts += '<span class="ttl-lnk-sbcat">'+d[0][i]._cust_servs_tckt_sbcatg+'</span></a>';
+                  lod_tickts += '<div class="tckt-opnd-by">ticket opened on '+new Date(d[0][i]._cust_servs_tckt_addedon*1000)+' by '+d[0][i]._emp_name+'</div></td></tr>';
                   $('.tckts-tbls').append(lod_tickts);
               }
               $('.tbl-hdr').children('h2').text('Total '+d.length+' ticket (s)');
@@ -280,7 +363,8 @@ $(document).ready(function () {
               $('.tckts-tbls').append(lod_tickts);
               $('.tbl-hdr').children('h2').text('Total 0 tickets');
           }
-         
+          
+          
           $('.ligt-box').hide();
           }
           
@@ -310,19 +394,19 @@ $(document).ready(function () {
                       A : "Pending",
                       B : res.lastweek.pending,
                       C : res.lastmonth.pending,
-                      D : res.lastyear.pending,
+                      D : res.lastyear.pending
                   },
                   3: {
                       A : "Closed",
                       B : res.lastweek.closed,
                       C : res.lastmonth.closed,
-                      D : res.lastyear.closed,
+                      D : res.lastyear.closed
                   },
                   4: {
                       A : "Created",
                       B : res.lastweek.total,
                       C : res.lastmonth.total,
-                      D : res.lastyear.total,
+                      D : res.lastyear.total
                   }
               };
               var chtStr = '<div class="chart" id="tckt-cht"><h2 class="m-hd err-msg hideElement"></h2>' +
@@ -455,5 +539,32 @@ $(document).ready(function () {
            }
         });
     });
-    
+   
+    $('#tckt-attcmnt').change(function(){
+    var formData = new FormData();
+         var files = document.getElementById('tckt-attcmnt');
+         files = files.files;
+         formData.append('tckt-attcmnt', files[0],files[0].name);
+         $.ajax({
+            url: '/customer_ticket/new_tckt_atchmnt',
+            method: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                var d = JSON.parse(data);
+                if(typeof d == 'object'){
+                var flename = d[1].substr(9);
+                $('.fine_atchmnts').append("<div class='atchmnt-itm' data-atch='"+d[1]+"'><a href='/uploads/multimedia/"+d[1]+"' target='_blank'>"+flename+"</a><a href='#' id='rmve-atchmnt'><i class='mdi-content-clear'></i></a></div>");
+             }else{
+                 alert(d);
+             }
+            }
+        });
+    });
+    $('.fine_atchmnts').on('click', '#rmve-atchmnt', function(e){
+        e.preventDefault();
+       $(this).parents('.atchmnt-itm').remove(); 
+    });
 });

@@ -531,7 +531,9 @@ function linechart(d, colnum, w, h, chartId, title)
     leftmargin += 30;
     w = w - 30;
   }
-  if (data.length <= 9) // -1 because 1st value is header-row.
+  if(data.length <= 4)
+    numOflinesVisible = 3;  
+  else if (data.length <= 9) // -1 because 1st value is header-row.
     numOflinesVisible = 8;
   else if (data.length <= 17)
     numOflinesVisible = data.length - 1;

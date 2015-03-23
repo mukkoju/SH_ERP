@@ -14,7 +14,6 @@ body
 .dashboard{
     float: left;
 }
-
 .btn {
     position: relative !important;
     /*padding: 8px 30px !important;*/
@@ -215,7 +214,7 @@ font-weight: 600;
 display: inline;
 }
 .apply i{
-    font-size: 0.5em !important;
+    font-size: 0.7em !important;
     vertical-align: middle;
     position: absolute;
     opacity: 0.5;
@@ -493,9 +492,7 @@ nav ul{
 }
 
 ul {
-
 	list-style: none;
-
 }
 
 nav li {
@@ -509,7 +506,9 @@ nav li {
 .mnu-activ{
     background-color: rgba(255,255,255,.1);
 }
-
+.hr-dropdwn{
+    margin-left: -48px !important;
+}
 .hr-dropdwn li{
     display: block;
     float: none;
@@ -710,12 +709,13 @@ footer > span > a {color : #E31E24; font-size: 0.857em;}
    text-align: center !important;
 }
 .dwnld i{
-    color: #FF4141;
+    color: #009587;
     font-size: 1.5em;
     background-position: 20px;
 }
 .dwnld i:hover{
-    color: black;
+    /*color: black;*/
+    text-transform: none !important;
 }
 
 .edit-emp i{
@@ -1387,7 +1387,7 @@ button{
     text-align: left !important;
     padding-left: 16px;
 }
-.dwnld-clps i{
+.dwnld-clps h2 i{
     float: right;
     margin-right: 16px;
     font-size: 1.6em;

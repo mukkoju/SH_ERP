@@ -92,7 +92,7 @@
     
     
     <script type="text/javascript">
-        $(".modal_trigger5").leanModal({top: 50, overlay: 0.2, closeButton: ".modal_close"});
+        $(".modal_trigger5").leanModal({top: 50, overlay: 0.5, closeButton: ".modal_close"});
         $(".modal_trigger_status").leanModal({top: 150, overlay: 0.2, closeButton: ".modal_close"});
         
         

@@ -28,7 +28,7 @@ public function index(){
         header('location: ../error');
             return;
     }
-    $this->view->render('privileges/index', HR_MODULE);
+    $this->view->render('privileges/index', HR_MODULE, 'notajax');
 }
 
         

@@ -2358,9 +2358,8 @@ h5,
 h6 {
   font-weight: 400;
 }
-a,
-a:hover,
-a:focus {
+
+a:hover {
   color: #009587;
 }
 body .well,

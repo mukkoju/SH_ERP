@@ -182,7 +182,7 @@
 </div>
 </div>
 <script type="text/javascript">
-    $(".modal_trigger6").leanModal({top: 10, overlay: 0.2, closeButton: ".modal_close"});
+    $(".modal_trigger6").leanModal({top: 10, overlay: 0.4, closeButton: ".modal_close"});
     $(".modal_trigger_status").leanModal({top: 150, overlay: 0.2, closeButton: ".modal_close"});
     $('li .menu-news').hover(function(){
        $('.news').show();

@@ -151,7 +151,7 @@
         </div>
         </div>
 <script type="text/javascript">
-    $(".modal_trigger7").leanModal({top: 50, overlay: 0.2, closeButton: ".modal_close"});
+    $(".modal_trigger7").leanModal({top: 50, overlay: 0.4, closeButton: ".modal_close"});
     $(".modal_trigger_status").leanModal({top: 150, overlay: 0.2, closeButton: ".modal_close"});
     
     $(".upld-slip").click(function(){

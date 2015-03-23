@@ -46,19 +46,18 @@
             <th>#Leaves</th>
             <th>Net-payable</th>
         </tr>
-</table>
+    </table>
     <div class="salrie-submit">
     <p style="position: relative; top: 18px;">Cheque no:</p>
     <input type="text" id="cq-no" class="chq-no" placeholder="Cheque no">
     <i class="icon-cog procss-btn"></i>
     <button id="process" class="btn btn-success" name="textarea_hidden">Process</button>
     <a href="#">
-    <button type="button" id="exprt" class="btn btn-primary exprt" value="Export" name="textarea_hidden" style="color: black;">Export<i class="icon-xlsx"></i></button></a>
+    <!--<button type="button" id="exprt" class="btn btn-primary exprt" value="Export" name="textarea_hidden" style="color: black;">Export<i class="icon-xlsx"></i></button>-->
+    </a>
     <p class="err-sal" style="opacity: 0; line-height: 0.5%; color: red;">ERRR</p>
     </div>
-</div>
-
-
+    </div>
 <div class="ajax-loading"></div>
 <a id= "btn-trgr" href="#resp-popup" class="modal_trigger_status" hidden></a>
 <div id="resp-popup" class="popupContainer_status" style="display:none;">
@@ -72,7 +71,7 @@
     </div>
 </div>
 <script>
-$(".modal_trigger_status").leanModal({top: 150, overlay: 0.2, closeButton: ".modal_close"});
+$(".modal_trigger_status").leanModal({top: 150, overlay: 0.4, closeButton: ".modal_close"});
 $(document).ready(function(){
         var start = 2012;
         var end = new Date().getFullYear();
@@ -161,7 +160,7 @@ $(document).ready(function(){
                d = JSON.parse(d);
                var arry_length = d.length;
                for(i=0; i<arry_length; i++){
-               $("#bank_stmnt-table").append("<tr><td align='center'>"+d[i]['_bank_stmnt_title']+"</td><td align='center' class='dwnld'><a href='/download/down_staments/"+d[i]['_bank_stmnt_title']+"'><i class='icon-download'></i></a></td></tr>");
+               $("#bank_stmnt-table").append("<tr><td align='center'>"+d[i]['_bank_stmnt_title']+"</td><td align='center' class='dwnld'><a href='/uploads/hr@saddahaq.com/Bank_statments/"+d[i]['_bank_stmnt_title']+"'><i class='mdi-file-file-download'></i></a></td></tr>");
                }
                $('#bank_stmnt-table tr:nth-child(3) td:nth-child(1)').addClass("new_statement");
        }

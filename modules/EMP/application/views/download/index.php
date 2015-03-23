@@ -29,7 +29,7 @@
                 <?php $row = $this->get_slips; ?>
                 <?php for ($i = 0; $i < sizeof($row); $i++) { ?>
                     <tr><td align="center"><?php echo $row[$i]['_emp_payslip_title']; ?></td>
-                        <td class='dwnld'><a href="/download/down_slips/<?php echo $row[$i]['_emp_payslip_title']; ?>"><i class="icon-download"></i></a></td>
+                        <td class='dwnld'><a href="/uploads/<?= $_SESSION['loggedIn']?>/<?php echo $row[$i]['_emp_payslip_title']; ?>"><i class="mdi-file-file-download"></i></a></td>
                     </tr>
                 <?php } ?>
             </table>

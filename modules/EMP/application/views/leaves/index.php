@@ -1,6 +1,6 @@
-<div class="span7 left-cntnt">
+        <div class="span7 left-cntnt">
             <div class="apply_form" id="aply">
-                <h2 class="apply">Apply leave Here <i class="mdi-action-help"></i></h2><br>
+                <h2 class="apply">Apply leave Here <a href="#leavs_help" class="modal_trigger5"><i class="mdi-action-help"></i></a></h2><br>
                 <p class="val_err"></p>
                 <form name="leave_apply_form" id="leaveform">
                     <label class="form_txt">Subject:</br><textarea name="sub" style="width: 90%" placeholder="Ex: Request for leave" id="leve-subjct"></textarea></label>
@@ -13,6 +13,21 @@
                 </form>
             </div>
             </div>
+            <div id="leavs_help" class="popupContainer6 pop_cont" style="display:none;">
+                                <header class="popupHeader6">
+                                    <span class="header_title"><i class="mdi-action-help"></i> Help</span>
+                                    <span class="modal_close"></span>
+                                </header>
+                    <section class="popupBody6">
+                        <h4>Leave policy</h4>
+                        <ul style="list-style: inherit;">
+                            <li style="line-height: 2em">As per the company leave policy leave will be Granted</li>
+                            <li style="line-height: 2em">You one 1.25 leaves for one month</li>
+                            <li style="line-height: 2em">Cheack your previous leaves in your leaves tab</li>
+                            <li style="line-height: 2em">You have to give clear details while applying the leave</li>
+                        </ul>
+                    </section>
+                            </div>
             <div class="span5">
             <div class="apply_left">
                 <div class="overflow">

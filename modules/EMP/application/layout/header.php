@@ -4,8 +4,6 @@
         <title>Saddahaq Employes</title>
         <link rel="icon" type="image/png" href="https://saddahaq.blob.core.windows.net/multimedia/favicon.ico">
         <link rel="stylesheet" href="/public/css/view_helper.css" />
-        
-        <link rel="stylesheet" href="/public/global/saddahaq/css/saddahaq-ie7.css" />
         <link rel="stylesheet" href="/public/global/saddahaq/css/saddahaq.css" />
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="/public/global/bootstrap/css/bootstrap.min.css" />
@@ -14,17 +12,17 @@
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/public/global/bootstrap/css/jquery-ui.css" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-        <script src="/public/js/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
         <link type="text/css" rel="stylesheet" href="/public/css/style.css"/>
         <link type="text/css" rel="stylesheet" href="/public/css/chkbx.css"/>
-        <link type="text/css" rel="stylesheet" href="/public/css/form_control.css"/>
+        <!--<link type="text/css" rel="stylesheet" href="/public/css/form_control.css"/>-->
         <link type="text/css" rel="stylesheet" href="/public/global/saddahaq/css/material-wfont.css"/>
         <link rel="stylesheet" href="/public/css/customer.css" />
-        <!--<link rel="stylesheet" href="/public/global/bootstrap/css/logout.css"/>-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+        
+        <script src="/public/js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/public/js/jquery.leanModal.min.js"></script>
         <script src="/public/js/logout.js"></script>
         <script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.js"></script>
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
         <script type="text/javascript" src="/public/global/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.js"></script>
         <script type="text/javascript" src="/public/global/bootstrap/js/jquery-ui.min.js"></script>
@@ -174,22 +172,16 @@
                         <div class="user_details">
                             <label>Name</label>
                             <input name="emp_name" id="emp_name_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Name"/>
-                            <br>
                             <label>Emp_id</label>
                             <input name="emp_id" id="emp_id_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="Emp id"/>
-                            <br>
                             <label>Email Address</label>
                             <input name="emp_email" id="emp_email_reg" type="email" value="nope@gmail.com" style="height: 30px; width: 250px;" placeholder="Email"/>
-                            <br>
                             <label>Password</label>
                             <input name="password" id="password_reg" type="password" value="nopedsvds" style="height: 30px; width: 250px;" placeholder="password"/>
-                            <br>
                             <label>Fathername</label>
                             <input name="fathername" id="fathername_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="fathername"/>
-                            <br>
                             <label>Mothername</label>
                             <input name="mothername" id="mothername_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="mothername"/>
-                            <br>
                             <label>Gender</label>
                             <div class="radio" style="margin-top: -5px;">Male: <label><input name="gender" id="gender_reg" type="radio" value="Male"></label></div>
                             <div class="radio">Female: <label><input name="gender" value="Female" type="radio"></label></div>
@@ -197,22 +189,16 @@
                         <div class="emr_details">
                             <label>Phone no</label>
                             <input name="emp_phno" id="emp_phno_reg" type="text" value="9948983078" style="height: 30px; width: 250px;" placeholder="+9199948983078"/>
-                            <br>
                             <label>DOB</label>
                             <input name="dob" id="dob_reg" class="datepicker-dob" value="10-2-2015" type="text" style="height: 30px; width: 250px;" placeholder="Date of birth"/>
-                            <br>
                             <label>Age</label>
                             <input name="age" id="age_reg" type="text" value="25" style="height: 30px; width: 250px;" placeholder="Age"/>
-                            <br>
                             <label>Bloodgroup</label>
                             <input name="bloodgroup" id="bloodgroup_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Blood group"/>
-                            <br>
                             <label>Address</label>
                             <textarea  name="address" id="address_reg" value="nope" cols="5" rows="3" style=" height: 50px; width: 250px;"></textarea>
-                            <br>
                             <label>Spouse</label>
                             <input name="spousename" id="spousename_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="If not married type unmarried"/>
-                            <br>
                             <select id="emptype_reg" name="department" style="width: 251px;">
                                 <option>Employee type</option>
                                 <option selected="true">Full time</option>   
@@ -230,7 +216,6 @@
                         <div class="user_details">
                             <label>Designation</label>
                             <input name="designation" id="designation_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Role"/>
-                            <br>
                             <label>Department</label>
                             <select id="department_reg" name="department">
                                 <option selected="true">Content</option>   
@@ -242,17 +227,13 @@
                                 <option>Management</option>
                             </select>
                             <!--<input name="department" id="department_reg" type="text" style="height: 30px; width: 250px;" placeholder="Department"/>-->
-                            <br>
                             <h5>Emergency contact details</h5>
                             <label>Name</label>
                             <input name="emr_name" id="emr_name_reg" value="nope" type="text" style="height: 30px; width: 250px;"/>
-                            <br>
                             <label>Relation</label>
                             <input name="emr_relation" id="emr_relation_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Relation with emp"/>
-                            <br>
                             <label>Ph no</label>
                             <input name="emr_phone" id="emr_phone_reg" value="9948983078" type="text" style="height: 30px; width: 250px;" placeholder="Ph no"/>
-                            <br>
                             <label>Email</label>
                             <input name="emr_email" id="emr_email_reg" value="nope@gmail.com" type="text" style="height: 30px; width: 250px;" placeholder="Email"/>
                         </div>
@@ -260,22 +241,16 @@
                             <h5>Salaries details</h5>
                             <label>Bank Acc no</label>
                             <input name="bank_acc" id="bank_acc_reg" value="123456" type="text" style="height: 30px; width: 250px;" placeholder="Bank Acc no"/>
-                            <br>
                             <label>PF ACC no</label>
                             <input name="pf_acc" id="pf_acc_reg" value="123456" type="text" style="height: 30px; width: 250px;" placeholder="PF ACC no"/>
-                            <br>
                             <label>PAN</label>
                             <input name="pan" type="text" id="pan_reg" value="123456" style="height: 30px; width: 250px;" placeholder="PAN"/>
-                            <br>
                             <label>Bank IFSC code</label>
                             <input name="ifsc" type="text" id="ifsc_reg"  value="123456" style="height: 30px; width: 250px;" placeholder="Bank IFSC code"/>
-                            <br>
                             <label>Basic Salarie</label>
                             <input name="basic_salrie" id="basic_salrie_reg" value="123456" type="text" style="height: 30px; width: 250px;" placeholder="Basic Salari"/>
-                            <br>
                             <label>Date of joining</label>
                             <input name="doj"  id="doj_reg" class="datepicker-dob" value="10-2-2015" type="text" style="height: 30px; width: 250px;" placeholder="Date of joining"/>
-                            <br>
                             <!--                <label>Documents uploads</label>
                                          <input name="doc" type="file" style="height: 30px; width: 250px;" placeholder="doc"/>
                                          <br>-->

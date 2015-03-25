@@ -30,13 +30,11 @@
                 <td align="center"><?php echo $bdy = date("j-M-Y", $row[$i]['_emp_per_age']); ?></td>
                 <td align="center"><?php echo $row[$i]['_emp_rol_department']; ?></td>
                 <!-- <td align="center"><a href="#<?php echo $i; ?>" class="modal_trigger7">View full</a></td>-->
-                <td align="center" class="dwnld"><a href="#<?php echo $i; ?>" class="modal_trigger7"><i class="icon-download"></i></a></td>
-                <td align="center" class="dwnld"><a href="#<?php echo $i; ?>-edit" class="modal_trigger7"><i class="icon-pencil"></i></a></td>
-                <td align="center" class="dwnld"><a href="#<?php echo $i; ?>-view" class="modal_trigger7"><i class="icon-watch"></i></a></td>
-            </tr>
-            <tr>
+                <td align="center" class="dwnld"><a href="#<?php echo $i; ?>" class="modal_trigger7"><i class="mdi-file-file-download"></i></a></td>
+                <td align="center" class="dwnld"><a href="#<?php echo $i; ?>-edit" class="modal_trigger7"><i class="mdi-content-create"></i></a></td>
+                <td align="center" class="dwnld"><a href="#<?php echo $i; ?>-view" class="modal_trigger7"><i class="mdi-navigation-fullscreen"></i></a></td>
                 <td>
-                    <div id="<?php echo $i;  ?>" class="popupContainer_all pop_cont" style="display:none;">
+                    <div id="<?phpecho $i;?>" class="popupContainer_all pop_cont" style="display:none;">
                         <header class="popupHeader6">
                             <span class="header_title"><?php echo $row[$i]['emp_name']; ?> Documents</span>
                             <span class="modal_close"></span>
@@ -73,8 +71,8 @@
                         </header>
                         <section class="popupBody6">
                             <div class="edit_emp_div">
-                            <p class="edit-emp edit_name">Name: <span contenteditable="true"><?php echo $row[$i]['emp_name']?></span><i class="icon-pencil"></i></p>
-                            <p class="edit-emp edit_phone">Phone no: <span contenteditable="true"><?php echo $row[$i]['phone_no']?></span><i class="icon-pencil"></i></p>
+                            <p class="edit-emp edit_name">Name: <span contenteditable="true"><?php echo $row[$i]['_emp_per_name']?></span><i class="icon-pencil"></i></p>
+                            <p class="edit-emp edit_phone">Phone no: <span contenteditable="true"><?php echo $row[$i]['_emp_per_phone'];?></span><i class="icon-pencil"></i></p>
                             <p class="edit-emp edit_address">Address: <span contenteditable="true"><?php echo $row[$i]['address']?></span><i class="icon-pencil"></i></p>
                             <p class="edit-emp edit_designation">Designation: <span contenteditable="true"><?php echo $row[$i]['designation']?></span><i class="icon-pencil"></i></p>
                             <p class="edit-emp edit_bank_account">Bank acc: <span contenteditable="true"><?php echo $row[$i]['bank_account']?></span><i class="icon-pencil"></i></p>
@@ -84,8 +82,8 @@
                             <p class="edit-emp edit_basic_salarie">Basic salarie: <span contenteditable="true"><?php echo $row[$i]['basic_salarie']?></span><i class="icon-pencil"></i></p>
                             <p class="edit-emp edit_emil hidden">Email: <span contenteditable="true"><?php echo $row[$i]['emp_email']?></span><i class="icon-pencil"></i></p>
                             </div>
-                            <button class="btn btn-info edit_emp_save" value="POST" id="edit_emp_save" type="button" style="color: #1d733a;">Save</button>
-                            <button class="btn btn-info edit_emp_cancl" value="POST" id="edit_emp_cancl" type="button" style="color: #FF7171;">Cancel</button>
+                            <button class="btn btn-success edit_emp_save" value="POST" id="edit_emp_save" type="button" style="color: #1d733a;">Save</button>
+                            <button class="btn btn-danger edit_emp_cancl" value="POST" id="edit_emp_cancl" type="button" style="color: #FF7171;">Cancel</button>
                         </section>
                     </div>
                     <!--close Edit popup-->

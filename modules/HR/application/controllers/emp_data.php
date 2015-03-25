@@ -26,8 +26,12 @@
             header('location: ../error');
             return;
             }
-            
-            $this->view->render('emp_data/index', HR_MODULE);
+            // @Checking url come form ajax or not
+            if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest')) {
+                $this->view->render('emp_data/index', HR_MODULE, 'ajax');
+            }else{
+                $this->view->render('emp_data/index', HR_MODULE, 'notajax');
+            }
         }
         public function mail(){
             $mail = mail("radhasatish143@gmail.com","My subject","hi this is my first mail");

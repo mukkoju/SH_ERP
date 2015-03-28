@@ -3,14 +3,14 @@
 
 
 #lean_overlay {
-    position: fixed;
-    z-index:100;
-    top: 0px;
-    left: 0px;
-    height:100%;
-    width:100%;
-    background: #000;
-    display: none;
+        position: fixed;
+        z-index:100;
+        top: 0px;
+        left: 0px;
+        height:100%;
+        width:100%;
+        background: #000;
+        display: none;
 }
 
 .popupContainer{
@@ -63,8 +63,7 @@
 }
 
 .pop_cont5{
-    background-image: url("https://localhost:8811/images/saddahaq_logo2.png");
-    
+        background-image: url("https://localhost:8811/images/saddahaq_logo2.png");
         background-size: 1100px 390px;
         opacity: 0.1;
 
@@ -83,13 +82,19 @@
 a.btn {color:#666; text-align: center; text-decoration: none;}
 a.btn_red {color: #FFF;}
 
-.one_half {width:50%; display: block; float:left;}
-.one_half.last {
+.one_half 
+    {
+    width:50%;
+    display: block;
+    float:left;
+    }
+.one_half.last 
+    {
     padding-bottom: 2px;
     float: right;
-    margin-right: 24px;
+    margin-right: 44px;
     margin-top: 16px;
-}
+    }
 
 /* Popup Styles*/
 .popupHeader {font-size:16px; text-transform: uppercase;}
@@ -107,7 +112,8 @@ a.btn_red {color: #FFF;}
 .popupHeader .header_title{
     color: white;
 }
-.popupHeader_holiday {background:#0c0404; 
+.popupHeader_holiday {
+                     background:#00AF9F; 
                      position:relative; 
                      padding:10px 20px; 
                      border-bottom:1px solid #DDD; 
@@ -116,7 +122,7 @@ a.btn_red {color: #FFF;}
                      height: 40px;
 }
 .popupfooter_holiday{
- background:#0c0404; 
+                     background:#00AF9F; 
                      position:relative; 
                      padding:10px 20px; 
                      border-bottom:0px solid #DDD; 
@@ -137,13 +143,15 @@ a.btn_red {color: #FFF;}
 .popupHeader7 .modal_close {position: absolute; right: 0; top:-3px; padding:17px;  background-image: url("/images/close34.png"); height: 2px; width: 2px;  cursor: pointer; color:#aaa; font-size:16px;}
 
 
-.popupBody {padding:20px;
-padding-right: 00px;
-padding-left: 30px;
+.popupBody {
+    padding:20px;
+    padding-right: 00px;
+    padding-left: 30px;
 }
-.popupBody6 {padding:20px;
-padding-right: 00px;
-padding-left: 10px;
+.popupBody6 {
+    padding:20px;
+    padding-right: 00px;
+    padding-left: 10px;
 }
 
 

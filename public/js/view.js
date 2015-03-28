@@ -571,6 +571,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                     "bloodgroup": regform.elements['bloodgroup'].value,
                     "address": regform.elements['address'].value,
                     "spousename": regform.elements['spousename'].value,
+                    "empbranch": $('#empbrnch_reg option:selected').text(),
                     "designation": regform.elements['designation'].value,
 //                    "department": regform.elements['department'].value,
                     "department": $('#department_reg option:selected').text(),
@@ -591,6 +592,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
 //                    $("#resp-popup").find(".popupBody").html(res);
 //                    $("#btn-trgr").trigger('click');
 //                    document.getElementById('resetform').reset();
+                      alert(res);
                 }
             });
         }

@@ -160,7 +160,7 @@
 
                 </section>
         </div>
-        <div id="model_reg" class="popupContainer" style="display:none;">
+        <div id="model_reg" class="popupContainer" style="display:none; width: auto">
             <header class="popupHeader6">
                 <span class="header_title">Register on portal</span>
                 <span class="modal_close"></span>
@@ -199,12 +199,13 @@
                             <textarea  name="address" id="address_reg" value="nope" cols="5" rows="3" style=" height: 50px; width: 250px;"></textarea>
                             <label>Spouse</label>
                             <input name="spousename" id="spousename_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="If not married type unmarried"/>
-                            <select id="emptype_reg" name="department" style="width: 251px;">
-                                <option>Employee type</option>
-                                <option selected="true">Full time</option>   
-                                <option>Content</option>   
-                                <option>Internship</option>   
-                                <option>Part time</option>   
+                            <label>Branch</label>
+                            <select id="empbrnch_reg" name="department" style="width: 251px;">
+                                <option>Branch name</option>
+                                <option>Upple</option>   
+                                <option>Nagole</option>   
+                                <option>Alakapuri</option>   
+                                <option>LB nagar</option>   
                             </select>
                         </div>
                         <div class="action_btns">
@@ -216,6 +217,13 @@
                         <div class="user_details">
                             <label>Designation</label>
                             <input name="designation" id="designation_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Role"/>
+                            <select id="emptype_reg" name="department" style="width: 251px;">
+                                <option>Employee type</option>
+                                <option selected="true">Full time</option>   
+                                <option>Content</option>   
+                                <option>Internship</option>   
+                                <option>Part time</option>   
+                            </select>
                             <label>Department</label>
                             <select id="department_reg" name="department">
                                 <option selected="true">Content</option>   
@@ -251,9 +259,6 @@
                             <input name="basic_salrie" id="basic_salrie_reg" value="123456" type="text" style="height: 30px; width: 250px;" placeholder="Basic Salari"/>
                             <label>Date of joining</label>
                             <input name="doj"  id="doj_reg" class="datepicker-dob" value="10-2-2015" type="text" style="height: 30px; width: 250px;" placeholder="Date of joining"/>
-                            <!--                <label>Documents uploads</label>
-                                         <input name="doc" type="file" style="height: 30px; width: 250px;" placeholder="doc"/>
-                                         <br>-->
                         </div>
                         <div class="emr_details">
                         </div>
@@ -310,7 +315,6 @@
                 <?php $hldys = $this->get_hldys;?>
                 <?php  for($i=0; $i<sizeof($hldys); $i++){?>
                 <li class="holidays_li">
-                    
                     <p class="hidden h_id"><?php echo $hldys[$i]["_holidays_id"]?></p>
                     <div class="holiday_img"><img src="/images/holidays/<?php echo $hldys[$i]['_holidays_id']?>.jpg" style="max-width: 82px;"></div>
                         <div class="holiday_date"><p class="h_day"><?php echo $hldys[$i]["_holidays_on"]?></p></div>
@@ -343,7 +347,7 @@
             </section>
             <footer class="popupfooter_holiday"><p class="note_hldy">Note: Choose before JAN 7th 2015</p>
                 <span class="footer_title hldys">
-                    <button class="btn btn-success"  id="hldy-btn" value="Save" type="button" style="color: white;">Save</button></span></footer>
+                    <button class="btn btn-primary"  id="hldy-btn" value="Save" type="button" style="color: white;">Save</button></span></footer>
         </div>
         
         <div id="model_holiday_hr" class="popupContainer" style="display:none; ">
@@ -394,12 +398,12 @@
             <footer class="popupfooter_holiday"><p class="note_hldy">Note: Choose before JAN 7th 2015</p>
         </div>
         
-        <div id="model_directory" class="popupContainer model_directory" style="display:none; ">
+        <div id="model_directory" class="popupContainer" style="display:none; ">
             <header class="popupHeader6">
                 <span class="header_title">Directory</span>
                 <span class="modal_close"></span>
             </header>
-            <section class="popupBody">
+            <section class="popupBody model_directory">
                 <select id="department_dir" name="department">
                                 <option>Select Department</option>   
                                 <option>Content</option>   

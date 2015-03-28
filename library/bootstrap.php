@@ -112,7 +112,7 @@
                     case 'index':
                         (new Download())->index();
                         break;
-                default:
+                    default:
                         (new Download())->index();
                 }
             }
@@ -210,8 +210,10 @@
                 }
             
             else{
+                header('HTTP/1.0 404 Not Found');
                 require EMP_MODULE. '/controllers/error.php';
                 (new Error());
+                exit();
             }
         }
 

@@ -242,12 +242,22 @@ display: inline;
 
 .user_details{
     float: left;
+    width: 40%;
+    margin-left: 16px;
 }
-
+.intial-form{
+    width: 100%;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    -ms-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    transition: all .8s ease;
+}
 .emr_details{
-    
-    padding-left: 100px;
     float: left;
+    margin-left: 48px;
+    margin-right: 40px; 
+    
 }
 
 .emr_details_all{

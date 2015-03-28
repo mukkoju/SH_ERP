@@ -748,6 +748,7 @@ class Home_model extends Model {
         $emp_name = $_POST['emp_name'];
         $emp_phno = $_POST['emp_phno'];
         $emptype = $_POST['emptype'];
+        $emp_branch = $_POST['empbranch'];
         $password = $_POST['password'];
         $age = $_POST['age'];
 //        $dob = $_POST['dob'];
@@ -774,8 +775,8 @@ class Home_model extends Model {
         $time = time();
         $id = md5($time . rand(21, 221) . '#$sr');
         $status = 0;
-        $emp = $this->db->query("INSERT INTO viv_emp_en(_id_, _emp_name, _emp_id, _emp_email, _emp_pw, _emp_addedby, _emp_addedon) VALUE(" . $this->db->quote($id) . "," .
-               $this->db->quote($emp_name) . "," . $this->db->quote($emp_id) . "," . $this->db->quote($emp_email) . "," . $this->db->quote(md5($password)) . "," . $this->db->quote($addedby) . "," . $this->db->quote($addedon) . ")");
+        $emp = $this->db->query("INSERT INTO viv_emp_en(_id_, _emp_name, _emp_id, _emp_email, _emp_pw, _emp_branch,  _emp_addedby, _emp_addedon) VALUE(" . $this->db->quote($id) . "," .
+               $this->db->quote($emp_name) . "," . $this->db->quote($emp_id) . "," . $this->db->quote($emp_email) . "," . $this->db->quote(md5($password)) . "," . $this->db->quote($emp_branch) . "," . $this->db->quote($addedby) . "," . $this->db->quote($addedon) . ")");
 
         if ($emp == true) {
             $emp_per = $this->db->query("INSERT INTO viv_emp_per_en VALUES(" . $this->db->quote($id) . "," .
@@ -828,6 +829,7 @@ class Home_model extends Model {
         } else {
             $emp_dlt = $this->db->query("DELETE FROM viv_emp_en WHERE _id_ = " . $this->db->quote($id));
             $sts = 'Somthing worng';
+            var_dump($this -> db -> errorInfo());
             return $sts;
         }
     }

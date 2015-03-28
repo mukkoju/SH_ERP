@@ -1,6 +1,8 @@
 <?php
 
 if(!isset($_SESSION)){
+    ini_set('session.cookie_lifetime', 60 * 60 * 24 * 7);
+    ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 7);
     session_start();
 }
 error_reporting(E_ALL);

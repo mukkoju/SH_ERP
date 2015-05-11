@@ -17,7 +17,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
         var cut = ($this.val() * byleavs).toFixed();
         var total = maxpay - cut;
         $this.parents("tr").find(".tol-pay").html(total);
-    });
+    }); 
     $('.main-content').on('click', "#process", function () {
         var chq_no = $.trim($('#cq-no').val());
         if(chq_no == ''){
@@ -270,7 +270,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'emp_name':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Name should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Name cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -279,7 +279,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'emp_id':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Emp id should contain only numerals';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Emp id cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -307,7 +307,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'fathername':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Fathername should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Fathername cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -316,7 +316,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'mothername':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Mothername should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Mothername cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -324,7 +324,11 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                     break;
                 case 'gender':
                     error = 'Select the gender';
-                    reg = /^[a-zA-Z0-9 ]+$/;
+                    reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
+                    break;
+                case 'dob':
+                    error = 'Dob must be important';
+                    reg = /^[0-9_\+-]+$/;
                     break;
                 case 'emp_phno':
                     if ($.trim($(this).val()) !== '') {
@@ -347,7 +351,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'bloodgroup':
                     if ($.trim($(this).val()) !== '') {
                         error = 'bloodgroup not valid';
-                        reg = /^[a-zA-Z0-9+ ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()-+=_|\/"':;~`><.,?]*$/;
                     } else {
                         error = 'bloodgroup cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -357,7 +361,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'address':
                     if ($.trim($(this).val()) !== '') {
                         error = 'address not valid';
-                        reg = /^[a-zA-Z0-9+ ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/;
                     } else {
                         error = 'address cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -366,7 +370,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'spousename':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Spousename should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Spousename cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -375,6 +379,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
             }
             if (reg)
             {
+                
                 if (!reg.test($(this).val().toLowerCase()))
                 {
                     flag = 1;
@@ -389,7 +394,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
         });
         if (flag == 1)
         {
-            $('#' + element + '_reg').addClass('month-leavs_err').val('').focus();
+            $('#' + element + '_reg').addClass('month-leavs_err').focus();
             $(".popupContainer").find('.intial-form').effect('shake', {
                 times: 3,
                 distance: 4
@@ -400,6 +405,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
         } else {
 
         $(".intial-form").css('opacity', '0');
+        $(".action_btns.reg").removeClass('dctv');
         $(".slide_left").effect("slide", {
             direction: "right"
         }, 800);
@@ -407,7 +413,8 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
     });
 
     $("#Back").on('click', function () {
-
+        $(".action_btns.reg").addClass('dctv');
+        $(".action_btns.nxt").removeClass('dctv');
         $(".slide_left").effect("slide", {
             direction: "left"
         }, 1000);
@@ -415,7 +422,8 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
         $(".intial-form").css('opacity', '1');
     });
 
-    $('.popupContainer').on("click", "#register-btn", function () {
+    $('.popupContainer').on("click", "#register-btn", function (e) {
+        e.preventDefault();
         var elements = $('.slide_left').find("input[type='text'],input[type='password'],input[type='number'],input[type='email'],input[type='radio'],textarea");
         var reg = null;
         var err = $("#model_reg").find(".val_err");
@@ -429,7 +437,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'designation':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Designation should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Designation cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -438,7 +446,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'department':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Department should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Department cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -447,7 +455,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'emr_name':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Emargency contact name should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Emargency contact name cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -456,7 +464,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                 case 'emr_relation':
                     if ($.trim($(this).val()) !== '') {
                         error = 'Relation should contain only alphabets, numerals and space';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[ A-Za-z0-9-+=_@#$%^&*()|\/"':;~`><.,?]*$/
                     } else {
                         error = 'Relation cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
@@ -476,7 +484,8 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                     if ($.trim($(this).val()) !== '') {
                         error = 'Invalid phone no.';
                         reg = /^(?=.*[0-9]).{10}$/;
-                    } else {
+                    } 
+                    else {
                         error = 'Phone no cannot be empty';
                         reg = /^[a-zA-Z0-9 ]+$/;
                     }
@@ -505,7 +514,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                         reg = /^(?=.*[A-Za-z0-9]).{0,30}$/;
                     } else {
                         error = 'Pan account no cannot be empty';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[a-zA-Z0-9]+$/;
                     }
                     break;
                 case 'ifsc':
@@ -514,7 +523,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                         reg = /^(?=.*[A-Za-z0-9]).{0,30}$/;
                     } else {
                         error = 'ifsc cannot be empty';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[a-zA-Z0-9]+$/;
                     }
                     break;
                 case 'basic_salrie':
@@ -523,7 +532,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                         reg = /^(?=.*[A-Za-z0-9]).{0,30}$/;
                     } else {
                         error = 'Basic salari cannot be empty';
-                        reg = /^[a-zA-Z0-9 ]+$/;
+                        reg = /^[a-zA-Z0-9]+$/;
                     }
                     break;
             }
@@ -544,7 +553,7 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
         });
         if (flag == 1)
         {
-            $('#' + element + '_reg').addClass('month-leavs_err').val('').focus();
+            $('#' + element + '_reg').addClass('month-leavs_err').focus();
             $(".popupContainer").find('.slide_left').effect('shake', {
                 times: 3,
                 distance: 4
@@ -556,18 +565,16 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
             var regform = document.forms['regform'];
             $.ajax({
                 url: "/home/register",
-                method: 'post',
+                type: 'post',
                 data: {
                     "emp_name": regform.elements['emp_name'].value,
                     "emp_id": regform.elements['emp_id'].value,
                     "emp_email": regform.elements['emp_email'].value,
-                    "password": regform.elements['password'].value,
                     "fathername": regform.elements['fathername'].value,
                     "mothername": regform.elements['mothername'].value,
                     "gender": regform.elements['gender'].value,
                     "emp_phno": regform.elements['emp_phno'].value,
                     "dob": regform.elements['dob'].value,
-                    "age": regform.elements['age'].value,
                     "bloodgroup": regform.elements['bloodgroup'].value,
                     "address": regform.elements['address'].value,
                     "spousename": regform.elements['spousename'].value,
@@ -588,11 +595,17 @@ $(".datepicker-dob" ).datepicker({dateFormat: 'dd-mm-yy', changeMonth: true, cha
                     "doj": regform.elements['doj'].value
                 },
                 success: function (res) {
-//                    $("#model_reg").css("display", "none");
-//                    $("#resp-popup").find(".popupBody").html(res);
-//                    $("#btn-trgr").trigger('click');
-//                    document.getElementById('resetform').reset();
-                      alert(res);
+                     var d = JSON.parse(res)
+                      if(d.success){
+                      $(".modal_close").trigger('click');
+//                      document.getElementById('resetform').reset();
+                      setTimeout(function () {
+                       window.location.reload();
+                      }, 1000);
+                      alert(d.msg);
+                      }else{
+                          err.text(d.msg);
+                      }
                 }
             });
         }

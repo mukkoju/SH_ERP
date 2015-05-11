@@ -82,6 +82,7 @@
                     <li><a href="#model_directory" class="modal_trigger6">DIRECTORY</a></li>
                     <li><a href="#model_holiday" class="modal_trigger6">HOLIDAY CAL</a></li>
                     <li><a href="/tickets" data-pg="tickets" class="cntnt">TICKETS</a></li>
+                    
                     <!--<li><a href="#" class="menu-news">NEWS<span class="caret"></span></a></li>-->
                     <?php if($this->user_details[0]['_emp_level'] == HR_MANAGER){ ?>
                     <li class="dropdown"><a href="" id="dLabel" class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" rel="nofollow">HR<span class="caret"></span></a>
@@ -92,6 +93,7 @@
                             <li class="dropdown"><a href="#model_holiday_hr" class="modal_trigger6">HOLIDAYS</a></li>
                             <!--<li class="dropdown"><a href="#">EXIT SETTILEMENT</a></li>-->
                             <li class="dropdown"><a href="/emp_data" class="cntnt">ALL EMP</a></li>
+                            <li class="dropdown"><a href="/privileges" class="cntnt">PRIVILEGES</a></li>
                         </ul>
                     </li>
                     <?php }?>
@@ -162,7 +164,7 @@
         </div>
         <div id="model_reg" class="popupContainer" style="display:none; width: auto">
             <header class="popupHeader6">
-                <span class="header_title">Register on portal</span>
+                <span class="header_title">Register on employee</span>
                 <span class="modal_close"></span>
             </header>
             <section class="popupBody">
@@ -171,59 +173,61 @@
                     <div class="intial-form">
                         <div class="user_details">
                             <label>Name</label>
-                            <input name="emp_name" id="emp_name_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Name"/>
+                            <input name="emp_name" id="emp_name_reg" type="text" placeholder="Name"/>
                             <label>Emp_id</label>
-                            <input name="emp_id" id="emp_id_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="Emp id"/>
+                            <input name="emp_id" id="emp_id_reg" type="text" placeholder="Emp id"/>
                             <label>Email Address</label>
-                            <input name="emp_email" id="emp_email_reg" type="email" value="nope@gmail.com" style="height: 30px; width: 250px;" placeholder="Email"/>
-                            <label>Password</label>
-                            <input name="password" id="password_reg" type="password" value="nopedsvds" style="height: 30px; width: 250px;" placeholder="password"/>
+                            <input name="emp_email" id="emp_email_reg" type="email" placeholder="Email"/>
+<!--                            <label>Password</label>
+                            <input name="password" id="password_reg" type="password" style="height: 30px; width: 250px;" placeholder="password"/>-->
                             <label>Fathername</label>
-                            <input name="fathername" id="fathername_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="fathername"/>
+                            <input name="fathername" id="fathername_reg" type="text" placeholder="fathername"/>
                             <label>Mothername</label>
-                            <input name="mothername" id="mothername_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="mothername"/>
-                            <label>Gender</label>
-                            <div class="radio" style="margin-top: -5px;">Male: <label><input name="gender" id="gender_reg" type="radio" value="Male"></label></div>
-                            <div class="radio">Female: <label><input name="gender" value="Female" type="radio"></label></div>
+                            <input name="mothername" id="mothername_reg" type="text" placeholder="mothername"/>
+                            <label>Phone no</label>
+                            <input name="emp_phno" id="emp_phno_reg" type="text" placeholder="+9199948983078"/>
+                            <label>Bloodgroup</label>
+                            <input name="bloodgroup" id="bloodgroup_reg" type="text" placeholder="Blood group"/>
                         </div>
                         <div class="emr_details">
-                            <label>Phone no</label>
-                            <input name="emp_phno" id="emp_phno_reg" type="text" value="9948983078" style="height: 30px; width: 250px;" placeholder="+9199948983078"/>
-                            <label>DOB</label>
-                            <input name="dob" id="dob_reg" class="datepicker-dob" value="10-2-2015" type="text" style="height: 30px; width: 250px;" placeholder="Date of birth"/>
-                            <label>Age</label>
-                            <input name="age" id="age_reg" type="text" value="25" style="height: 30px; width: 250px;" placeholder="Age"/>
-                            <label>Bloodgroup</label>
-                            <input name="bloodgroup" id="bloodgroup_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Blood group"/>
+                            <!--<label>Age</label>
+                            <input name="age" id="age_reg" type="text" placeholder="Age"/>-->
+                           <label>DOB</label>
+                            <input name="dob" id="dob_reg" class="datepicker-dob" type="text" placeholder="Date of birth"/>
                             <label>Address</label>
-                            <textarea  name="address" id="address_reg" value="nope" cols="5" rows="3" style=" height: 50px; width: 250px;"></textarea>
+                            <textarea  name="address" id="address_reg" cols="5" rows="3" ></textarea>
                             <label>Spouse</label>
-                            <input name="spousename" id="spousename_reg" type="text" value="nope" style="height: 30px; width: 250px;" placeholder="If not married type unmarried"/>
+                            <input name="spousename" id="spousename_reg" type="text" placeholder="If not married type unmarried"/>
                             <label>Branch</label>
-                            <select id="empbrnch_reg" name="department" style="width: 251px;">
+                            <select id="empbrnch_reg" name="department">
                                 <option>Branch name</option>
                                 <option>Upple</option>   
                                 <option>Nagole</option>   
                                 <option>Alakapuri</option>   
                                 <option>LB nagar</option>   
                             </select>
-                        </div>
-                        <div class="action_btns">
-                            <div class="one_half last">
-                                <button class="btn btn-success" id="Next" value="Next" type="button" style="color: #FF7171;">Next<i class="mdi-navigation-chevron-right"></i></button></div>
-                        </div>
-                    </div>
-                    <div class="slide_left">
-                        <div class="user_details">
                             <label>Designation</label>
-                            <input name="designation" id="designation_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Role"/>
-                            <select id="emptype_reg" name="department" style="width: 251px;">
+                            <input name="designation" id="designation_reg" type="text" placeholder="Role"/>
+                            <label>Employee type</label>
+                            <select id="emptype_reg" name="department">
                                 <option>Employee type</option>
                                 <option selected="true">Full time</option>   
                                 <option>Content</option>   
                                 <option>Internship</option>   
                                 <option>Part time</option>   
                             </select>
+                            <label>Gender</label>
+                            <div class="radio" style="margin-top: -5px;">Male: <label><input name="gender" id="gender_reg" type="radio" value="Male"></label></div>
+                            <div class="radio">Female: <label><input name="gender" type="radio"></label></div>
+                            <div class="clearfix"></div>
+                            <div class="action_btns nxt">
+                                <button class="btn btn-success" id="Next" value="Next" type="button" style="color: #FF7171;">Next<i class="mdi-navigation-chevron-right"></i></button></div>
+                        </div>
+                        </div>
+                        
+                    <div class="slide_left">
+                        <div class="user_details">
+                            
                             <label>Department</label>
                             <select id="department_reg" name="department">
                                 <option selected="true">Content</option>   
@@ -237,38 +241,34 @@
                             <!--<input name="department" id="department_reg" type="text" style="height: 30px; width: 250px;" placeholder="Department"/>-->
                             <h5>Emergency contact details</h5>
                             <label>Name</label>
-                            <input name="emr_name" id="emr_name_reg" value="nope" type="text" style="height: 30px; width: 250px;"/>
+                            <input name="emr_name" id="emr_name_reg" type="text"/>
                             <label>Relation</label>
-                            <input name="emr_relation" id="emr_relation_reg" value="nope" type="text" style="height: 30px; width: 250px;" placeholder="Relation with emp"/>
+                            <input name="emr_relation" id="emr_relation_reg" type="text" placeholder="Relation with emp"/>
                             <label>Ph no</label>
-                            <input name="emr_phone" id="emr_phone_reg" value="9948983078" type="text" style="height: 30px; width: 250px;" placeholder="Ph no"/>
+                            <input name="emr_phone" id="emr_phone_reg" type="text" placeholder="Ph no"/>
                             <label>Email</label>
-                            <input name="emr_email" id="emr_email_reg" value="nope@gmail.com" type="text" style="height: 30px; width: 250px;" placeholder="Email"/>
-                        </div>
-                        <div class="emr_details">
+                            <input name="emr_email" id="emr_email_reg" type="text" placeholder="Email"/>
                             <h5>Salaries details</h5>
                             <label>Bank Acc no</label>
-                            <input name="bank_acc" id="bank_acc_reg" value="123456" type="text" style="height: 30px; width: 250px;" placeholder="Bank Acc no"/>
-                            <label>PF ACC no</label>
-                            <input name="pf_acc" id="pf_acc_reg" value="123456" type="text" style="height: 30px; width: 250px;" placeholder="PF ACC no"/>
-                            <label>PAN</label>
-                            <input name="pan" type="text" id="pan_reg" value="123456" style="height: 30px; width: 250px;" placeholder="PAN"/>
-                            <label>Bank IFSC code</label>
-                            <input name="ifsc" type="text" id="ifsc_reg"  value="123456" style="height: 30px; width: 250px;" placeholder="Bank IFSC code"/>
-                            <label>Basic Salarie</label>
-                            <input name="basic_salrie" id="basic_salrie_reg" value="123456" type="text" style="height: 30px; width: 250px;" placeholder="Basic Salari"/>
-                            <label>Date of joining</label>
-                            <input name="doj"  id="doj_reg" class="datepicker-dob" value="10-2-2015" type="text" style="height: 30px; width: 250px;" placeholder="Date of joining"/>
+                            <input name="bank_acc" id="bank_acc_reg" type="text" placeholder="Bank Acc no"/>
                         </div>
                         <div class="emr_details">
+                            <label>PF ACC no</label>
+                            <input name="pf_acc" id="pf_acc_reg" type="text" placeholder="PF ACC no"/>
+                            <label>PAN</label>
+                            <input name="pan" type="text" id="pan_reg" placeholder="PAN"/>
+                            <label>Bank IFSC code</label>
+                            <input name="ifsc" type="text" id="ifsc_reg" placeholder="Bank IFSC code"/>
+                            <label>Basic Salarie</label>
+                            <input name="basic_salrie" id="basic_salrie_reg" type="text" placeholder="Basic Salari"/>
+                            <label>Date of joining</label>
+                            <input name="doj"  id="doj_reg" class="datepicker-dob" type="text" placeholder="Date of joining"/>
                         </div>
-                        <div class="action_btns">
-                            <ul class="one_half_last">
-                                <li><button class="btn btn-warning" id="Back" value="Back" type="button" style="color: #FF7171;"><i class="mdi-navigation-chevron-left"></i> Back</button></li>
-                                <li class="reg-li"><input class="btn btn-success btn_red" id="register-btn" value="Register"></li>
-                            </ul>
-                        </div>   
-                    </div>
+                        </div>
+                    <div class="action_btns dctv reg">
+                            <button class="btn btn-warning" id="Back" value="Back" type="button" style="color: #FF7171;"><i class="mdi-navigation-chevron-left"></i> Back</button>
+                            <a href="#" class="btn btn-success btn_red" id="register-btn">Register</a>
+                        </div>
                 </form>
             </section>
         </div>

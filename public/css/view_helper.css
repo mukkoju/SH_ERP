@@ -245,6 +245,14 @@ display: inline;
     width: 40%;
     margin-left: 16px;
 }
+#resetform input{
+    height: 36px;
+    width: 300px;
+}
+#resetform select{
+    height: 36px;
+    width: 300px;
+}
 .intial-form{
     width: 100%;
     -webkit-transition: all .8s ease;
@@ -256,7 +264,7 @@ display: inline;
 .emr_details{
     float: left;
     margin-left: 48px;
-    margin-right: 40px; 
+    margin-right: 16px; 
     
 }
 
@@ -293,13 +301,23 @@ display: inline;
     display: none;
     position: absolute;
 }
-
+.action_btns{
+    float: right;
+}
+.action_btns.dctv{
+    display: none;
+}
+.reg{
+    position: absolute;
+  bottom: 0;
+  right: 40px;
+}
 #Next{
 /*    color: #FF7171;
     margin-left: 100%;
     background-color: white;
     border: 1px solid #FF7171;*/
-    float: right;
+    /*float: right;*/
     
 }
 /*.pay_cnfrm{

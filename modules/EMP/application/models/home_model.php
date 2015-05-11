@@ -41,7 +41,7 @@ class Home_model extends Model {
         $emailvrfy = $this->db->prepare("SELECT * FROM new_emp WHERE emp_email = :email");
         $emailvrfy->execute(array(':email'=>$_POST['emp_email']));
         if ($emailvrfy->rowCount() > 0) {
-            $res = "Sorry this email already registerd!!";
+            $res = "Email already registered";
             return $res;
         }
         $dob = strtotime($_POST['dob']);
@@ -722,36 +722,22 @@ class Home_model extends Model {
         return $full_data;
         
     }
-     
+    // New employee registration
     public function new_emp() {
-
-//        if(trim($_POST['emp_email']) == ''){
-//            $err = "Sorry email requried!!";
-//            return $err;        
-//        }
-//        $emailvrfy = $this->db->prepare("SELECT * FROM new_emp WHERE emp_email = :email");
-//        $emailvrfy->execute(array(':email'=>$_POST['emp_email']));
-//        if ($emailvrfy->rowCount() > 0) {
-//            $res = "Sorry this email already registerd!!";
-//            return $res;
-//        }
-
         $dob = strtotime($_POST['dob']);
         $dob = date("Y-m-d" ,$dob);
         $dob = strtotime($dob);
         $doj = strtotime($_POST['doj']);
         $doj = date("Y-m-d" ,$doj);
         $doj = strtotime($doj);
-        
         $emp_email = $_POST['emp_email'];
         $emp_id = $_POST['emp_id'];
         $emp_name = $_POST['emp_name'];
         $emp_phno = $_POST['emp_phno'];
         $emptype = $_POST['emptype'];
         $emp_branch = $_POST['empbranch'];
-        $password = $_POST['password'];
-        $age = $_POST['age'];
-//        $dob = $_POST['dob'];
+        $password = $this->genratePassword(8);
+        $age = date('Y', time())-date('Y', $dob);
         $gender = $_POST['gender'];
         $spousename = $_POST['spousename'];
         $mothername = $_POST['mothername'];
@@ -766,7 +752,6 @@ class Home_model extends Model {
         $emr_relation = $_POST['emr_relation'];
         $bank_acc = $_POST['bank_acc'];
         $basic_sal = $_POST['basic_sal'];
-//        $doj = $_POST['doj'];
         $ifsc = $_POST['ifsc'];
         $pan = $_POST['pan'];
         $pf_acc = $_POST['pf_acc'];
@@ -798,40 +783,53 @@ class Home_model extends Model {
                                          $this->db->quote($emp_email) . "," . $this->db->quote($bank_acc) . "," . $this->db->quote($pf_acc) . "," . $this->db->quote($pan) . "," . $this->db->quote($ifsc) . "," .
                                          $this->db->quote($basic_sal) . "," . $this->db->quote($doj) . "," . $this->db->quote($addedby) . "," . $this->db->quote($addedon) . "," . $this->db->quote($addedby) . "," . $this->db->quote($addedon) . ")");
                         if ($emp_financial == true) {
-                            $sts = "New Employee added successfully";
+                            
+                            // password sending to registerd email address
+                            $subject = 'Welcome to saddahaq';
+                            $to = $emp_email;
+                            $mail = '<html><body><table cellspacing = "0" cellpadding = "0" style = "padding:10px 10px;background:#eee;width:100%;font-family:arial"><tbody><tr><td><table align = "center" cellspacing = "0" style = "max-width:650px;min-width:320px"><tbody><tr><td style = "text-align:left;padding-bottom:14px"><img align = "left" style = "width: 200px;" alt = "Saddahaq" src = "https://tt.saddahaq.com/public/global/Images/lp_logo.png"></td></tr><tr><td align = "center" style = "background:#fff;border:1px solid #e4e4e4;padding:50px 30px"><table align = "center"><tbody><tr><td style = "color:#666;text-align:left"><table align = "center" style = "margin:auto"><tbody><tr><td style = "text-align:center;padding-bottom:5px"></td></tr><tr><td style = "color:#005f84; font-size:16px;font-weight:bold;text-align:center;font-family:arial">Congratulations Welcome to SaddaHaq family</td></tr></tbody></table><p style = "font-size:16px;margin-bottom:0">Login using this credentials</p><p style = "font-size:16px;margin-top:5px">Email: ' . $emp_email . '</p><p style = "font-size:16px;margin-top:5px">Password: ' . $password . '</p><table align = "center" style = "margin:auto;width:100%"><tbody><tr><td style = "color:#666;font-size:16px;padding-bottom:30px;text-align:left;font-family:arial"><div style = "font-style:italic;padding-bottom:15px;font-family:arial;line-height:20px;text-align:left"></div></td></tr></tbody></table><table align = "center" style = "margin:auto"><tbody><tr><td style = "background-color:white;border:1px solid #028a25;border-radius:3px;text-align:center"><a href = "' . LIVE . '" style = "padding:16px 20px;display:block;text-decoration:none;color:#333;font-size:16px;text-align:center;font-family:arial;font-weight:bold" target = "_blank">LOGIN</a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td></td></tr></tbody></table></body></html>';
+                            $headers = "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                            mail($to, $subject, $mail, $headers);
+                            $sts = '{"success":1, "msg": "New Employee added successfully && Password sent to given email"}';
                             return $sts;
                         } else {
                             $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_en WHERE _id_ = " . $this->db->quote($id));
                             $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_per_en WHERE _id_ = " . $this->db->quote($id));
                             $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_rol_en WHERE _id_ = " . $this->db->quote($id));
                             $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_emer_en WHERE _id_ = " . $this->db->quote($id));
-                            $sts = 'Somthing worng while addinng employee';
+                            $sts = '{"success":0, "msg": "Somthing worng while addinng employee"}';
                             return $sts;
                         }
                     } else {
                         $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_en WHERE _id_ = " . $this->db->quote($id));
                         $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_per_en WHERE _id_ = " . $this->db->quote($id));
                         $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_rol_en WHERE _id_ = " . $this->db->quote($id));
-                        $sts = 'Somthing worng';
+                        $sts = '{"success":0, "msg": "Somthing worng please try again"}';
                         return $sts;
                     }
                 } else {
                     $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_en WHERE _id_ = " . $this->db->quote($id));
                     $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_per_en WHERE _id_ = " . $this->db->quote($id));
-                    $sts = 'Somthing worng';
+                    $sts = '{"success":0, "msg": "Somthing worng please try again"}';
                     return $sts;
                 }
             } else {
                 $emp_per_dlt = $this->db->query("DELETE FROM viv_emp_en WHERE _id_ = " . $this->db->quote($id));
-                $sts = 'Somthing worng';
+                $sts = '{"success":0, "msg": "Somthing worng please try again"}';
                 return $sts;
             }
         } else {
             $emp_dlt = $this->db->query("DELETE FROM viv_emp_en WHERE _id_ = " . $this->db->quote($id));
-            $sts = 'Somthing worng';
-            var_dump($this -> db -> errorInfo());
+            $sts = '{"success":0, "msg": "This email is already registered"}';
+//            var_dump($this -> db -> errorInfo());
             return $sts;
         }
+    }
+    
+    function genratePassword($length) {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
+        $password = substr(str_shuffle($chars), 0, $length);
+        return $password;
     }
 
 }

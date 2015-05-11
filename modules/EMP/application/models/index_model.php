@@ -31,11 +31,12 @@ class Index_model extends Model {
     }
 
     public function run($em, $pw) {
-        
-        $sth = $this->db->query("SELECT * FROM viv_emp_en WHERE _emp_email =".$this->db->quote($em)." AND _emp_pw = ".$this->db->quote(md5($pw)));
+        $pw = md5($pw);
+        $sth = $this->db->query("SELECT * FROM viv_emp_en WHERE _emp_email =".$this->db->quote($em)." AND _emp_pw = ".$this->db->quote($pw));
 //        $sth->execute(array(
 //           ':email' => $em,
 //           ':password' => md5($pw)));
+//        var_dump($this -> db -> errorInfo());
            $row = $sth->rowCount();
            $result = $sth->fetchAll(PDO::FETCH_ASSOC);
            
